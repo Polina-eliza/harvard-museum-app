@@ -16,12 +16,7 @@
   <Hero />
 </template>
 
-<script>
-
-
-
-
-</script>
+<script></script>
 
 <style scoped>
 .navbar {
@@ -37,30 +32,25 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  
 }
 
-
-
 .logo a {
-  text-align: center; 
-  display: block; 
+  text-align: center;
+  display: block;
   color: var(--font-color-body);
 }
 
 .logo span {
-  display: block; 
+  display: block;
 }
 
 .logo-museum {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .logo {
-font-family: var(--font-family-accent);
-line-height: 29px;
-font-size: 30px;
+  font-family: var(--font-family-accent);
+  line-height: 29px;
+  font-size: 30px;
 }
-
-
 </style>
