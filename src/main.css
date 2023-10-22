@@ -16,13 +16,14 @@
     --font-color-body-grey: rgb(74, 71, 71);
     --color-background-yellow: #fce373;
     --color-background-black: #151515;
+    --color-background-white: #faf9f7;
 
   }
   
   /* Typography */
   
   body {
-    font-family: var(--font-family-body);
+    font-family: var( --font-family-body);
     line-height: 28px;
     font-size: 18px;
     font-weight: 400;
@@ -49,7 +50,7 @@
   }
   
   .container-midi {
-    padding: 0 12%;
+    padding: 0 8%;
   }
 
   .container-large {
