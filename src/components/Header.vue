@@ -6,16 +6,22 @@
       <li class="navbar-item logo">
         <a href="#">
           <span>HARVARD ART</span>
-          <span class="logo-museum">MUSEUM</span>
+          <span class="logo-museum">MUSEUMS</span>
         </a>
       </li>
       <li class="navbar-item"><a href="#">Events</a></li>
       <li class="navbar-item"><a href="#">Publications</a></li>
     </ul>
   </nav>
+  <Hero />
 </template>
 
-<script></script>
+<script>
+
+
+
+
+</script>
 
 <style scoped>
 .navbar {

@@ -4,6 +4,11 @@
   <div class="hero">
   <div class="container-mini">
     <Header />
+  </div>
+    <div class="container">
+      <Hero/>
+
+    </div>
     </div>
     
       
@@ -11,7 +16,7 @@
    
    
 
-  </div>
+
   
    
 
@@ -25,12 +30,14 @@
 
 <script>
 
-import Header from './components/Header.vue'
+import Header from './components/Header.vue';
+import Hero from './components/Hero.vue'
 
 
 export default {
   components: {
-    Header
+    Header,
+    Hero
   }
 
  
@@ -46,7 +53,8 @@ export default {
 <style scoped>
 .hero {
   background-color: #fce373;
-  height: 400px;
+  padding-bottom: 6px;
+  
 }
 
 </style>
