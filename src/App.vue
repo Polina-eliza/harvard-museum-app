@@ -30,12 +30,14 @@ export default {
 
 <style scoped>
 .wrapper-hero {
-  background-color: #fce373;
+ background-color: var(--color-background-yellow);
   padding-bottom: 2px;
 }
 
 .wrapper-currently {
-  background-color: #96766c;
+  
+  background-color: var(--color-background-black);
   padding-bottom: 6px;
 }
 </style>
+
