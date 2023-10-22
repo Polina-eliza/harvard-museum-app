@@ -1,0 +1,50 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --font-family-body: "Didact Gothic", Arial, Helvetica, sans-serif;
+    --font-family-accent: "Futura" , Helvetica, Arial,sans-serif;
+    --font-color-body: #231f20;
+  }
+  
+  /* Typography */
+  
+  body {
+    font-family: var(--font-family-body);
+    line-height: 28px;
+    font-size: 18px;
+    font-weight: 400;
+    min-height: 100vh;
+    color: var(--font-color-body)
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--font-color-body);
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .container-mini {
+    padding: 0 25%;
+  }
+  
+  .container {
+    padding: 0 12%;
+  }
+  
+
