@@ -43,8 +43,31 @@
     padding: 0 25%;
   }
   
-  .container {
+  .container-midi {
     padding: 0 12%;
   }
+
+  .container-large {
+    padding: 0 1%;
+  }
+
+  h1 {
+    font-size: 90px;
+    line-height: 80px;
+    font-family: var(--font-family-accent);
+    font-weight: 400;
+  }
   
+
+  h2 {
+    font-size: 40px;
+    font-family: var(--font-family-accent);
+    font-weight: 400;
+  }
+
+  h3 {
+    font-size: 30px;
+    font-weight: 400;
+
+  }
 

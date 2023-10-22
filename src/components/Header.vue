@@ -37,11 +37,15 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  
 }
+
+
 
 .logo a {
   text-align: center; 
   display: block; 
+  color: var(--font-color-body);
 }
 
 .logo span {

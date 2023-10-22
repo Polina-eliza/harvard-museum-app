@@ -1,15 +1,26 @@
 
 
 <template>
-  <div class="hero">
+  <div class="wrapper-hero">
   <div class="container-mini">
     <Header />
   </div>
-    <div class="container">
+    <div class="container-midi">
       <Hero/>
+    </div>
+  </div>
+    <div class="wrapper-currently">
+    
+      <div class="container-large">
+        <WhatsOn/>
 
-    </div>
-    </div>
+</div>
+</div>
+
+   
+   
+
+    
     
       
 
@@ -31,13 +42,15 @@
 <script>
 
 import Header from './components/Header.vue';
-import Hero from './components/Hero.vue'
+import Hero from './components/Hero.vue';
+import WhatsOn from './components/layout/WhatsOn.vue'
 
 
 export default {
   components: {
     Header,
-    Hero
+    Hero,
+    WhatsOn
   }
 
  
@@ -51,10 +64,17 @@ export default {
 </script>
 
 <style scoped>
-.hero {
+.wrapper-hero {
   background-color: #fce373;
-  padding-bottom: 6px;
-  
+  padding-bottom: 6px;  
 }
+
+.wrapper-currently {
+  background-color: #cca69a;
+  padding-bottom: 6px;  
+}
+
+
+
 
 </style>
