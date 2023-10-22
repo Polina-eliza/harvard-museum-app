@@ -35,7 +35,7 @@ export default {
 }
 
 .wrapper-currently {
-  background-color: #cca69a;
+  background-color: #96766c;
   padding-bottom: 6px;
 }
 </style>
