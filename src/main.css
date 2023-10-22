@@ -45,18 +45,6 @@
     height: auto;
   }
 
-  .container-mini {
-    padding: 0 25%;
-  }
-  
-  .container-midi {
-    padding: 0 8%;
-  }
-
-  .container-large {
-    padding: 0 1%;
-  }
-
   h1 {
     font-size: 90px;
     line-height: 80px;
@@ -76,4 +64,18 @@
     font-weight: 400;
 
   }
+
+  .container-mini {
+    padding: 0 25%;
+  }
+  
+  .container-midi {
+    padding: 0 8%;
+  }
+
+  .container-large {
+    padding: 0 1%;
+  }
+
+  
 
