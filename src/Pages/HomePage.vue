@@ -22,12 +22,12 @@
         <h2 class="ongoing-exhibitions__subheader">WHAT'S ON</h2>
         <Slider />
 
-        <a class="btn ongoing-exhibitions__btn-event-link" href="#"
-          >View all events</a
-        >
+        <router-link class="btn ongoing-exhibitions__btn-event-link" to="/collections"
+          >View all events</router-link>
       </div>
     </div>
   </div>
+
   <div class="wrapper-color--light">
     <div class="container-midi">
       <SearchInput />

@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import CollectionsPage from './Pages/CollectionsPage.vue';
+import CollectionsPage from "./Pages/CollectionsPage.vue";
 
-const routes = [{ path: "/", components: CollectionsPage}];
+const routes = [{ path: "/collections", component: CollectionsPage }];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
-  });
-  
-  export default router;
+  history: createWebHistory(),
+  routes,
+});
+
+export default router;
