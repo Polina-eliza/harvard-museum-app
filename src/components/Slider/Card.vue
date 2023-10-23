@@ -1,5 +1,6 @@
 <template>
   <div class="cards-container">
+    
     <div class="card">
       <div class="img-container">
         <img class="card-img" src="../../assets/497110754.jpeg" alt="" />
@@ -18,9 +19,7 @@
         <div class="card-date">March 18, 2023–June 9, 2024</div>
       </div>
       <div class="card-title">
-        <a href="#"
-          >Bosco Sodi: Origen</a
-        >
+        <a href="#">Bosco Sodi: Origen</a>
       </div>
     </div>
 
@@ -42,9 +41,7 @@
         <div class="card-date">September 2, 2023–December 30, 2023</div>
       </div>
       <div class="card-title">
-        <a href="#"
-          >Seeing in Art and Medicine</a
-        >
+        <a href="#">Seeing in Art and Medicine</a>
       </div>
     </div>
 
@@ -54,16 +51,11 @@
         <div class="card-date">September 2, 2023–December 30, 2023</div>
       </div>
       <div class="card-title">
-        <a href="#"
-          >A Colloquium in the Visual Arts</a
-        >
+        <a href="#">A Colloquium in the Visual Arts</a>
       </div>
     </div>
-
   </div>
 </template>
-
-<script></script>
 
 <style scoped>
 .card {
@@ -86,7 +78,6 @@
   color: var(--font-color-body-grey);
   background-color: #dfdfdf;
   padding: 2px 10px;
-  
 }
 
 .card-title {
@@ -94,10 +85,7 @@
 }
 
 .cards-container {
-    display: flex;
-    gap: 60px;
+  display: flex;
+  gap: 60px;
 }
-
-
-
 </style>

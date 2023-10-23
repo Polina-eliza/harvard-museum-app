@@ -6,29 +6,34 @@
         <input class="input-name" type="text" placeholder="Name" id="name" />
         <input class="input-email" placeholder="Email" id="email" />
       </div>
-
       <button class="btn btn-signup"><a href="#">Sign up</a></button>
     </div>
     <hr class="divider" />
     <ul class="socials-container">
       <li class="social-item">
-        <a href="#"><img src="../../assets//svg/facebook.svg" alt="Facebook Icon" /></a>
-      </li>
-      <li class="social-item">
         <a href="#"
-          ><img class="social-item" src="../../assets//svg/instagram.svg" alt="Instagram Icon"
+          ><img src="../../assets//svg/facebook.svg" alt="Facebook Icon"
         /></a>
       </li>
       <li class="social-item">
         <a href="#"
-          ><img class="social-item" src="../../assets//svg/twitter.svg" alt="Twitter Icon"
+          ><img
+            class="social-item"
+            src="../../assets//svg/instagram.svg"
+            alt="Instagram Icon"
+        /></a>
+      </li>
+      <li class="social-item">
+        <a href="#"
+          ><img
+            class="social-item"
+            src="../../assets//svg/twitter.svg"
+            alt="Twitter Icon"
         /></a>
       </li>
     </ul>
   </footer>
 </template>
-
-
 
 <style scoped>
 .social-item {
@@ -50,8 +55,7 @@
 }
 
 .input-container .input-name,
-.input-container .input-email
- {
+.input-container .input-email {
   width: 45%;
   border: none;
   border-bottom: 1px solid black;

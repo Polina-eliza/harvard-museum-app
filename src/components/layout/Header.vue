@@ -16,8 +16,6 @@
   <Hero />
 </template>
 
-
-
 <style scoped>
 .navbar {
   padding-top: 30px;
