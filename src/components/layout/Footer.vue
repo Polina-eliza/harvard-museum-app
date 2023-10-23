@@ -7,7 +7,7 @@
         <input class="input-email" placeholder="Email" id="email" />
       </div>
 
-      <button class="btn"><a href="#">Sign up</a></button>
+      <button class="btn btn-signup"><a href="#">Sign up</a></button>
     </div>
     <hr class="divider" />
     <ul class="socials-container">
@@ -61,13 +61,8 @@
   font-size: 16px;
 }
 
-.btn {
-  padding: 15px 25px;
+.btn-signup {
   background-color: var(--color-background-black);
-  text-align: center;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
   color: var(--color-background-white);
   margin-bottom: 20px;
 }
