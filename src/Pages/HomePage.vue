@@ -22,7 +22,7 @@
         <h2 class="subheader-currently">WHAT'S ON</h2>
         <Slider />
 
-        <button class="btn btn-view"><a href="#">View all events</a></button>
+        <a class="btn btn-event-link" href="#">View all events</a>
       </div>
     </div>
   </div>
@@ -142,22 +142,12 @@ export default {
   margin-bottom: 50px;
 }
 
-.btn {
-  padding: 15px 25px;
-  background-color: var(--color-background-yellow);
-  text-align: center;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-}
-.btn a {
+.btn-event-link {
+  margin: 100px 0;
   color: var(--font-color-body-black);
   font-family: var(--font-family-accent);
   font-size: 15px;
-}
-
-.btn-view {
-  margin: 100px 0;
+  background-color: var(--color-background-yellow);
 }
 
 .left-content {
