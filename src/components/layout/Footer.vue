@@ -12,16 +12,16 @@
     <hr class="divider" />
     <ul class="socials-container">
       <li class="social-item">
-        <a href="#"><img src="../assets/svg/facebook.svg" alt="" /></a>
+        <a href="#"><img src="../../assets//svg/facebook.svg" alt="" /></a>
       </li>
       <li class="social-item">
         <a href="#"
-          ><img class="social-item" src="../assets/svg/instagram.svg" alt=""
+          ><img class="social-item" src="../../assets//svg/instagram.svg" alt=""
         /></a>
       </li>
       <li class="social-item">
         <a href="#"
-          ><img class="social-item" src="../assets//svg/twitter.svg" alt=""
+          ><img class="social-item" src="../../assets//svg/twitter.svg" alt=""
         /></a>
       </li>
     </ul>
