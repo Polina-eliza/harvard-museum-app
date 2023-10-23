@@ -18,11 +18,13 @@
 
   <div class="wrapper-color--dark">
     <div class="container-large">
-      <div class="currently">
-        <h2 class="currently__subheader">WHAT'S ON</h2>
+      <div class="ongoing-exhibitions">
+        <h2 class="ongoing-exhibitions__subheader">WHAT'S ON</h2>
         <Slider />
 
-        <a class="btn btn-event-link" href="#">View all events</a>
+        <a class="btn ongoing-exhibitions__btn-event-link" href="#"
+          >View all events</a
+        >
       </div>
     </div>
   </div>
@@ -33,39 +35,43 @@
   </div>
 
   <div class="wrapper-color--dark">
-    <div class="home-section">
-      <div class="home-content__left-content">
-        <img class="home-section__main-img" src="../assets//Museum-img.png" alt="Museum" />
+    <div class="museum-visit">
+      <div class="museum-visit__image-wrapper">
+        <img
+          class="museum-visit__image"
+          src="../assets//Museum-img.png"
+          alt="Museum"
+        />
       </div>
 
-      <div class="home-section__right-content">
-        <div class="home-section__top-content">
-          <h2 class="home-section__subheader">PLAN YOUR VISIT</h2>
-          <p class="home-section__work-time">
+      <div class="museum-visit__details">
+        <div class="museum-visit__scheduling">
+          <h2 class="museum-visit__title">PLAN YOUR VISIT</h2>
+          <p class="museum-visit__hours">
             Open Tuesday-Sunday 10am-5pm <br />
-            <span class="work-time__highlights">Closed on major holidays</span>
+            <span class="museum-visit__notice">Closed on major holidays</span>
           </p>
-          <p class="home-section__tickets-info">
-            <span class="home-section__tickets-info--highlights">Tickets</span> <br />
+          <p class="museum-visit__ticket-info">
+            <span class="museum-visit__ticket-highlight">Tickets</span> <br />
             The museums are free to all visitors. Please check in at the
             Admissions desk. <br />
             <br />
-            <span class="home-section__ticket-info--small"
+            <span class="museum-visit__ticket-credits"
               >This new initiative is made possible by a generous contribution
               from the Estate of David Rockefeller and support from the Office
               of the President at Harvard University.</span
             >
           </p>
-          <a class="home-section__more-details" href="#">More details</a>
+          <a class="museum-visit__link" href="#">More details</a>
         </div>
 
-        <div class="home-section__bottom-content">
-          <h2 class="home-section__subheader">LOCATION</h2>
-          <div class="home-section__location-container">
-            <div class="home-section__museum-icon">
+        <div class="museum-visit__location-info">
+          <h2 class="museum-visit__title">LOCATION</h2>
+          <div class="museum-visit__location-wrapper">
+            <div class="museum-visit__icon-wrapper">
               <img src="../assets/svg/icon-museum.png" alt="Museum Icon" />
             </div>
-            <div class="home-section__museum-address">
+            <div class="museum-visit__address">
               Harvard Art Museums <br />
               32 Quincy Street <br />
               Cambridge, MA 02138 <br />
@@ -129,19 +135,19 @@ export default {
   line-height: 35px;
 }
 
-.currently {
+.ongoing-exhibitions {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: var(--font-color-body-white);
 }
-.currently__subheader{
+.ongoing-exhibitions__subheader {
   text-align: center;
   padding-top: 100px;
   margin-bottom: 50px;
 }
 
-.btn-event-link {
+.ongoing-exhibitions__btn-event-link {
   margin: 100px 0;
   color: var(--font-color-body-black);
   font-family: var(--font-family-accent);
@@ -149,50 +155,29 @@ export default {
   background-color: var(--color-background-yellow);
 }
 
-.home-content__left-content {
+.museum-visit__image-wrapper {
   flex: 1;
 }
 
-.home-section {
+.museum-visit {
   display: flex;
 }
 
-.home-section__right-content {
+.museum-visit__details {
   flex: 2;
   display: flex;
   flex-direction: column;
 }
 
-.home-section__main-img {
+.museum-visit__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.home-section__work-time--highlights {
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-.home-section__tickets-info--highlights {
-  text-decoration: underline;
-}
-
-.home-section__ticket-info--small {
-  font-size: 18px;
-  color: var(--font-color-body-grey);
-}
-
-.home-section__location-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 50px;
-}
-
-.home-section__top-content {
+.museum-visit__scheduling {
   color: var(--font-color-body-black);
+  background-color: var(--color-background-yellow);
   padding: 40px 120px;
   font-size: 23px;
   display: flex;
@@ -200,17 +185,43 @@ export default {
   align-items: center;
 }
 
-.home-section__work-time {
+.museum-visit__title {
+  text-align: center;
+}
+
+.museum-visit__hours {
   margin-top: 30px;
   text-align: center;
 }
 
-.home-section__tickets-info {
+.museum-visit__notice {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.museum-visit__ticket-highlight {
+  text-decoration: underline;
+}
+
+.museum-visit__ticket-credits {
+  font-size: 18px;
+  color: var(--font-color-body-grey);
+}
+
+.museum-visit__location-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.museum-visit__ticket-info {
   margin-top: 60px;
   text-align: center;
 }
 
-.home-section__top-content {
+.museum-visit__ticket-info {
   color: var(--font-color-body-black);
   padding: 40px 120px;
   font-size: 23px;
@@ -218,28 +229,17 @@ export default {
   background-color: var(--color-background-yellow);
 }
 
-.home-section__more-details {
+.museum-visit__link {
   margin-top: 50px;
   font-size: 18px;
   text-decoration: underline;
 }
 
-.home-section__museum-icon {
+.museum-visit__icon {
   width: 80px;
 }
 
-.home-section__subheader {
-  text-align: center;
-}
-.home-section__location-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 50px;
-}
-
-.home-section__bottom-content {
+.museum-visit__location-info {
   flex: 1;
   background-color: var(--color-background-black);
   color: var(--font-color-body-white);
