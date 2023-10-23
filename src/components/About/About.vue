@@ -5,14 +5,10 @@
     </div>
 
     <div class="right-content">
-      
-        <TopContent />
-      </div>
-    
-        <BottomContent />
-      
+      <TopContent />
+      <BottomContent />
     </div>
-  
+  </div>
 </template>
 
 <script>
@@ -37,10 +33,6 @@ export default {
 .home-section {
   display: flex;
 }
-
-
-
-
 
 .right-content {
   flex: 2;

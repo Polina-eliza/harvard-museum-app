@@ -51,11 +51,12 @@
   color: var(--font-color-body-black);
   padding: 40px 120px;
   font-size: 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.subheader {
-  text-align: center;
-}
+
 
 .work-time {
   margin-top: 30px;
@@ -75,6 +76,12 @@
   background-color: var(--color-background-yellow);
 }
 
+.more-details {
+    margin-top: 50px;
+    font-size: 18px;
+    text-decoration: underline;
+  
+}
 
 
 </style>

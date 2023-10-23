@@ -33,11 +33,11 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue";
-import Hero from "./components/Hero.vue";
-import WhatsOn from "./components/layout/WhatsOn.vue";
+import Header from "./components/layout/Header.vue";
+import Hero from "./components/Hero/Hero.vue";
+import WhatsOn from "./components/WhatsOn/WhatsOn.vue";
 import SearchInput from "./components/Search/SearchInput.vue";
-import Footer from "./components/Footer.vue";
+import Footer from "./components/layout/Footer.vue";
 import About from "./components/About/About.vue"
 
 
