@@ -7,8 +7,6 @@
   </div>
 </template>
 
-<script></script>
-
 <style scoped>
 .search-container {
   padding: 70px 0;

@@ -28,7 +28,7 @@
   </footer>
 </template>
 
-<script></script>
+
 
 <style scoped>
 .social-item {
