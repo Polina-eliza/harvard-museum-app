@@ -1,49 +1,45 @@
 <template>
-    <div class="wrapper-color__accent">
-      <div class="container-mini">
-        <Header />
+  <div class="wrapper-color__accent">
+    <div class="container-mini">
+      <Header />
+    </div>
+    <div class="container-midi">
+      <div class="hero">
+        <h1 class="header">
+          ONE PLACE <br />
+          THREE MUSEUMS
+        </h1>
+        <h3 class="subheader">
+          the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
+        </h3>
       </div>
-      <div class="container-midi">
-        <div class="hero">
-    <h1 class="header">
-      ONE PLACE <br />
-      THREE MUSEUMS
-    </h1>
-    <h3 class="subheader">
-      the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
-    </h3>
+    </div>
   </div>
+
+  <div class="wrapper-color__dark">
+    <div class="container-large">
+      <div class="currently">
+        <h2 class="subheader-currently">WHAT'S ON</h2>
+        <Slider />
+
+        <button class="btn btn-view"><a href="#">View all events</a></button>
       </div>
     </div>
-  
-    <div class="wrapper-color__dark">
-      <div class="container-large">
-        <div class="currently">
-    <h2 class="subheader-currently">WHAT'S ON</h2>
-    <Slider />
-
-    <button class="btn btn-view"><a href="#">View all events</a></button>
   </div>
-      </div>
+  <div class="wrapper-color__light">
+    <div class="container-midi">
+      <SearchInput />
     </div>
-    <div class="wrapper-color__light">
-      <div class="container-midi">
-        <SearchInput />
-      </div>
-    </div>
-  
-    <div class="wrapper-color__dark">
-      <div class="home-section">
-    <div class="left-content">
-      <img
-          class="main-img"
-          src="../assets//Museum-img.png"
-          alt=""
-        />
-    </div>
+  </div>
 
-    <div class="right-content">
-      <div class="top-content">
+  <div class="wrapper-color__dark">
+    <div class="home-section">
+      <div class="left-content">
+        <img class="main-img" src="../assets//Museum-img.png" alt="museum" />
+      </div>
+
+      <div class="right-content">
+        <div class="top-content">
           <h2 class="subheader">PLAN YOUR VISIT</h2>
           <p class="work-time">
             Open Tuesday-Sunday 10am-5pm <br />
@@ -62,12 +58,12 @@
           </p>
           <a class="more-details" href="#">More details</a>
         </div>
-     
+
         <div class="bottom-content">
           <h2 class="subheader">LOCATION</h2>
           <div class="location-container">
             <div class="museum-icon">
-                <img src="../assets/svg/icon-museum.png" alt="Museum Icon" />
+              <img src="../assets/svg/icon-museum.png" alt="Museum Icon" />
             </div>
             <div class="museum-address">
               Harvard Art Museums <br />
@@ -77,39 +73,32 @@
             </div>
           </div>
         </div>
-    </div>
-  </div>
-    </div>
-
-   
- 
-
-  
-    <div class="wrapper-color__white">
-      <div class="container-midi">
-        <Footer />
       </div>
     </div>
-  </template>
+  </div>
+
+  <div class="wrapper-color__white">
+    <div class="container-midi">
+      <Footer />
+    </div>
+  </div>
+</template>
 
 <script>
 import Header from "../components/layout/Header.vue";
-
 
 import SearchInput from "../components/Search/SearchInput.vue";
 import Footer from "../components/layout/Footer.vue";
 import Slider from "../components/Slider/Slider.vue";
 
-
 export default {
   components: {
     Header,
- 
-   
+
     SearchInput,
     Footer,
-  
-    Slider
+
+    Slider,
   },
 };
 </script>
@@ -145,7 +134,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color :var(--font-color-body-white);
+  color: var(--font-color-body-white);
 }
 .subheader-currently {
   text-align: center;
@@ -160,9 +149,6 @@ export default {
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  
-
-  
 }
 .btn a {
   color: var(--font-color-body-black);
@@ -172,7 +158,6 @@ export default {
 
 .btn-view {
   margin: 100px 0;
-
 }
 
 .left-content {
@@ -226,8 +211,6 @@ export default {
   align-items: center;
 }
 
-
-
 .work-time {
   margin-top: 30px;
   text-align: center;
@@ -247,16 +230,14 @@ export default {
 }
 
 .more-details {
-    margin-top: 50px;
-    font-size: 18px;
-    text-decoration: underline;
-  
+  margin-top: 50px;
+  font-size: 18px;
+  text-decoration: underline;
 }
 
 .museum-icon {
   width: 80px;
 }
-
 
 .subheader {
   text-align: center;
@@ -269,13 +250,10 @@ export default {
   margin-top: 50px;
 }
 
-
-
 .bottom-content {
   flex: 1;
   background-color: var(--color-background-black);
   color: var(--font-color-body-white);
   padding: 40px 120px;
 }
-
 </style>
