@@ -2,8 +2,8 @@
   <div class="wrapper-color--accent container-midi">
     <div class="hero">
       <h3 class="hero__header">
-        ONE PLACE <br />
-        THREE MUSEUMS
+        One place <br />
+        three myseums
       </h3>
       <h1 class="hero__subheader">
         the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
@@ -12,7 +12,7 @@
   </div>
 
   <div class="wrapper-color--dark container-large ongoing-exhibitions">
-    <h2 class="ongoing-exhibitions__subheader">WHAT'S ON</h2>
+    <h2 class="ongoing-exhibitions__subheader">what's on</h2>
     <Slider />
     <router-link
       class="btn ongoing-exhibitions__btn-event-link"
@@ -35,7 +35,7 @@
       </div>
       <div class="museum-details">
         <div class="museum-details-schedule">
-          <h2 class="museum-details-schedule__title">PLAN YOUR VISIT</h2>
+          <h2 class="museum-details-schedule__title">plan your visit</h2>
           <p class="museum-details-schedule__hours">
             Open Tuesday-Sunday 10am-5pm <br />
             <span class="museum-details-schedule__notice">Closed on major holidays</span>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="museum-location">
-          <h2 class="museum-location__title">LOCATION</h2>
+          <h2 class="museum-location__title">location</h2>
           <div class="museum-location__location-wrapper">
             <div class="museum-location__icon-wrapper">
               <img class="museum-location__image" src="../assets/svg/icon-museum.png" alt="Museum Icon" />
@@ -94,6 +94,8 @@ export default {
   line-height: 80px;
   font-family: var(--font-family-accent);
   font-weight: 400;
+  text-transform: uppercase;
+
 }
 
 .hero__subheader {
@@ -113,6 +115,7 @@ export default {
   text-align: center;
   padding-top: 100px;
   margin-bottom: 50px;
+  text-transform: uppercase;
 }
 
 .ongoing-exhibitions__btn-event-link {
@@ -164,6 +167,7 @@ export default {
 .museum-details-schedule__title,
 .museum-location__title {
   text-align: center;
+  text-transform: uppercase;
 }
 
 .museum-details-schedule__hours  {
