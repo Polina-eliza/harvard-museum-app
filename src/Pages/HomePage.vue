@@ -1,76 +1,79 @@
 <template>
-  <div class="wrapper-color--accent container-midi">
-    <div class="hero">
-      <h3 class="hero__header">
+  <div class="accent-bg container-midi">
+    <div class="hero-section">
+      <h3 class="hero-section__header">
         One place <br />
         three myseums
       </h3>
-      <h1 class="hero__subheader">
+      <h1 class="hero-section__subheader">
         the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
       </h1>
     </div>
   </div>
 
-  <div class="wrapper-color--dark container-large ongoing-exhibitions">
+  <div class="dark-bg container-large ongoing-exhibitions">
     <h2 class="ongoing-exhibitions__subheader">what's on</h2>
     <Slider />
-    <router-link
-      class="btn ongoing-exhibitions__btn-event-link"
-      to="/collections"
+    <router-link class="btn ongoing-exhibitions__event-link" to="/collections"
       >View all events</router-link
     >
   </div>
 
-  <div class="wrapper-color--light container-midi">
+  <div class="light-bg container-midi">
     <SearchInput />
   </div>
 
-  <div class="wrapper-color--dark museum-visit">
-      <div class="museum-visit__image-section">
-        <img
-          class="museum-visit__image"
-          src="../assets//Museum-img.png"
-          alt="Museum"
-        />
+  <div class="dark-bg museum-visit">
+    <div class="museum-visit__image-area">
+      <img
+        class="museum-visit__image"
+        src="../assets//Museum-img.png"
+        alt="Museum"
+      />
+    </div>
+    <div class="museum-details">
+      <div class="museum-details-schedule">
+        <h2 class="museum-details-schedule__title">plan your visit</h2>
+        <p class="museum-details-schedule__hours">
+          Open Tuesday-Sunday 10am-5pm <br />
+          <span class="museum-details-schedule__notice"
+            >Closed on major holidays</span
+          >
+        </p>
+        <p class="museum-details-schedule__ticket-info">
+          <span class="museum-details-schedule__ticket-highlight">Tickets</span>
+          <br />
+          The museums are free to all visitors. Please check in at the
+          Admissions desk. <br />
+          <br />
+          <span class="museum-details-schedule__ticket-credits"
+            >This new initiative is made possible by a generous contribution
+            from the Estate of David Rockefeller and support from the Office of
+            the President at Harvard University.</span
+          >
+        </p>
+        <a class="museum-details-schedule__link" href="#">More details</a>
       </div>
-      <div class="museum-details">
-        <div class="museum-details-schedule">
-          <h2 class="museum-details-schedule__title">plan your visit</h2>
-          <p class="museum-details-schedule__hours">
-            Open Tuesday-Sunday 10am-5pm <br />
-            <span class="museum-details-schedule__notice">Closed on major holidays</span>
-          </p>
-          <p class="museum-details-schedule__ticket-info">
-            <span class="museum-details-schedule__ticket-highlight">Tickets</span> <br />
-            The museums are free to all visitors. Please check in at the
-            Admissions desk. <br />
-            <br />
-            <span class="museum-details-schedule__ticket-credits"
-              >This new initiative is made possible by a generous contribution
-              from the Estate of David Rockefeller and support from the Office
-              of the President at Harvard University.</span
-            >
-          </p>
-          <a class="museum-details-schedule__link" href="#">More details</a>
-        </div>
 
-        <div class="museum-location">
-          <h2 class="museum-location__title">location</h2>
-          <div class="museum-location__location-wrapper">
-            <div class="museum-location__icon-wrapper">
-              <img class="museum-location__image" src="../assets/svg/icon-museum.png" alt="Museum Icon" />
-            </div>
-            <div class="museum-location__address">
-              Harvard Art Museums <br />
-              32 Quincy Street <br />
-              Cambridge, MA 02138 <br />
-              1 (617) 495-9400
-            </div>
+      <div class="museum-location">
+        <h2 class="museum-location__title">location</h2>
+        <div class="museum-location__location-info">
+          <img
+            class="museum-location__image"
+            src="../assets/svg/icon-museum.png"
+            alt="Museum Icon"
+          />
+
+          <div class="museum-location__address">
+            Harvard Art Museums <br />
+            32 Quincy Street <br />
+            Cambridge, MA 02138 <br />
+            1 (617) 495-9400
           </div>
         </div>
       </div>
     </div>
-  
+  </div>
 </template>
 
 <script>
@@ -87,7 +90,7 @@ export default {
 </script>
 
 <style scoped>
-.hero__header {
+.hero-section__header {
   text-align: center;
   padding-top: 70px;
   font-size: 90px;
@@ -95,10 +98,9 @@ export default {
   font-family: var(--font-family-accent);
   font-weight: 400;
   text-transform: uppercase;
-
 }
 
-.hero__subheader {
+.hero-section__subheader {
   text-align: center;
   margin-top: 35px;
   line-height: 35px;
@@ -118,7 +120,7 @@ export default {
   text-transform: uppercase;
 }
 
-.ongoing-exhibitions__btn-event-link {
+.ongoing-exhibitions__event-link {
   margin: 100px 0;
   color: var(--font-color-body-black);
   font-family: var(--font-family-accent);
@@ -130,29 +132,21 @@ export default {
   display: flex;
 }
 
-.museum-visit__image-section {
+.museum-visit__image-area {
   flex: 1;
 }
 
 .museum-visit__image {
-  
   width: 100%;
   height: 100%;
   object-fit: cover;
- 
-  
-
-
 }
-
 
 .museum-details {
   flex: 2;
   display: flex;
   flex-direction: column;
 }
-
-
 
 .museum-details-schedule {
   color: var(--font-color-body-black);
@@ -170,7 +164,7 @@ export default {
   text-transform: uppercase;
 }
 
-.museum-details-schedule__hours  {
+.museum-details-schedule__hours {
   margin-top: 30px;
   text-align: center;
 }
@@ -189,7 +183,7 @@ export default {
   color: var(--font-color-body-grey);
 }
 
-.museum-location__location-wrapper  {
+.museum-location__location-info {
   display: flex;
   align-items: center;
   justify-content: center;

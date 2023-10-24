@@ -85,17 +85,17 @@
     cursor: pointer;
   }
 
-  .wrapper-color--accent {
+  .accent-bg {
     background-color: var(--color-background-yellow);
     padding-bottom: 2px;
   }
   
-  .wrapper-color--dark {
+  .dark-bg {
     background-color: var(--color-background-black);
     padding-bottom: 6px;
   }
   
-  .wrapper-color--light {
+  .light-bg {
     background-color: var(--color-background-white);
     padding-bottom: 6px;
   }
