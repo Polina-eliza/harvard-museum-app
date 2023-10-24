@@ -5,13 +5,13 @@
     </div>
     <div class="container-midi">
       <div class="hero">
-        <h1 class="hero__header">
+        <h3 class="hero__header">
           ONE PLACE <br />
           THREE MUSEUMS
-        </h1>
-        <h3 class="hero__subheader">
-          the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
         </h3>
+        <h1 class="hero__subheader">
+          the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
+        </h1>
       </div>
     </div>
   </div>
@@ -127,12 +127,17 @@ export default {
 .hero__header {
   text-align: center;
   margin-top: 70px;
+  font-size: 90px;
+  line-height: 80px;
+  font-family: var(--font-family-accent);
+  font-weight: 400;
 }
 
 .hero__subheader {
   text-align: center;
   margin-top: 35px;
   line-height: 35px;
+  font-size: 30px;
 }
 
 .ongoing-exhibitions {
