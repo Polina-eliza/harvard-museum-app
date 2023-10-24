@@ -85,5 +85,21 @@
     cursor: pointer;
   }
 
+  .wrapper-color--accent {
+    background-color: var(--color-background-yellow);
+    padding-bottom: 2px;
+  }
+  
+  .wrapper-color--dark {
+    background-color: var(--color-background-black);
+    padding-bottom: 6px;
+  }
+  
+  .wrapper-color--light {
+    background-color: var(--color-background-white);
+    padding-bottom: 6px;
+  }
+  
+
   
 

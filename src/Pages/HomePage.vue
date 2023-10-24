@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper-color--accent">
-    <div class="container-mini">
+    <!-- <div class="container-mini">
       <Header />
-    </div>
+    </div> -->
     <div class="container-midi">
       <div class="hero">
         <h3 class="hero__header">
@@ -91,14 +91,14 @@
 </template>
 
 <script>
-import Header from "../components/layout/Header.vue";
+// import Header from "../components/layout/Header.vue";
 import SearchInput from "../components/Search/SearchInput.vue";
 import Footer from "../components/layout/Footer.vue";
 import Slider from "../components/Slider/Slider.vue";
 
 export default {
   components: {
-    Header,
+    // Header,
 
     SearchInput,
     Footer,
@@ -109,24 +109,10 @@ export default {
 </script>
 
 <style scoped>
-.wrapper-color--accent {
-  background-color: var(--color-background-yellow);
-  padding-bottom: 2px;
-}
-
-.wrapper-color--dark {
-  background-color: var(--color-background-black);
-  padding-bottom: 6px;
-}
-
-.wrapper-color--light {
-  background-color: var(--color-background-white);
-  padding-bottom: 6px;
-}
 
 .hero__header {
   text-align: center;
-  margin-top: 70px;
+  padding-top: 70px;
   font-size: 90px;
   line-height: 80px;
   font-family: var(--font-family-accent);
