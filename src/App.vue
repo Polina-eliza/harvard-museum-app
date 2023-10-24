@@ -1,32 +1,23 @@
 <template>
-   <div class="wrapper-color--accent">
-    <div class="container-mini">
-      <Header />
-    </div>
+  <div class="wrapper-color--accent container-mini">
+    <Header />
   </div>
   <router-view></router-view>
-  <div class="wrapper-color--white">
-    <div class="container-midi">
-      <Footer />
-    </div>
+  <div class="wrapper-color--white container-midi">
+    <Footer />
   </div>
 </template>
 
 <script>
-
 import Header from "./components/layout/Header.vue";
 import Footer from "./components/layout/Footer.vue";
 
-
 export default {
- name: 'App',
+  name: "App",
 
- components: {
+  components: {
     Header,
-    Footer
-}
-}
-
+    Footer,
+  },
+};
 </script>
-
-

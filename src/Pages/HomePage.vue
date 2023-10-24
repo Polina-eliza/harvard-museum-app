@@ -1,35 +1,28 @@
 <template>
-  <div class="wrapper-color--accent">
-   
-    <div class="container-midi">
-      <div class="hero">
-        <h3 class="hero__header">
-          ONE PLACE <br />
-          THREE MUSEUMS
-        </h3>
-        <h1 class="hero__subheader">
-          the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
-        </h1>
-      </div>
+  <div class="wrapper-color--accent container-midi">
+    <div class="hero">
+      <h3 class="hero__header">
+        ONE PLACE <br />
+        THREE MUSEUMS
+      </h3>
+      <h1 class="hero__subheader">
+        the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
+      </h1>
     </div>
   </div>
 
-  <div class="wrapper-color--dark">
-    <div class="container-large">
-      <div class="ongoing-exhibitions">
-        <h2 class="ongoing-exhibitions__subheader">WHAT'S ON</h2>
-        <Slider />
-
-        <router-link class="btn ongoing-exhibitions__btn-event-link" to="/collections"
-          >View all events</router-link>
-      </div>
-    </div>
+  <div class="wrapper-color--dark container-large ongoing-exhibitions">
+    <h2 class="ongoing-exhibitions__subheader">WHAT'S ON</h2>
+    <Slider />
+    <router-link
+      class="btn ongoing-exhibitions__btn-event-link"
+      to="/collections"
+      >View all events</router-link
+    >
   </div>
 
-  <div class="wrapper-color--light">
-    <div class="container-midi">
-      <SearchInput />
-    </div>
+  <div class="wrapper-color--light container-midi">
+    <SearchInput />
   </div>
 
   <div class="wrapper-color--dark">
@@ -80,8 +73,6 @@
       </div>
     </div>
   </div>
-
-
 </template>
 
 <script>
@@ -92,13 +83,12 @@ import Slider from "../components/Slider/Slider.vue";
 export default {
   components: {
     SearchInput,
-    Slider
+    Slider,
   },
 };
 </script>
 
 <style scoped>
-
 .hero__header {
   text-align: center;
   padding-top: 70px;
