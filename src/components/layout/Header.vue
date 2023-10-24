@@ -4,10 +4,10 @@
       <li class="navbar-item"><a href="#">Collections</a></li>
       <li class="navbar-item"><a href="#">Exibition</a></li>
       <li class="navbar-item logo">
-        <a href="#">
+        <router-link to="/">
           <span>HARVARD ART</span>
           <span class="logo-museum">MUSEUMS</span>
-        </a>
+        </router-link>
       </li>
       <li class="navbar-item"><a href="#">Events</a></li>
       <li class="navbar-item"><a href="#">Publications</a></li>
