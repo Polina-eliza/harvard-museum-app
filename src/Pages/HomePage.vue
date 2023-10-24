@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper-color--accent">
-    <!-- <div class="container-mini">
-      <Header />
-    </div> -->
+   
     <div class="container-midi">
       <div class="hero">
         <h3 class="hero__header">
@@ -83,27 +81,18 @@
     </div>
   </div>
 
-  <div class="wrapper-color--white">
-    <div class="container-midi">
-      <Footer />
-    </div>
-  </div>
+
 </template>
 
 <script>
-// import Header from "../components/layout/Header.vue";
 import SearchInput from "../components/Search/SearchInput.vue";
-import Footer from "../components/layout/Footer.vue";
+
 import Slider from "../components/Slider/Slider.vue";
 
 export default {
   components: {
-    // Header,
-
     SearchInput,
-    Footer,
-
-    Slider,
+    Slider
   },
 };
 </script>
