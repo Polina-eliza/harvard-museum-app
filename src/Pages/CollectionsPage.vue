@@ -1,4 +1,4 @@
 <template>
-    <div></div>
+    <div>CollectionsPage</div>
 </template>
 
