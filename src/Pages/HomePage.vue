@@ -55,16 +55,16 @@
         <a class="museum-details-schedule__link" href="#">More details</a>
       </div>
 
-      <div class="museum-location">
-        <h3 class="museum-location__title">location</h3>
-        <div class="museum-location__location-info">
+      <div class="museum-details-location">
+        <h3 class="museum-details-location__title">location</h3>
+        <div class="museum-details-location__location-info">
           <img
-            class="museum-location__image"
+            class="museum-details-location__image"
             src="../assets/svg/icon-museum.png"
             alt="Museum Icon"
           />
 
-          <div class="museum-location__address">
+          <div class="museum-details-location__address">
             Harvard Art Museums <br />
             32 Quincy Street <br />
             Cambridge, MA 02138 <br />
@@ -209,7 +209,7 @@ $color-background-white: #faf9f7;
 
   }
 }
-.museum-location {
+.museum-details-location {
   flex: 1;
   background-color: $color-background-black;
   color: $font-color-body-white;
