@@ -1,54 +1,66 @@
 <template>
   <nav class="navbar">
-    <ul class="navbar-list">
-      <li class="navbar-item"><a href="#">Collections</a></li>
-      <li class="navbar-item"><a href="#">Exibition</a></li>
-      <li class="navbar-item logo">
+    <ul class="navbar__list">
+      <li class="navbar__item"><a href="#">Collections</a></li>
+      <li class="navbar__item"><a href="#">Exibition</a></li>
+      <li class="navbar__item navbar__item--logo">
         <router-link to="/">
-          <span>HARVARD ART</span>
-          <span class="logo-museum">MUSEUMS</span>
+          <span class="navbar__logo-text">HARVARD ART</span>
+          <span class="navbar__logo-text navbar__logo-text--museum">MUSEUMS</span>
         </router-link>
       </li>
-      <li class="navbar-item"><a href="#">Events</a></li>
-      <li class="navbar-item"><a href="#">Publications</a></li>
+      <li class="navbar__item"><a href="#">Events</a></li>
+      <li class="navbar__item"><a href="#">Publications</a></li>
     </ul>
   </nav>
   <Hero />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+
+
+// Fonts
+$font-family-body: "Didact Gothic", Arial, Helvetica, sans-serif;
+$font-family-accent: "Futura", Helvetica, Arial, sans-serif;
+
+// Colors
+$font-color-body-black: #231f20;
+$font-color-body-white: #e1e0e0;
+$font-color-body-grey: rgb(74, 71, 71);
+$color-background-yellow: #fce373;;
+$color-background-black: #151515;
+$color-background-white: #faf9f7;
+
 .navbar {
-  padding-top: 30px;
-}
+    padding-top: 30px;
 
-.logo-container {
-  font-family: var(--font-family-accent);
-}
+    &__list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
 
-.navbar-list {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
+    &__item {
+      &--logo {
+        font-family: $font-family-accent;
+        line-height: 29px;
+        font-size: 30px;
 
-.logo a {
-  text-align: center;
-  display: block;
-  color: var(--font-color-body);
-}
+        a {
+          text-align: center;
+          display: block;
+          color: $font-color-body-black;
+        }
+      }
+    }
 
-.logo span {
-  display: block;
-}
+    &__logo-text {
+      display: block;
 
-.logo-museum {
-  transform: rotate(180deg);
-}
-
-.logo {
-  font-family: var(--font-family-accent);
-  line-height: 29px;
-  font-size: 30px;
-}
+      &--museum {
+        transform: rotate(180deg);
+      }
+    }
+  }
 </style>

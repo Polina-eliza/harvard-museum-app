@@ -22,10 +22,11 @@ export default {
 </script>
 
 <style scoped>
-
-.cards-container {
-  display: flex;
-  gap: 60px;
-}
+.slider {
+    .cards-container {
+      display: flex;
+      gap: 60px;
+    }
+  }
 
 </style>

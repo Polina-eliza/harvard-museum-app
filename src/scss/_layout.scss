@@ -1,0 +1,28 @@
+@import "variables";
+
+.container-mini {
+    padding: 0 25%;
+}
+
+.container-midi {
+    padding: 0 8%;
+}
+
+.container-large {
+    padding: 0 1%;
+}
+
+.accent-bg {
+    background-color: $color-background-yellow;
+    padding-bottom: 2px;
+}
+
+.dark-bg {
+    background-color: $color-background-black;
+    padding-bottom: 6px;
+}
+
+.light-bg {
+    background-color: $color-background-white;
+    padding-bottom: 6px;
+}

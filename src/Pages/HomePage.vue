@@ -32,7 +32,7 @@
       />
     </div>
     <div class="museum-details">
-      <div class="museum-details-schedule">
+      <div class="museum-details__schedule">
         <h2 class="museum-details-schedule__title">plan your visit</h2>
         <p class="museum-details-schedule__hours">
           Open Tuesday-Sunday 10am-5pm <br />
@@ -78,7 +78,6 @@
 
 <script>
 import SearchInput from "../components/Search/SearchInput.vue";
-
 import Slider from "../components/Slider/Slider.vue";
 
 export default {
@@ -89,131 +88,150 @@ export default {
 };
 </script>
 
-<style scoped>
-.hero-section__header {
-  text-align: center;
-  padding-top: 70px;
-  font-size: 90px;
-  line-height: 80px;
-  font-family: var(--font-family-accent);
-  font-weight: 400;
-  text-transform: uppercase;
-}
+<style lang="scss" scoped>
 
-.hero-section__subheader {
-  text-align: center;
-  margin-top: 35px;
-  line-height: 35px;
-  font-size: 30px;
+// Fonts
+$font-family-body: "Didact Gothic", Arial, Helvetica, sans-serif;
+$font-family-accent: "Futura", Helvetica, Arial, sans-serif;
+
+// Colors
+$font-color-body-black: #231f20;
+$font-color-body-white: #e1e0e0;
+$font-color-body-grey: rgb(74, 71, 71);
+$color-background-yellow: #fce373;;
+$color-background-black: #151515;
+$color-background-white: #faf9f7;
+
+
+.hero-section {
+  &__header {
+    text-align: center;
+    padding-top: 70px;
+    font-size: 90px;
+    line-height: 80px;
+    font-family: $font-family-accent;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  &__subheader {
+    text-align: center;
+    margin-top: 35px;
+    line-height: 35px;
+    font-size: 30px;
+  }
 }
 
 .ongoing-exhibitions {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--font-color-body-white);
-}
-.ongoing-exhibitions__subheader {
-  text-align: center;
-  padding-top: 100px;
-  margin-bottom: 50px;
-  text-transform: uppercase;
-}
+  color: $font-color-body-white;
 
-.ongoing-exhibitions__event-link {
-  margin: 100px 0;
-  color: var(--font-color-body-black);
-  font-family: var(--font-family-accent);
-  font-size: 15px;
-  background-color: var(--color-background-yellow);
+  &__subheader {
+    text-align: center;
+    padding-top: 100px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+  }
+
+  &__event-link {
+    margin: 100px 0;
+    color: $font-color-body-black;
+    font-family: $font-family-accent;
+    font-size: 15px;
+    background-color: $color-background-yellow;
+  }
 }
 
 .museum-visit {
   display: flex;
-}
 
-.museum-visit__image-area {
-  flex: 1;
-}
+  &__image-area {
+    flex: 1;
+  }
 
-.museum-visit__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .museum-details {
   flex: 2;
   display: flex;
   flex-direction: column;
-}
 
-.museum-details-schedule {
-  color: var(--font-color-body-black);
-  background-color: var(--color-background-yellow);
-  padding: 40px 120px;
-  font-size: 23px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  &__schedule {
+    color: $font-color-body-black;
+    background-color: $color-background-yellow;
+    padding: 40px 120px;
+    font-size: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.museum-details-schedule__title,
-.museum-location__title {
-  text-align: center;
-  text-transform: uppercase;
-}
+  .museum-details-schedule__title {
+    text-align: center;
+    text-transform: uppercase;
+  }
 
-.museum-details-schedule__hours {
-  margin-top: 30px;
-  text-align: center;
-}
+  .museum-details-schedule__hours {
+    margin-top: 30px;
+    text-align: center;
+  }
 
-.museum-details-schedule__notice {
-  text-decoration: underline;
-  font-weight: bold;
-}
+  .museum-details-schedule__notice {
+    text-decoration: underline;
+    font-weight: bold;
+  }
 
-.museum-details-schedule__ticket-highlight {
-  text-decoration: underline;
-}
+  .museum-details-schedule__ticket-highlight {
+    text-decoration: underline;
+  }
 
-.museum-details-schedule__ticket-credits {
-  font-size: 18px;
-  color: var(--font-color-body-grey);
-}
+  .museum-details-schedule__ticket-credits {
+    font-size: 18px;
+    color: $font-color-body-grey;
+  }
 
-.museum-location__location-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 50px;
-}
+  .museum-details-schedule__ticket-info {
+    text-align: center;
+    margin-top: 30px;
+  }
 
-.museum-details-schedule__ticket-info {
-  color: var(--font-color-body-black);
-  padding: 40px 120px;
-  font-size: 23px;
-  flex: 1;
-  background-color: var(--color-background-yellow);
-  margin-top: 60px;
-  text-align: center;
-}
-.museum-details-schedule__link {
-  margin-top: 50px;
-  font-size: 18px;
-  text-decoration: underline;
-}
+  .museum-details-schedule__link {
+    margin-top: 20px;
+    text-decoration: underline;
+    font-size: 18px;
 
-.museum-location__image {
-  width: 80px;
+  }
 }
-
 .museum-location {
   flex: 1;
-  background-color: var(--color-background-black);
-  color: var(--font-color-body-white);
+  background-color: $color-background-black;
+  color: $font-color-body-white;
   padding: 40px 120px;
+
+  &__location-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+  }
+
+  &__image {
+    width: 80px;
+  }
+
+  &__title {
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+
 }
 </style>

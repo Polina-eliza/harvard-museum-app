@@ -1,105 +1,84 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
-
-
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-  :root {
-    --font-family-body: "Didact Gothic", Arial, Helvetica, sans-serif;
-    --font-family-accent: "Futura" , Helvetica, Arial,sans-serif;
-    --font-color-body-black: #231f20;
-    --font-color-body-white: #e1e0e0;
-    --font-color-body-grey: rgb(74, 71, 71);
-    --color-background-yellow: #fce373;
-    --color-background-black: #151515;
-    --color-background-white: #faf9f7;
+body {
+  font-family: "Didact Gothic", Arial, Helvetica, sans-serif;
+  line-height: 28px;
+  font-size: 18px;
+  font-weight: 400;
+  min-height: 100vh;
+  color: #231f20;
+}
 
-  }
-  
-  /* Typography */
-  
-  body {
-    font-family: var( --font-family-body);
-    line-height: 28px;
-    font-size: 18px;
-    font-weight: 400;
-    min-height: 100vh;
-    color: var(--font-color-body)
-  }
-  
-  li {
-    list-style: none;
-  }
-  
-  a {
-    text-decoration: none;
-    color: var(--font-color-body);
-  }
-  
-  img {
-    width: 100%;
-    height: auto;
-  }
+li {
+  list-style: none;
+}
 
-  h1 {
-    font-size: 90px;
-    line-height: 80px;
-    font-family: var(--font-family-accent);
-    font-weight: 400;
-  }
-  
+a {
+  text-decoration: none;
+  color: #231f20;
+}
 
-  h2 {
-    font-size: 40px;
-    font-family: var(--font-family-accent);
-    font-weight: 400;
-  }
+img {
+  width: 100%;
+  height: auto;
+}
 
-  h3 {
-    font-size: 30px;
-    font-weight: 400;
+h1 {
+  font-size: 90px;
+  line-height: 80px;
+  font-family: "Futura", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
 
-  }
+h2 {
+  font-size: 40px;
+  font-family: "Futura", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
 
-  .container-mini {
-    padding: 0 25%;
-  }
-  
-  .container-midi {
-    padding: 0 8%;
-  }
+h3 {
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "Futura", Helvetica, Arial, sans-serif;
+}
 
-  .container-large {
-    padding: 0 1%;
-  }
+.container-mini {
+  padding: 0 25%;
+}
 
-  .btn {
-    padding: 15px 25px;
-    text-align: center;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-  }
+.container-midi {
+  padding: 0 8%;
+}
 
-  .accent-bg {
-    background-color: var(--color-background-yellow);
-    padding-bottom: 2px;
-  }
-  
-  .dark-bg {
-    background-color: var(--color-background-black);
-    padding-bottom: 6px;
-  }
-  
-  .light-bg {
-    background-color: var(--color-background-white);
-    padding-bottom: 6px;
-  }
-  
+.container-large {
+  padding: 0 1%;
+}
 
-  
+.accent-bg {
+  background-color: #fce373;
+  padding-bottom: 2px;
+}
 
+.dark-bg {
+  background-color: #151515;
+  padding-bottom: 6px;
+}
+
+.light-bg {
+  background-color: #faf9f7;
+  padding-bottom: 6px;
+}
+
+.btn {
+  padding: 15px 25px;
+  text-align: center;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=main.css.map */

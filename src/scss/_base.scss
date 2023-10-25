@@ -1,0 +1,30 @@
+@import "variables";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family-body;
+    line-height: 28px;
+    font-size: 18px;
+    font-weight: 400;
+    min-height: 100vh;
+    color: $font-color-body-black;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: $font-color-body-black;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
