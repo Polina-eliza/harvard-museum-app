@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="footer__email-section">
+    <form class="footer__email-form">
       <h3 class="footer__subheader">
         Harvard Art Museum likes to send you emails
       </h3>
@@ -18,7 +18,7 @@
         />
       </div>
       <button class="btn footer__btn--signup"><a href="#">Sign up</a></button>
-    </div>
+    </form>
 
     <ul class="footer__socials">
       <li class="footer__social-item">
@@ -53,7 +53,7 @@ $color-background-black: #151515;
   align-items: center;
   justify-content: space-between;
 
-  &__email-section {
+  &__email-form {
     text-align: center;
   }
 
