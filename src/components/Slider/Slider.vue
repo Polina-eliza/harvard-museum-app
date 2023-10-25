@@ -1,6 +1,6 @@
 <template>
   <div class="slider">
-    <div class="cards-container">
+    <div class="slider__cards">
       <Card v-for="card in cards" :key="card.id" :card="card"/>
     </div>
   </div>
@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .slider {
-    .cards-container {
+    .slider__cards {
       display: flex;
       gap: 60px;
     }
