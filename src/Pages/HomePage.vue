@@ -1,10 +1,10 @@
 <template>
   <div class="accent-bg container-midi">
     <div class="hero-section">
-      <h3 class="hero-section__header">
+      <h2 class="hero-section__header">
         One place <br />
         three myseums
-      </h3>
+      </h2>
       <h1 class="hero-section__subheader">
         the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
       </h1>
@@ -33,7 +33,7 @@
     </div>
     <div class="museum-details">
       <div class="museum-details__schedule">
-        <h2 class="museum-details-schedule__title">plan your visit</h2>
+        <h3 class="museum-details-schedule__title">plan your visit</h3>
         <p class="museum-details-schedule__hours">
           Open Tuesday-Sunday 10am-5pm <br />
           <span class="museum-details-schedule__notice"
@@ -56,7 +56,7 @@
       </div>
 
       <div class="museum-location">
-        <h2 class="museum-location__title">location</h2>
+        <h3 class="museum-location__title">location</h3>
         <div class="museum-location__location-info">
           <img
             class="museum-location__image"
