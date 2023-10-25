@@ -33,38 +33,38 @@
     </div>
     <div class="museum-details">
       <div class="museum-details__schedule">
-        <h3 class="museum-details-schedule__title">plan your visit</h3>
-        <p class="museum-details-schedule__hours">
+        <h3 class="museum-details__schedule-title">plan your visit</h3>
+        <p class="museum-details__schedule-hours">
           Open Tuesday-Sunday 10am-5pm <br />
-          <span class="museum-details-schedule__notice"
+          <span class="museum-details__schedule-notice"
             >Closed on major holidays</span
           >
         </p>
-        <p class="museum-details-schedule__ticket-info">
-          <span class="museum-details-schedule__ticket-highlight">Tickets</span>
+        <p class="museum-details__schedule-ticket-info">
+          <span class="museum-details__schedule-ticket-highlight">Tickets</span>
           <br />
           The museums are free to all visitors. Please check in at the
           Admissions desk. <br />
           <br />
-          <span class="museum-details-schedule__ticket-credits"
+          <span class="museum-details__schedule-ticket-credits"
             >This new initiative is made possible by a generous contribution
             from the Estate of David Rockefeller and support from the Office of
             the President at Harvard University.</span
           >
         </p>
-        <a class="museum-details-schedule__link" href="#">More details</a>
+        <a class="museum-details__schedule-link" href="#">More details</a>
       </div>
 
-      <div class="museum-details-location">
-        <h3 class="museum-details-location__title">location</h3>
-        <div class="museum-details-location__location-info">
+      <div class="museum-details__location">
+        <h3 class="museum-details__location-title">location</h3>
+        <div class="museum-details__location-info">
           <img
-            class="museum-details-location__image"
+            class="museum-details__location-image"
             src="../assets/svg/icon-museum.png"
             alt="Museum Icon"
           />
 
-          <div class="museum-details-location__address">
+          <div class="museum-details__address">
             Harvard Art Museums <br />
             32 Quincy Street <br />
             Cambridge, MA 02138 <br />
@@ -157,7 +157,6 @@ $color-background-white: #faf9f7;
     object-fit: cover;
   }
 }
-
 .museum-details {
   flex: 2;
   display: flex;
@@ -171,67 +170,70 @@ $color-background-white: #faf9f7;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+  
 
-  .museum-details-schedule__title {
+
+  
+
+  &-title {
     text-align: center;
     text-transform: uppercase;
   }
 
-  .museum-details-schedule__hours {
+  &-hours {
     margin-top: 30px;
     text-align: center;
   }
 
-  .museum-details-schedule__notice {
+  &-notice {
     text-decoration: underline;
     font-weight: bold;
   }
 
-  .museum-details-schedule__ticket-highlight {
+  &-ticket-highlight {
     text-decoration: underline;
   }
 
-  .museum-details-schedule__ticket-credits {
+  &-ticket-credits {
     font-size: 18px;
     color: $font-color-body-grey;
   }
 
-  .museum-details-schedule__ticket-info {
+  &-ticket-info {
     text-align: center;
     margin-top: 30px;
   }
 
-  .museum-details-schedule__link {
+  &-link {
     margin-top: 20px;
     text-decoration: underline;
     font-size: 18px;
-
   }
 }
-.museum-details-location {
-  flex: 1;
-  background-color: $color-background-black;
-  color: $font-color-body-white;
-  padding: 40px 120px;
 
-  &__location-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    margin-top: 50px;
-  }
+  &__location {
+    flex: 1;
+    background-color: $color-background-black;
+    color: $font-color-body-white;
+    padding: 40px 120px;
 
-  &__image {
-    width: 80px;
-  }
-
-  &__title {
+    &-title { 
       text-align: center;
       text-transform: uppercase;
     }
 
+    &-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 50px;
+    }
 
+    &-image { 
+      width: 80px;
+    }
+  }
 }
+
 </style>
