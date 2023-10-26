@@ -28,21 +28,12 @@
     </form>
 
     <ul class="footer-socials">
-      <li class="footer-socials__item">
-        <a href="#"
-          ><img src="../../assets/svg/facebook.svg" alt="Facebook Icon"
+      <li class="footer-socials__item" v-for="social in socials" :key="social.name">
+        <a :href="social.link"
+          ><img :src="social.icon" :alt="social.name + ' Icon'"
         /></a>
       </li>
-      <li class="footer-socials__item">
-        <a href="#"
-          ><img src="../../assets/svg/instagram.svg" alt="Instagram Icon"
-        /></a>
-      </li>
-      <li class="footer-socials__item">
-        <a href="#"
-          ><img src="../../assets/svg/twitter.svg" alt="Twitter Icon"
-        /></a>
-      </li>
+      
     </ul>
   </footer>
 </template>
@@ -53,6 +44,24 @@ export default {
     return {
       name: "",
       email: "",
+      socials: [
+        {
+          name: 'Facebook', 
+          link: '#',
+          icon: '../../assets/svg/facebook.svg'
+        },
+        {
+          name: 'Instagram', 
+          link: '#',
+          icon: '../../assets/svg/instagram.svg'
+        },
+        {
+          name: 'Twitter', 
+          link: '#',
+          icon: '../../assets/svg/twitter.svg'
+        },
+
+      ]
     };
   },
   methods: {
