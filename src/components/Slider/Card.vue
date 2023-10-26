@@ -1,8 +1,8 @@
 <template>
   <div class="card">
-    <div class="card-img-container">
-      <img class="card-img-container__image" :src="imageSrc" :alt="imageAlt" />
-      <div class="card-img-container__date">{{ date }}</div>
+    <div class="card-img">
+      <img class="card-img__image" :src="imageSrc" :alt="imageAlt" />
+      <div class="card-img__date">{{ date }}</div>
     </div>
       <a class="card__title" :href="linkHref">{{ title }}</a>
   </div>
@@ -41,7 +41,7 @@ export default {
 .card {
   max-width: 500px;
 
-  &-img-container {
+  &-img {
     position: relative;
 
     &__date {
