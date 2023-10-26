@@ -32,39 +32,39 @@
       />
     </div>
     <div class="museum-details">
-      <div class="museum-details__schedule">
-        <h3 class="museum-details__schedule-title">plan your visit</h3>
-        <p class="museum-details__schedule-hours">
+      <div class="museum-details-schedule">
+        <h3 class="museum-details-schedule__title">plan your visit</h3>
+        <p class="museum-details-schedule__hours">
           Open Tuesday-Sunday 10am-5pm <br />
-          <span class="museum-details__schedule-notice"
+          <span class="museum-details-schedule__notice"
             >Closed on major holidays</span
           >
         </p>
-        <p class="museum-details__schedule-ticket-info">
-          <span class="museum-details__schedule-ticket-highlight">Tickets</span>
+        <p class="museum-details-schedule__ticket-info">
+          <span class="museum-details-schedule__ticket-highlight">Tickets</span>
           <br />
           The museums are free to all visitors. Please check in at the
           Admissions desk. <br />
           <br />
-          <span class="museum-details__schedule-ticket-credits"
+          <span class="museum-details-schedule__ticket-credits"
             >This new initiative is made possible by a generous contribution
             from the Estate of David Rockefeller and support from the Office of
             the President at Harvard University.</span
           >
         </p>
-        <a class="museum-details__schedule-link" href="#">More details</a>
+        <a class="museum-details-schedule__link" href="#">More details</a>
       </div>
 
-      <div class="museum-details__location">
-        <h3 class="museum-details__location-title">location</h3>
-        <div class="museum-details__location-info">
+      <div class="museum-details-location">
+        <h3 class="museum-details-location__title">location</h3>
+        <div class="museum-details-location__info">
           <img
-            class="museum-details__location-image"
+            class="museum-details-location__image"
             src="../assets/svg/icon-museum.png"
             alt="Museum Icon"
           />
 
-          <div class="museum-details__address">
+          <div class="museum-details-location__address">
             Harvard Art Museums <br />
             32 Quincy Street <br />
             Cambridge, MA 02138 <br />
@@ -162,7 +162,7 @@ $color-background-white: #faf9f7;
   display: flex;
   flex-direction: column;
 
-  &__schedule {
+  &-schedule {
     color: $font-color-body-black;
     background-color: $color-background-yellow;
     padding: 40px 120px;
@@ -175,54 +175,54 @@ $color-background-white: #faf9f7;
 
   
 
-  &-title {
+  &__title {
     text-align: center;
     text-transform: uppercase;
   }
 
-  &-hours {
+  &__hours {
     margin-top: 30px;
     text-align: center;
   }
 
-  &-notice {
+  &__notice {
     text-decoration: underline;
     font-weight: bold;
   }
 
-  &-ticket-highlight {
+  &__ticket-highlight {
     text-decoration: underline;
   }
 
-  &-ticket-credits {
+  &__ticket-credits {
     font-size: 18px;
     color: $font-color-body-grey;
   }
 
-  &-ticket-info {
+  &__ticket-info {
     text-align: center;
     margin-top: 30px;
   }
 
-  &-link {
+  &__link {
     margin-top: 20px;
     text-decoration: underline;
     font-size: 18px;
   }
 }
 
-  &__location {
+  &-location {
     flex: 1;
     background-color: $color-background-black;
     color: $font-color-body-white;
     padding: 40px 120px;
 
-    &-title { 
+    &__title { 
       text-align: center;
       text-transform: uppercase;
     }
 
-    &-info {
+    &__info {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -230,7 +230,7 @@ $color-background-white: #faf9f7;
       margin-top: 50px;
     }
 
-    &-image { 
+    &__image { 
       width: 80px;
     }
   }
