@@ -27,7 +27,7 @@
     <div class="museum-visit-image-area">
       <img
         class="museum-visit-image-area__image"
-        src="../assets//Museum-img.png"
+        src="../assets/Museum-img.png"
         alt="Museum"
       />
     </div>
