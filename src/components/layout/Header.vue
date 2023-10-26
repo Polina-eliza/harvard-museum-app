@@ -19,17 +19,7 @@
 </template>
 
 <style lang="scss">
-// Fonts
-$font-family-body: "Didact Gothic", Arial, Helvetica, sans-serif;
-$font-family-accent: "Futura", Helvetica, Arial, sans-serif;
-
-// Colors
-$font-color-body-black: #231f20;
-$font-color-body-white: #e1e0e0;
-$font-color-body-grey: rgb(74, 71, 71);
-$color-background-yellow: #fce373;
-$color-background-black: #151515;
-$color-background-white: #faf9f7;
+@import "../../scss/variables";
 
 .navbar {
   padding-top: 30px;

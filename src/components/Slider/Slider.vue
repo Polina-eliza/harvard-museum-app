@@ -23,6 +23,8 @@ export default {
 
 <style lang="scss">
 
+@import "../../scss/variables";
+
 .slider {
   &__cards {
     display: flex;

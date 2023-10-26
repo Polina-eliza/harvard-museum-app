@@ -80,6 +80,8 @@
 import SearchInput from "../components/Search/SearchInput.vue";
 import Slider from "../components/Slider/Slider.vue";
 
+
+
 export default {
   components: {
     SearchInput,
@@ -89,17 +91,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// Fonts
-$font-family-body: "Didact Gothic", Arial, Helvetica, sans-serif;
-$font-family-accent: "Futura", Helvetica, Arial, sans-serif;
-
-// Colors
-$font-color-body-black: #231f20;
-$font-color-body-white: #e1e0e0;
-$font-color-body-grey: rgb(74, 71, 71);
-$color-background-yellow: #fce373;
-$color-background-black: #151515;
-$color-background-white: #faf9f7;
+@import "../scss/_variables.scss";
 
 .hero-section {
   &__header {

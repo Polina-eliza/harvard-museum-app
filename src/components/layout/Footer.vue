@@ -41,11 +41,7 @@
 </template>
 
 <style lang="scss">
-// Fonts
-$font-family-body: "Didact Gothic", Arial, Helvetica, sans-serif;
-$font-color-body-black: #231f20;
-$font-color-body-white: #e1e0e0;
-$color-background-black: #151515;
+@import "../../scss/variables";
 
 .footer {
   display: flex;
