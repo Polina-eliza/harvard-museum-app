@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <form class="footer-email-form">
-      <h3 class="footer-email-form__subheader" @sumbit.prevent="submitForm">
+      <h3 class="footer-email-form__subheader" @sumbit.prevent="subscribeOnNews">
         Harvard Art Museum likes to send you emails
       </h3>
       <div class="footer-email-form__input-group">
@@ -21,7 +21,7 @@
       </div>
       <button
         class="btn footer-email-form__btn--signup"
-        @click.prevent="submitData"
+        @click.prevent="subscribeOnNews"
       >
         Sign up
       </button>
@@ -65,7 +65,7 @@ export default {
     };
   },
   methods: {
-    submitData() {
+    subscribeOnNews() {
       const formData = {
         name: this.name,
         emial: this.email,
