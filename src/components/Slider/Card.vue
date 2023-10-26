@@ -4,9 +4,7 @@
       <img class="card-img-container__image" :src="imageSrc" :alt="imageAlt" />
       <div class="card-img-container__date">{{ date }}</div>
     </div>
-    <div class="card__title">
-      <a :href="linkHref">{{ title }}</a>
-    </div>
+      <a class="card__title" :href="linkHref">{{ title }}</a>
   </div>
 </template>
 
@@ -73,6 +71,7 @@ $color-background-white: #faf9f7;
 
   &__title {
     font-family: $font-family-accent;
+    display: block;
   }
 }
 </style>
