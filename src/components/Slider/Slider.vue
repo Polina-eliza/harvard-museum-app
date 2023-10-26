@@ -1,7 +1,7 @@
 <template>
   <div class="slider">
     <div class="slider__cards">
-      <Card v-for="card in cards" :key="card.id" :card="card"/>
+      <Card v-for="card in cards" :key="card.id" :card="card" />
     </div>
   </div>
 </template>
@@ -15,18 +15,17 @@ export default {
   },
   data() {
     return {
-      cards: []
-    }
+      cards: [],
+    };
   },
-}
+};
 </script>
 
 <style scoped>
 .slider {
-    &__cards {
-      display: flex;
-      gap: 60px;
-    }
+  &__cards {
+    display: flex;
+    gap: 60px;
   }
-
+}
 </style>

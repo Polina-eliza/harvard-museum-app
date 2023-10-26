@@ -47,7 +47,7 @@ $color-background-white: #faf9f7;
       line-height: 29px;
       font-size: 30px;
       text-align: center;
-        display: block;
+      display: block;
     }
   }
 
