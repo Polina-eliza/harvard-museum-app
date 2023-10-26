@@ -1,37 +1,37 @@
 <template>
   <footer class="footer">
-    <form class="footer__email-form">
-      <h3 class="footer__subheader">
+    <form class="footer-email-form">
+      <h3 class="footer-email-form__subheader">
         Harvard Art Museum likes to send you emails
       </h3>
-      <div class="footer__input-group">
+      <div class="footer-email-form__input-group">
         <input
-          class="footer__input footer__input--name"
+          class="footer-email-form__input footer-email-form__input--name"
           type="text"
           placeholder="Name"
           id="name"
         />
         <input
-          class="footer__input footer__input--email"
+          class="footer-email-form__input footer-email-form__input--email"
           placeholder="Email"
           id="email"
         />
       </div>
-      <button class="btn footer__btn--signup">Sign up</button>
+      <button class="btn footer-email-form__btn--signup">Sign up</button>
     </form>
 
-    <ul class="footer__socials">
-      <li class="footer__social-item">
+    <ul class="footer-socials">
+      <li class="footer-socials__item">
         <a href="#"
           ><img src="../../assets/svg/facebook.svg" alt="Facebook Icon"
         /></a>
       </li>
-      <li class="footer__social-item">
+      <li class="footer-socials__item">
         <a href="#"
           ><img src="../../assets/svg/instagram.svg" alt="Instagram Icon"
         /></a>
       </li>
-      <li class="footer__social-item">
+      <li class="footer-socials__item">
         <a href="#"
           ><img src="../../assets/svg/twitter.svg" alt="Twitter Icon"
         /></a>
@@ -53,43 +53,38 @@ $color-background-black: #151515;
   align-items: center;
   justify-content: space-between;
 
-  &__email-form {
+  &-email-form {
     text-align: center;
-  }
 
-  &__input-group {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    margin-top: 40px;
-  }
+    &__subheader {
+      padding-top: 50px;
+    }
 
-  .footer__input {
-    width: 45%;
-    border: none;
-    border-bottom: 1px solid black;
-    outline: none;
-    background: transparent;
-    padding: 5px 0;
-    font-size: 16px;
-  }
+    &__input-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 40px;
+    }
 
-  &__subheader {
-    padding-top: 50px;
-  }
+    &__input {
+      width: 45%;
+      border: none;
+      border-bottom: 1px solid black;
+      outline: none;
+      background: transparent;
+      padding: 5px 0;
+      font-size: 16px;
+    }
 
-  .btn.footer__btn--signup {
-    background-color: $color-background-black;
-    color: $font-color-body-white;
-    margin: 40px 0;
-
-    a {
+    &__btn--signup {
+      background-color: $color-background-black;
       color: $font-color-body-white;
-      text-decoration: none;
+      margin: 40px 0;
     }
   }
 
-  &__socials {
+  &-socials {
     display: flex;
     align-items: center;
     justify-content: space-around;
