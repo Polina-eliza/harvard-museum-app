@@ -39,29 +39,30 @@
 </template>
 
 <script>
+
+const SOCIALS = [
+  {
+    name: 'Facebook', 
+    link: '#',
+    icon: '../../assets/svg/facebook.svg'
+  },
+  {
+    name: 'Instagram', 
+    link: '#',
+    icon: '../../assets/svg/instagram.svg'
+  },
+  {
+    name: 'Twitter', 
+    link: '#',
+    icon: '../../assets/svg/twitter.svg'
+  },
+];
 export default {
   data() {
     return {
       name: "",
       email: "",
-      socials: [
-        {
-          name: 'Facebook', 
-          link: '#',
-          icon: '../../assets/svg/facebook.svg'
-        },
-        {
-          name: 'Instagram', 
-          link: '#',
-          icon: '../../assets/svg/instagram.svg'
-        },
-        {
-          name: 'Twitter', 
-          link: '#',
-          icon: '../../assets/svg/twitter.svg'
-        },
-
-      ]
+      socials: SOCIALS
     };
   },
   methods: {
