@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <form class="footer-email-form">
-      <h3 class="footer-email-form__subheader">
+      <h3 class="footer-email-form__subheader" @sumbit.prevent="submitForm">
         Harvard Art Museum likes to send you emails
       </h3>
       <div class="footer-email-form__input-group">
@@ -10,14 +10,21 @@
           type="text"
           placeholder="Name"
           id="name"
+          v-model="name"
         />
         <input
           class="footer-email-form__input footer-email-form__input--email"
           placeholder="Email"
           id="email"
+          v-model="email"
         />
       </div>
-      <button class="btn footer-email-form__btn--signup">Sign up</button>
+      <button
+        class="btn footer-email-form__btn--signup"
+        @click.prevent="submitData"
+      >
+        Sign up
+      </button>
     </form>
 
     <ul class="footer-socials">
@@ -39,6 +46,26 @@
     </ul>
   </footer>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+      email: "",
+    };
+  },
+  methods: {
+    submitData() {
+      const formData = {
+        name: this.name,
+        emial: this.email,
+      };
+      console.log(formData);
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 @import "../../scss/variables";
