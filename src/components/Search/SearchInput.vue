@@ -1,13 +1,7 @@
 <template>
   <div class="search">
     <input type="text" class="search__input" placeholder="Search..." />
-    <button class="search__btn">
-      <img
-        class="search__icon"
-        src="../../assets/svg/icons8-search.svg"
-        alt=""
-      />
-    </button>
+    <button class="search__btn"></button>
   </div>
 </template>
 
@@ -50,14 +44,23 @@
     background: none;
     border: none;
     cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: url('../../assets//svg/icons8-search.svg');
+      font-size: 27px;
+      color: #4f4f4f;
+      line-height: 1;
+      background: 15px;
+    }
 
     &:active {
       transform: translateY(-48%);
     }
-  }
-
-  &__icon {
-    width: 30px;
   }
 }
 </style>
