@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .slider {
-    .slider__cards {
+    &__cards {
       display: flex;
       gap: 60px;
     }
