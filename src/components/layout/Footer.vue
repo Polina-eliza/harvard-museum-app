@@ -23,17 +23,17 @@
     <ul class="footer__socials">
       <li class="footer__social-item">
         <a href="#"
-          ><img src="../../assets//svg/facebook.svg" alt="Facebook Icon"
+          ><img src="../../assets/svg/facebook.svg" alt="Facebook Icon"
         /></a>
       </li>
       <li class="footer__social-item">
         <a href="#"
-          ><img src="../../assets//svg/instagram.svg" alt="Instagram Icon"
+          ><img src="../../assets/svg/instagram.svg" alt="Instagram Icon"
         /></a>
       </li>
       <li class="footer__social-item">
         <a href="#"
-          ><img src="../../assets//svg/twitter.svg" alt="Twitter Icon"
+          ><img src="../../assets/svg/twitter.svg" alt="Twitter Icon"
         /></a>
       </li>
     </ul>
