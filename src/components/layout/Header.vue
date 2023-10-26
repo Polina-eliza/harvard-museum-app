@@ -15,7 +15,6 @@
       <li class="navbar__item"><a href="#">Publications</a></li>
     </ul>
   </nav>
-  <Hero />
 </template>
 
 <style lang="scss">

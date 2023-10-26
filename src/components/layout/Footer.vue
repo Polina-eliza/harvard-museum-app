@@ -33,12 +33,15 @@
           ><img :src="social.icon" :alt="social.name + ' Icon'"
         /></a>
       </li>
-      
     </ul>
+   
+        
   </footer>
 </template>
 
 <script>
+
+
 
 const SOCIALS = [
   {
