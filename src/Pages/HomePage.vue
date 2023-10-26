@@ -24,9 +24,9 @@
   </div>
 
   <div class="dark-bg museum-visit">
-    <div class="museum-visit-image-area">
+    <div class="museum-visit-image">
       <img
-        class="museum-visit-image-area__image"
+        class="museum-visit-image__image"
         src="../assets/Museum-img.png"
         alt="Museum"
       />
@@ -137,7 +137,7 @@ export default {
 .museum-visit {
   display: flex;
 
-  &-image-area {
+  &-image {
     flex: 1;
 
     &__image {
