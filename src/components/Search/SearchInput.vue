@@ -1,8 +1,12 @@
 <template>
-  <div class="search-container">
-    <input type="text" class="search-input" placeholder="Search..." />
-    <button class="search-btn">
-      <img class="" src="../../assets/svg/icons8-search.svg" alt="" />
+  <div class="search">
+    <input type="text" class="search__input" placeholder="Search..." />
+    <button class="search__btn">
+      <img
+        class="search__icon"
+        src="../../assets/svg/icons8-search.svg"
+        alt=""
+      />
     </button>
   </div>
 </template>
@@ -13,11 +17,11 @@ $font-color-body-white: var(--font-color-body-white);
 $font-color-body-black: var(--font-color-body-black);
 $color-background-black: var(--color-background-black);
 
-.search-container {
+.search {
   padding: 70px 0;
   position: relative;
 
-  .search-input {
+  &__input {
     width: 100%;
     height: 60px;
     padding: 15px 25px;
@@ -41,7 +45,7 @@ $color-background-black: var(--color-background-black);
     }
   }
 
-  .search-btn {
+  &__btn {
     position: absolute;
     right: 25px;
     top: 50%;
@@ -53,10 +57,10 @@ $color-background-black: var(--color-background-black);
     &:active {
       transform: translateY(-48%);
     }
+  }
 
-    img {
-      width: 30px;
-    }
+  &__icon {
+    width: 30px;
   }
 }
 </style>

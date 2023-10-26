@@ -89,7 +89,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 // Fonts
 $font-family-body: "Didact Gothic", Arial, Helvetica, sans-serif;
 $font-family-accent: "Futura", Helvetica, Arial, sans-serif;
@@ -98,10 +97,9 @@ $font-family-accent: "Futura", Helvetica, Arial, sans-serif;
 $font-color-body-black: #231f20;
 $font-color-body-white: #e1e0e0;
 $font-color-body-grey: rgb(74, 71, 71);
-$color-background-yellow: #fce373;;
+$color-background-yellow: #fce373;
 $color-background-black: #151515;
 $color-background-white: #faf9f7;
-
 
 .hero-section {
   &__header {
@@ -149,14 +147,13 @@ $color-background-white: #faf9f7;
 
   &-image-area {
     flex: 1;
-  
 
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
-}
 }
 .museum-details {
   flex: 2;
@@ -171,46 +168,42 @@ $color-background-white: #faf9f7;
     display: flex;
     flex-direction: column;
     align-items: center;
-  
 
+    &__title {
+      text-align: center;
+      text-transform: uppercase;
+    }
 
-  
+    &__hours {
+      margin-top: 30px;
+      text-align: center;
+    }
 
-  &__title {
-    text-align: center;
-    text-transform: uppercase;
+    &__notice {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    &__ticket-highlight {
+      text-decoration: underline;
+    }
+
+    &__ticket-credits {
+      font-size: 18px;
+      color: $font-color-body-grey;
+    }
+
+    &__ticket-info {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    &__link {
+      margin-top: 20px;
+      text-decoration: underline;
+      font-size: 18px;
+    }
   }
-
-  &__hours {
-    margin-top: 30px;
-    text-align: center;
-  }
-
-  &__notice {
-    text-decoration: underline;
-    font-weight: bold;
-  }
-
-  &__ticket-highlight {
-    text-decoration: underline;
-  }
-
-  &__ticket-credits {
-    font-size: 18px;
-    color: $font-color-body-grey;
-  }
-
-  &__ticket-info {
-    text-align: center;
-    margin-top: 30px;
-  }
-
-  &__link {
-    margin-top: 20px;
-    text-decoration: underline;
-    font-size: 18px;
-  }
-}
 
   &-location {
     flex: 1;
@@ -218,7 +211,7 @@ $color-background-white: #faf9f7;
     color: $font-color-body-white;
     padding: 40px 120px;
 
-    &__title { 
+    &__title {
       text-align: center;
       text-transform: uppercase;
     }
@@ -231,10 +224,9 @@ $color-background-white: #faf9f7;
       margin-top: 50px;
     }
 
-    &__image { 
+    &__image {
       width: 80px;
     }
   }
 }
-
 </style>

@@ -6,7 +6,9 @@
       <li class="navbar__item navbar__item--logo">
         <router-link to="/">
           <span class="navbar__logo-text">HARVARD ART</span>
-          <span class="navbar__logo-text navbar__logo-text--museum">MUSEUMS</span>
+          <span class="navbar__logo-text navbar__logo-text--museum"
+            >MUSEUMS</span
+          >
         </router-link>
       </li>
       <li class="navbar__item"><a href="#">Events</a></li>
@@ -17,8 +19,6 @@
 </template>
 
 <style lang="scss" scoped>
-
-
 // Fonts
 $font-family-body: "Didact Gothic", Arial, Helvetica, sans-serif;
 $font-family-accent: "Futura", Helvetica, Arial, sans-serif;
@@ -27,40 +27,40 @@ $font-family-accent: "Futura", Helvetica, Arial, sans-serif;
 $font-color-body-black: #231f20;
 $font-color-body-white: #e1e0e0;
 $font-color-body-grey: rgb(74, 71, 71);
-$color-background-yellow: #fce373;;
+$color-background-yellow: #fce373;
 $color-background-black: #151515;
 $color-background-white: #faf9f7;
 
 .navbar {
-    padding-top: 30px;
+  padding-top: 30px;
 
-    &__list {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
 
-    &__item {
-      &--logo {
-        font-family: $font-family-accent;
-        line-height: 29px;
-        font-size: 30px;
+  &__item {
+    &--logo {
+      font-family: $font-family-accent;
+      line-height: 29px;
+      font-size: 30px;
 
-        a {
-          text-align: center;
-          display: block;
-          color: $font-color-body-black;
-        }
-      }
-    }
-
-    &__logo-text {
-      display: block;
-
-      &--museum {
-        transform: rotate(180deg);
+      a {
+        text-align: center;
+        display: block;
+        color: $font-color-body-black;
       }
     }
   }
+
+  &__logo-text {
+    display: block;
+
+    &--museum {
+      transform: rotate(180deg);
+    }
+  }
+}
 </style>
