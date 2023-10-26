@@ -1,9 +1,9 @@
 <template>
-  <div class="accent-bg container-mini">
+  <div class="container-mini accent-bg">
     <Header />
   </div>
   <router-view></router-view>
-  <div class="light-bg container-midi">
+  <div class="container-midi light-bg">
     <Footer />
   </div>
 </template>

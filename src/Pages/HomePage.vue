@@ -1,5 +1,5 @@
 <template>
-  <div class="accent-bg container-midi">
+  <div class="container-midi accent-bg">
     <div class="hero-section">
       <h2 class="hero-section__header">
         One place <br />
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="dark-bg container-large ongoing-exhibitions">
+  <div class="container-large ongoing-exhibitions dark-bg">
     <h2 class="ongoing-exhibitions__subheader">what's on</h2>
     <Slider />
     <router-link class="btn ongoing-exhibitions__event-link" to="/collections"
@@ -19,11 +19,11 @@
     >
   </div>
 
-  <div class="light-bg container-midi">
+  <div class="container-midi light-bg">
     <SearchInput />
   </div>
 
-  <div class="dark-bg museum-visit">
+  <div class="museum-visit dark-bg">
     <div class="museum-visit-image">
       <img
         class="museum-visit-image__image"
