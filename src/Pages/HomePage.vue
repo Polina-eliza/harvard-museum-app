@@ -24,9 +24,9 @@
   </div>
 
   <div class="dark-bg museum-visit">
-    <div class="museum-visit__image-area">
+    <div class="museum-visit-image-area">
       <img
-        class="museum-visit__image"
+        class="museum-visit-image-area__image"
         src="../assets//Museum-img.png"
         alt="Museum"
       />
@@ -147,15 +147,16 @@ $color-background-white: #faf9f7;
 .museum-visit {
   display: flex;
 
-  &__image-area {
+  &-image-area {
     flex: 1;
-  }
+  
 
   &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+}
 }
 .museum-details {
   flex: 2;
