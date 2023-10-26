@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $font-family-body: "Didact Gothic", Arial, Helvetica, sans-serif;
 $font-color-body-white: var(--font-color-body-white);
 $font-color-body-black: var(--font-color-body-black);

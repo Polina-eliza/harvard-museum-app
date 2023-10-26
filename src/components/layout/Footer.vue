@@ -40,7 +40,7 @@
   </footer>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 // Fonts
 $font-family-body: "Didact Gothic", Arial, Helvetica, sans-serif;
 $font-color-body-black: #231f20;

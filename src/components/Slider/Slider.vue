@@ -21,7 +21,8 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
+
 .slider {
   &__cards {
     display: flex;
