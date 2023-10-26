@@ -1,6 +1,5 @@
 <template>
-  <div class="container-midi accent-bg">
-    <div class="hero-section">
+  <div class="container-midi accent-bg hero-section">
       <h2 class="hero-section__header">
         One place <br />
         three myseums
@@ -8,7 +7,6 @@
       <h1 class="hero-section__subheader">
         the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
       </h1>
-    </div>
   </div>
 
   <div class="container-large ongoing-exhibitions dark-bg">

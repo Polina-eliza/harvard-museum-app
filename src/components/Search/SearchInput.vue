@@ -55,7 +55,6 @@
       font-size: 27px;
       color: #4f4f4f;
       line-height: 1;
-      background: 15px;
     }
 
     &:active {
