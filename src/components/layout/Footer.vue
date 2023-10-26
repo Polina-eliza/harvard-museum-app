@@ -17,7 +17,7 @@
           id="email"
         />
       </div>
-      <button class="btn footer__btn--signup"><a href="#">Sign up</a></button>
+      <button class="btn footer__btn--signup">Sign up</button>
     </form>
 
     <ul class="footer__socials">
