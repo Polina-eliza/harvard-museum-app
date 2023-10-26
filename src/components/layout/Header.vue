@@ -46,12 +46,8 @@ $color-background-white: #faf9f7;
       font-family: $font-family-accent;
       line-height: 29px;
       font-size: 30px;
-
-      a {
-        text-align: center;
+      text-align: center;
         display: block;
-        color: $font-color-body-black;
-      }
     }
   }
 
