@@ -1,39 +1,27 @@
 <template>
   <div class="card">
     <div class="card-img">
-      <img class="card-img__image" :src="imageSrc" :alt="imageAlt" />
-      <div class="card-img__date">{{ date }}</div>
+      <img class="card-img__image" :src="card.primaryimageurl" :alt="card.title" v-if="card.primaryimageurl"/>
+      <div class="card-img__date">{{ card.begindate }}</div>
     </div>
-      <a class="card__title" :href="linkHref">{{ title }}</a>
+      <a class="card__title" :href="'https://www.harvardartmuseums.org/exhibitions/' + card.id">{{ card.title }}</a>
   </div>
 </template>
 
 <script>
+
+
 export default {
   props: {
-    imageSrc: {
-      type: String,
-      required: true,
-    },
-    imageAlt: {
-      type: String,
-      default: "",
-    },
-    date: {
-      type: String,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    linkHref: {
-      type: String,
-      default: "#",
-    },
-  },
+    card: {
+        type: Object,
+        required: true
+    }
+}
 };
 </script>
+
+
 
 <style lang="scss">
 @import "../../scss/variables";
@@ -64,4 +52,6 @@ export default {
     display: block;
   }
 }
+
+
 </style>
