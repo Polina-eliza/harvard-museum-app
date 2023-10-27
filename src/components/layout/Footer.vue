@@ -34,30 +34,30 @@
         /></a>
       </li>
     </ul>
-   
-        
   </footer>
 </template>
 
 <script>
 
-
+import facebookIcon from '../../assets/svg/facebook.svg'
+import twitterIcon from '../../assets/svg/twitter.svg'
+import instagramIcon from '../../assets/svg/instagram.svg'
 
 const SOCIALS = [
   {
     name: 'Facebook', 
     link: '#',
-    icon: '../../assets/svg/facebook.svg'
+    icon: facebookIcon
   },
   {
     name: 'Instagram', 
     link: '#',
-    icon: '../../assets/svg/instagram.svg'
+    icon: instagramIcon
   },
   {
     name: 'Twitter', 
     link: '#',
-    icon: '../../assets/svg/twitter.svg'
+    icon: twitterIcon
   },
 ];
 export default {
