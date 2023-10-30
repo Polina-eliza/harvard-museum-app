@@ -1,27 +1,30 @@
 <template>
   <div class="card">
     <div class="card-img">
-      <img class="card-img__image" :src="card.primaryimageurl" :alt="card.title" v-if="card.primaryimageurl"/>
-      <div class="card-img__date">{{ card.begindate }}</div>
+      <img
+        class="card-img__image"
+        :src="card.images.web.url"
+        :alt="card.title"
+      />
+      <div class="card-img__title">{{ card.title }}</div>
     </div>
-      <a class="card__title" :href="'https://www.harvardartmuseums.org/exhibitions/' + card.id">{{ card.title }}</a>
+    <a class="card__department" :href="card.url">{{ card.department }}</a>
   </div>
 </template>
 
 <script>
-
-
 export default {
   props: {
     card: {
-        type: Object,
-        required: true
-    }
-}
+      type: Object,
+      required: true,
+    },
+  },
+  mounted() {
+    console.log(this.card);
+  },
 };
 </script>
-
-
 
 <style lang="scss">
 @import "../../scss/variables";
@@ -32,7 +35,7 @@ export default {
   &-img {
     position: relative;
 
-    &__date {
+    &__title {
       position: absolute;
       bottom: 20px;
       left: 10px;
@@ -42,16 +45,15 @@ export default {
     }
 
     &__image {
-      width: 500px;
+      width: 350px;
       height: 400px;
     }
   }
 
-  &__title {
+  &__department {
     font-family: $font-family-accent;
+    color: $font-color-body-white;
     display: block;
   }
 }
-
-
 </style>

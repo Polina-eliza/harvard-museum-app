@@ -23,19 +23,21 @@ export default {
   },
   methods: {
     fetchCards() {
-      const API_KEY = "53773212-d46d-4ec2-9981-1fa94f247e05";
-      const apiUrl = `https://api.harvardartmuseums.org/exhibition?apikey=${API_KEY}&size=10`;
+      const apiUrl = `https://openaccess-api.clevelandart.org/api/artworks/?limit=10`;
 
       fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-          this.cards = data.records;
+        .then((response) => response.json())
+        .then((data) => {
+          this.cards = data.data;
         })
-        .catch(error => {
-          console.error('There was a problem with the fetch operation:', error.message);
+        .catch((error) => {
+          console.error(
+            "There was a problem with the fetch operation:",
+            error.message
+          );
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
