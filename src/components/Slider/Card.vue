@@ -6,7 +6,7 @@
         :src="card.images.web.url"
         :alt="card.title"
       />
-      <div class="card-img__title">{{ card.title }}</div>
+      <div class="card-img__title">{{ truncatedTitle }}</div>
     </div>
     <a class="card__department" :href="card.url">{{ card.department }}</a>
   </div>
@@ -20,6 +20,18 @@ export default {
       required: true,
     },
   },
+  computed: {
+    truncatedTitle() {
+      const maxLength = 35;
+      if (this.card.title.length > maxLength) {  
+        return `${this.card.title.substring(0, maxLength)}...`;
+      }
+      return this.card.title;
+    }
+  },
+
+
+
   mounted() {
     console.log(this.card);
   },
