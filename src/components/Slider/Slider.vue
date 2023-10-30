@@ -10,8 +10,8 @@
 
 <script>
 import Card from "./Card.vue";
-import rightArrow from "../../assets/svg/right-arrow-backup-2-svgrepo-com (2).svg";
-import leftArrow from "../../assets/svg/left-arrow-backup-2-svgrepo-com (1).svg";
+import rightArrow from "../../assets/svg/right-arrow.svg";
+import leftArrow from "../../assets/svg/left-arrow.svg";
 
 export default {
   components: {
