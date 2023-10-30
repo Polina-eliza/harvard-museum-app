@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 export default {
   props: {
     card: {
@@ -40,7 +41,7 @@ export default {
 @import "../../scss/variables";
 
 .card {
-  max-width: 500px;
+  width: 500px;
 
   &-img {
     position: relative;

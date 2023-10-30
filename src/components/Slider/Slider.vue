@@ -1,11 +1,10 @@
 <template>
   <div class="slider">
-    <img class="slider__arrow arrow-left" :src="leftArrow" alt="Left Arrow" />
-    <img class="slider__arrow arrow-right" :src="rightArrow" alt="Right Arrow" />
-
-    <div class="slider__cards">
+    <img class="slider__arrow slider__arrow--left" :src="leftArrow" alt="Slide Left" @click="slide('left')" />
+    <div class="slider__cards" :style="sliderStyle">
       <Card v-for="card in cards" :key="card.id" :card="card" />
     </div>
+    <img class="slider__arrow slider__arrow--right" :src="rightArrow" alt="Slide Right" @click="slide('right')" />
   </div>
 </template>
 
@@ -21,8 +20,9 @@ export default {
   data() {
     return {
       cards: [],
-      leftArrow,
       rightArrow,
+      leftArrow,
+      currentIndex: 0,
     };
   },
   created() {
@@ -44,7 +44,23 @@ export default {
           );
         });
     },
+    slide(direction) {
+      if (direction === "left" && this.currentIndex > 0) {
+        this.currentIndex--;
+      } else if (direction === "right" && this.currentIndex < this.cards.length - 1) {
+        this.currentIndex++;
+      }
+    }
   },
+  computed: {
+    sliderStyle() {
+      const cardWidthWithGap = 500; 
+      const offset = this.currentIndex * cardWidthWithGap;
+      return {
+        transform: `translateX(-${offset}px)`
+      };
+    }
+  }
 };
 </script>
 
@@ -53,26 +69,30 @@ export default {
 
 .slider {
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
+  width: 100%;
 
   &__cards {
     display: flex;
     gap: 60px;
-    transition: all 0.3s ease; 
+    transition: all 0.3s ease;
+    scroll-behavior: smooth;
   }
-  
+
   &__arrow {
-    width: 40px;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%); 
+    width: 40px;
     cursor: pointer;
+    z-index: 2;
+    transform: translateY(-50%);
 
-    &.arrow-left {
+    &--left {
       left: 10px;
+   
     }
-    
-    &.arrow-right {
+
+    &--right {
       right: 10px;
     }
   }
