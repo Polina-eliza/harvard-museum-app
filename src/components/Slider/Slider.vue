@@ -1,10 +1,20 @@
 <template>
   <div class="slider">
-    <img class="slider__arrow slider__arrow--left" :src="leftArrow" alt="Slide Left" @click="slide('left')" />
+    <img
+      class="slider__arrow slider__arrow--left"
+      :src="leftArrow"
+      alt="Slide Left"
+      @click.stop="slide('left')"
+    />
     <div class="slider__cards" :style="sliderStyle">
       <Card v-for="card in cards" :key="card.id" :card="card" />
     </div>
-    <img class="slider__arrow slider__arrow--right" :src="rightArrow" alt="Slide Right" @click="slide('right')" />
+    <img
+      class="slider__arrow slider__arrow--right"
+      :src="rightArrow"
+      alt="Slide Right"
+      @click.stop="slide('right')"
+    />
   </div>
 </template>
 
@@ -14,53 +24,46 @@ import rightArrow from "../../assets/svg/right-arrow.svg";
 import leftArrow from "../../assets/svg/left-arrow.svg";
 
 export default {
+  props: {
+    cards: {
+      type: Array,
+      default: () => [],
+    },
+  },
   components: {
     Card,
   },
   data() {
     return {
-      cards: [],
       rightArrow,
       leftArrow,
       currentIndex: 0,
     };
   },
-  created() {
-    this.fetchCards();
-  },
-  methods: {
-    fetchCards() {
-      const apiUrl = `https://openaccess-api.clevelandart.org/api/artworks/?limit=10`;
 
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          this.cards = data.data;
-        })
-        .catch((error) => {
-          console.error(
-            "There was a problem with the fetch operation:",
-            error.message
-          );
-        });
-    },
+  methods: {
     slide(direction) {
       if (direction === "left" && this.currentIndex > 0) {
         this.currentIndex--;
-      } else if (direction === "right" && this.currentIndex < this.cards.length - 1) {
+      } else if (
+        direction === "right" &&
+        this.currentIndex < this.cards.length - 1
+      ) {
         this.currentIndex++;
       }
-    }
+      console.log("Current Index:", this.currentIndex);
+      console.log("Slider Style:", this.sliderStyle);
+    },
   },
   computed: {
     sliderStyle() {
-      const cardWidthWithGap = 500; 
+      const cardWidthWithGap = 500;
       const offset = this.currentIndex * cardWidthWithGap;
       return {
-        transform: `translateX(-${offset}px)`
+        transform: `translateX(-${offset}px)`,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -89,7 +92,6 @@ export default {
 
     &--left {
       left: 10px;
-   
     }
 
     &--right {

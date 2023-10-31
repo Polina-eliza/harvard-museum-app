@@ -1,17 +1,21 @@
 <template>
   <div class="container-midi accent-bg hero-section">
-      <h2 class="hero-section__header">
-        One place <br />
-        three myseums
-      </h2>
-      <h1 class="hero-section__subheader">
-        the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
-      </h1>
+    <h2 class="hero-section__header">
+      One place <br />
+      three myseums
+    </h2>
+    <h1 class="hero-section__subheader">
+      the Fogg, Busch-Reisinger, and Arthur M. Sackler Museums
+    </h1>
   </div>
 
   <div class="container-large ongoing-exhibitions dark-bg">
     <h2 class="ongoing-exhibitions__subheader">what's on</h2>
-    <Slider />
+    <DataFetching>
+      <template #default="{ cards }">
+        <Slider :cards="cards" />
+      </template>
+    </DataFetching>
     <router-link class="btn ongoing-exhibitions__event-link" to="/collections"
       >View all events</router-link
     >
@@ -77,13 +81,13 @@
 <script>
 import SearchInput from "../components/Search/SearchInput.vue";
 import Slider from "../components/Slider/Slider.vue";
-
-
+import DataFetching from "../components/Slider/DataFetching.vue";
 
 export default {
   components: {
     SearchInput,
     Slider,
+    DataFetching,
   },
 };
 </script>
