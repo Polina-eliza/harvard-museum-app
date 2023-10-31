@@ -1,5 +1,5 @@
 <template>
-  <div class="slider">
+  <div class="slider" ref="slider">
     <img
       class="slider__arrow slider__arrow--left"
       :src="leftArrow"
@@ -43,12 +43,14 @@ export default {
 
   methods: {
     slide(direction) {
+      const sliderWidth = this.$refs.slider.clientWidth;
+      const cardWidthWithGap = 500 + 50;
+      const fullyVisibleCards = Math.floor(sliderWidth / cardWidthWithGap);
+      const maxIndex = this.cards.length - fullyVisibleCards - 2.5;
+
       if (direction === "left" && this.currentIndex > 0) {
         this.currentIndex--;
-      } else if (
-        direction === "right" &&
-        this.currentIndex < this.cards.length - 1
-      ) {
+      } else if (direction === "right" && this.currentIndex < maxIndex) {
         this.currentIndex++;
       }
     },

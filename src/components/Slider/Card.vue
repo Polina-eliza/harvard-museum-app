@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     truncatedTitle() {
-      const maxLength = 35;
+      const maxLength = 33;
       if (this.card.title.length > maxLength) {
         return `${this.card.title.substring(0, maxLength)}...`;
       }
