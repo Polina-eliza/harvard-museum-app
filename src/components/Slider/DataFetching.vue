@@ -19,7 +19,13 @@ export default {
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
-          this.cards = data.data;
+          this.cards = data.data.filter(card => {
+            if ('web' in card.images) {
+              return true; 
+            } else {
+              return false; 
+            }
+          });
         })
         .catch((error) => {
           console.error(

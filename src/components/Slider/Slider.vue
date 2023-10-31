@@ -51,8 +51,6 @@ export default {
       ) {
         this.currentIndex++;
       }
-      console.log("Current Index:", this.currentIndex);
-      console.log("Slider Style:", this.sliderStyle);
     },
   },
   computed: {
