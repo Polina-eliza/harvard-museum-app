@@ -40,12 +40,23 @@ export default {
       currentIndex: 0,
     };
   },
+  computed: {
+    sliderWidth() {
+      return this.$refs.slider.clientWidth;
+    },
+    sliderStyle() {
+      const cardWidthWithGap = 500;
+      const offset = this.currentIndex * cardWidthWithGap;
+      return {
+        transform: `translateX(-${offset}px)`,
+      };
+    },
+  },
 
   methods: {
     slide(direction) {
-      const sliderWidth = this.$refs.slider.clientWidth;
       const cardWidthWithGap = 500 + 50;
-      const fullyVisibleCards = Math.floor(sliderWidth / cardWidthWithGap);
+      const fullyVisibleCards = Math.floor(this.sliderWidth / cardWidthWithGap);
       const maxIndex = this.cards.length - fullyVisibleCards - 2.5;
 
       if (direction === "left" && this.currentIndex > 0) {
@@ -53,15 +64,6 @@ export default {
       } else if (direction === "right" && this.currentIndex < maxIndex) {
         this.currentIndex++;
       }
-    },
-  },
-  computed: {
-    sliderStyle() {
-      const cardWidthWithGap = 500;
-      const offset = this.currentIndex * cardWidthWithGap;
-      return {
-        transform: `translateX(-${offset}px)`,
-      };
     },
   },
 };
