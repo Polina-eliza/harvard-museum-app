@@ -92,20 +92,16 @@ export default {
     this.fetchCards();
   },
   methods: {
-    fetchCards() {
+    async fetchCards() {
       const apiUrl = `https://openaccess-api.clevelandart.org/api/artworks/?limit=10`;
+      try{
+        const response = await fetch(apiUrl);
+        const data = await response.json();
 
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          this.cards = data.data.filter((card) => "web" in card.images);
-        })
-        .catch((error) => {
-          console.error(
-            "There was a problem with the fetch operation:",
-            error.message
-          );
-        });
+        this.cards = data.data.filter((card) => "web" in card.images);
+      } catch (error) {
+        console.error("There was a problem with the fetch operation:", error.message);
+      }
     },
   },
 };
