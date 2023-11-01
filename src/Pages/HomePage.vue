@@ -12,6 +12,9 @@
   <div class="container-large ongoing-exhibitions dark-bg">
     <h2 class="ongoing-exhibitions__subheader">what's on</h2>
     <Slider :cards="cards" />
+    <div v-if="error" class="ongoing-exhibitions__error-message">
+    {{ error }}
+  </div>
     <router-link class="btn ongoing-exhibitions__event-link" to="/collections"
       >View all events</router-link
     >
@@ -86,6 +89,7 @@ export default {
   data() {
     return {
       cards: [],
+      error: null
     };
   },
   created() {
@@ -99,6 +103,7 @@ export default {
 
         this.cards = data.data.filter((card) => "web" in card.images);
       } catch (error) {
+        this.error = "There was a problem with the fetch operation.Please Try again later";
         console.error("There was a problem with the fetch operation:", error.message);
       }
     },
