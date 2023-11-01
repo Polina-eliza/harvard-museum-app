@@ -29,10 +29,6 @@ export default {
       return this.card.title;
     },
   },
-
-  mounted() {
-    console.log(this.card);
-  },
 };
 </script>
 
