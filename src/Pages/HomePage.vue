@@ -93,9 +93,8 @@ export default {
   },
   methods: {
     async getCardsForSlider() {
-      const apiUrl = `https://openaccess-api.clevelandart.org/api/artworks/?limit=10`;
       try{
-        const response = await fetch(apiUrl);
+        const response = await fetch(`https://openaccess-api.clevelandart.org/api/artworks/?limit=10`);
         const data = await response.json();
 
         this.cards = data.data.filter((card) => "web" in card.images);
