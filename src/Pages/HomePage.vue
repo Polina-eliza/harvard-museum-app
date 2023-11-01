@@ -89,10 +89,10 @@ export default {
     };
   },
   created() {
-    this.fetchCards();
+    this.getCardsForSlider();
   },
   methods: {
-    async fetchCards() {
+    async getCardsForSlider() {
       const apiUrl = `https://openaccess-api.clevelandart.org/api/artworks/?limit=10`;
       try{
         const response = await fetch(apiUrl);
