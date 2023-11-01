@@ -78,7 +78,6 @@
 import SearchInput from "../components/Search/SearchInput.vue";
 import Slider from "../components/Slider/Slider.vue";
 
-
 export default {
   components: {
     SearchInput,

@@ -1,12 +1,12 @@
 <template>
   <div class="card">
-    <div class="card-img">
+    <div class="card-media">
       <img
-        class="card-img__image"
+        class="card-media__image"
         :src="card.images.web.url"
         :alt="card.title"
       />
-      <div class="card-img__title">{{ truncatedTitle }}</div>
+      <div class="card-media__title">{{ truncatedTitle }}</div>
     </div>
     <a class="card__department" :href="card.url">{{ card.department }}</a>
   </div>
@@ -38,7 +38,7 @@ export default {
 .card {
   width: 500px;
 
-  &-img {
+  &-media {
     position: relative;
 
     &__title {
