@@ -11,11 +11,7 @@
 
   <div class="container-large ongoing-exhibitions dark-bg">
     <h2 class="ongoing-exhibitions__subheader">what's on</h2>
-    <DataFetching>
-      <template #default="{ cards }">
-        <Slider :cards="cards" />
-      </template>
-    </DataFetching>
+    <Slider :cards="cards" />
     <router-link class="btn ongoing-exhibitions__event-link" to="/collections"
       >View all events</router-link
     >
@@ -81,13 +77,37 @@
 <script>
 import SearchInput from "../components/Search/SearchInput.vue";
 import Slider from "../components/Slider/Slider.vue";
-import DataFetching from "../components/Slider/DataFetching.vue";
+
 
 export default {
   components: {
     SearchInput,
     Slider,
-    DataFetching,
+  },
+  data() {
+    return {
+      cards: [],
+    };
+  },
+  created() {
+    this.fetchCards();
+  },
+  methods: {
+    fetchCards() {
+      const apiUrl = `https://openaccess-api.clevelandart.org/api/artworks/?limit=10`;
+
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          this.cards = data.data.filter((card) => "web" in card.images);
+        })
+        .catch((error) => {
+          console.error(
+            "There was a problem with the fetch operation:",
+            error.message
+          );
+        });
+    },
   },
 };
 </script>
