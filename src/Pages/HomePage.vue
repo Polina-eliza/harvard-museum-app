@@ -13,8 +13,8 @@
     <h2 class="ongoing-exhibitions__subheader">what's on</h2>
     <Slider :cards="cards" />
     <div v-if="error" class="ongoing-exhibitions__error-message">
-    {{ error }}
-  </div>
+      {{ error }}
+    </div>
     <router-link class="btn ongoing-exhibitions__event-link" to="/collections"
       >View all events</router-link
     >
@@ -89,7 +89,7 @@ export default {
   data() {
     return {
       cards: [],
-      error: null
+      error: null,
     };
   },
   created() {
@@ -97,14 +97,16 @@ export default {
   },
   methods: {
     async getCardsForSlider() {
-      try{
-        const response = await fetch(`https://openaccess-api.clevelandart.org/api/artworks/?limit=10`);
-        const data = await response.json();
+      try {
+        const response = await fetch(
+          `https://openaccess-api.clevelandart.org/api/artworks/?limit=10`
+        );
+        const { data } = await response.json();
 
-        this.cards = data.data.filter((card) => "web" in card.images);
+        this.cards = data.filter((card) => "web" in card.images);
       } catch (error) {
-        this.error = "There was a problem with the fetch operation.Please Try again later";
-        console.error("There was a problem with the fetch operation:", error.message);
+        this.error =
+          "There was a problem with the fetch operation.Please Try again later";
       }
     },
   },

@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <ul class="navbar__list">
-      <li class="navbar__item"><a href="#">Collections</a></li>
+      <router-link to="/collections"><li class="navbar__item">Collections</li></router-link>
       <li class="navbar__item"><a href="#">Exibition</a></li>
       <li class="navbar__item navbar__item--logo">
         <router-link to="/">
