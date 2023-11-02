@@ -77,15 +77,79 @@
         </select>
       </div>
     </div>
+    <div class="collections-main">
+        <router-link to="/details"><div class="collections-main-card">
+        <img class="collections-main-card__image" :src="ArtImg" alt="" />
+        <div class="collections-main-card__author">Nicolas Poussin</div>
+        <div class="collections-main-card__title">
+          Moses Defending the Daughters of Jethro
+        </div>
+        <div class="collections-main-card__type">Drawing</div>
+        <div class="collections-main-card__technique">
+          Ink and color on silk
+        </div>
+      </div></router-link>
+      <div class="collections-main-card">
+        <img class="collections-main-card__image" :src="ArtImg" alt="" />
+        <div class="collections-main-card__author">Nicolas Poussin</div>
+        <div class="collections-main-card__title">
+          Moses Defending the Daughters of Jethro
+        </div>
+        <div class="collections-main-card__type">Drawing</div>
+        <div class="collections-main-card__technique">
+          Ink and color on silk
+        </div>
+      </div>
+      <div class="collections-main-card">
+        <img class="collections-main-card__image" :src="ArtImg" alt="" />
+        <div class="collections-main-card__author">Nicolas Poussin</div>
+        <div class="collections-main-card__title">
+          Moses Defending the Daughters of Jethro
+        </div>
+        <div class="collections-main-card__type">Drawing</div>
+        <div class="collections-main-card__technique">
+          Ink and color on silk
+        </div>
+      </div>
+      <div class="collections-main-card">
+        <img class="collections-main-card__image" :src="ArtImg" alt="" />
+        <div class="collections-main-card__author">Nicolas Poussin</div>
+        <div class="collections-main-card__title">
+          Moses Defending the Daughters of Jethro
+        </div>
+        <div class="collections-main-card__type">Drawing</div>
+        <div class="collections-main-card__technique">
+          Ink and color on silk
+        </div>
+      </div>
+      <div class="collections-main-card">
+        <img class="collections-main-card__image" :src="ArtImg" alt="" />
+        <div class="collections-main-card__author">Nicolas Poussin</div>
+        <div class="collections-main-card__title">
+          Moses Defending the Daughters of Jethro
+        </div>
+        <div class="collections-main-card__type">Drawing</div>
+        <div class="collections-main-card__technique">
+          Ink and color on silk
+        </div>
+      </div>
+    </div>
+    <button class="collections-main__load-btn">Load More</button>
   </div>
 </template>
 
 <script>
 import SearchInput from "../components/Search/SearchInput.vue";
+import ArtImg from "../assets/17816812.jpeg";
 
 export default {
   components: {
     SearchInput,
+  },
+  data() {
+    return {
+      ArtImg,
+    };
   },
 };
 </script>
@@ -116,8 +180,13 @@ export default {
       text-align: center;
       font-family: $font-family-accent;
       font-size: 16px;
-      border: none;
-      background-color: $color-background-yellow;
+      background-color: transparent;
+      border: 1px solid;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-background-yellow;
+      }
       &:focus + &__dropdown,
       &:hover + &__dropdown {
         display: block;
@@ -189,24 +258,72 @@ export default {
     }
 
     &-loading {
-        font-family: $font-family-accent;
+      font-family: $font-family-accent;
 
-        
-        &__label {
-            
-    margin: 5px;
+      &__label {
+        margin: 5px;
+      }
+
+      &__select {
+        width: 60px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
   }
 
-  &__select {
-    width: 60px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    font-size: 16px;
-    cursor: pointer;
+  &-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
 
-  }
+    &-card {
+      margin-top: 50px;
+      max-width: 4000px;
 
+      &__image {
+        width: 400px;
+      }
+
+      &__author {
+        color: $font-color-body-grey;
+        font-size: 20px;
+      }
+
+      &__title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      &__type {
+        color: $font-color-body-grey;
+        font-size: 18px;
+      }
+
+      &__technique {
+        color: $font-color-body-grey-light;
+        font-size: 16px;
+      }
+    }
+
+    &__load-btn {
+      padding: 10px 20px;
+      text-align: center;
+      font-family: $font-family-accent;
+      font-size: 16px;
+      border: none;
+      background-color: transparent;
+      border: 1px solid;
+      margin: 50px auto 0 auto;
+      display: block;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-background-yellow;
+      }
     }
   }
 }
