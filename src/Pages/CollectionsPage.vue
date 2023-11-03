@@ -89,50 +89,6 @@
           Ink and color on silk
         </div>
       </div></router-link>
-      <div class="collections-main-card">
-        <img class="collections-main-card__image" :src="ArtImg" alt="" />
-        <div class="collections-main-card__author">Nicolas Poussin</div>
-        <div class="collections-main-card__title">
-          Moses Defending the Daughters of Jethro
-        </div>
-        <div class="collections-main-card__type">Drawing</div>
-        <div class="collections-main-card__technique">
-          Ink and color on silk
-        </div>
-      </div>
-      <div class="collections-main-card">
-        <img class="collections-main-card__image" :src="ArtImg" alt="" />
-        <div class="collections-main-card__author">Nicolas Poussin</div>
-        <div class="collections-main-card__title">
-          Moses Defending the Daughters of Jethro
-        </div>
-        <div class="collections-main-card__type">Drawing</div>
-        <div class="collections-main-card__technique">
-          Ink and color on silk
-        </div>
-      </div>
-      <div class="collections-main-card">
-        <img class="collections-main-card__image" :src="ArtImg" alt="" />
-        <div class="collections-main-card__author">Nicolas Poussin</div>
-        <div class="collections-main-card__title">
-          Moses Defending the Daughters of Jethro
-        </div>
-        <div class="collections-main-card__type">Drawing</div>
-        <div class="collections-main-card__technique">
-          Ink and color on silk
-        </div>
-      </div>
-      <div class="collections-main-card">
-        <img class="collections-main-card__image" :src="ArtImg" alt="" />
-        <div class="collections-main-card__author">Nicolas Poussin</div>
-        <div class="collections-main-card__title">
-          Moses Defending the Daughters of Jethro
-        </div>
-        <div class="collections-main-card__type">Drawing</div>
-        <div class="collections-main-card__technique">
-          Ink and color on silk
-        </div>
-      </div>
     </div>
     <button class="collections-main__load-btn">Load More</button>
   </div>
