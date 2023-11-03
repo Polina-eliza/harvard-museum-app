@@ -77,18 +77,27 @@
         </select>
       </div>
     </div>
+
     <div class="collections-main">
-        <router-link to="/details"><div class="collections-main-card">
-        <img class="collections-main-card__image" :src="ArtImg" alt="" />
-        <div class="collections-main-card__author">Nicolas Poussin</div>
-        <div class="collections-main-card__title">
-          Moses Defending the Daughters of Jethro
-        </div>
-        <div class="collections-main-card__type">Drawing</div>
-        <div class="collections-main-card__technique">
-          Ink and color on silk
-        </div>
-      </div></router-link>
+      <router-link to="/details" v-for="artwork in artworks" :key="artwork.id">
+        <div class="collections-main-card">
+          <img
+            class="collections-main-card__image"
+            :src="getImageUrl(artwork.images)"
+            alt=""
+          />
+          <div class="collections-main-card__author">
+            {{ artwork.creators[0].description }}
+          </div>
+          <div class="collections-main-card__title">
+            {{ artwork.title }}
+          </div>
+          <div class="collections-main-card__type">{{ artwork.type }}</div>
+          <div class="collections-main-card__technique">
+            {{ artwork.technique }}
+          </div>
+        </div></router-link
+      >
     </div>
     <button class="collections-main__load-btn">Load More</button>
   </div>
@@ -104,8 +113,29 @@ export default {
   },
   data() {
     return {
-      ArtImg,
+      artworks: [],
     };
+  },
+  created() {
+    this.getCardsForCollections();
+  },
+  methods: {
+    async getCardsForCollections() {
+      try {
+        const response = await fetch(
+          `https://openaccess-api.clevelandart.org/api/artworks?limit=50`
+        );
+        const { data } = await response.json();
+        this.artworks = data.filter(
+          (artwork) => artwork.images && "web" in artwork.images
+        );
+      } catch (error) {
+        console.error("Error fetching artworks:", error);
+      }
+    },
+    getImageUrl(images) {
+      return images?.web?.url || "";
+    },
   },
 };
 </script>
@@ -238,7 +268,7 @@ export default {
 
     &-card {
       margin-top: 50px;
-      max-width: 4000px;
+      max-width: 400px;
 
       &__image {
         width: 400px;
