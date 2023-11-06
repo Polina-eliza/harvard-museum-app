@@ -78,7 +78,7 @@
       </div>
     </div>
 
-    <div class="collections-main">
+    <main class="collections-main">
       <router-link to="/details" v-for="artwork in artworks" :key="artwork.id">
         <div class="collections-main-card">
           <img
@@ -98,7 +98,7 @@
           </div>
         </div></router-link
       >
-    </div>
+    </main>
     <button class="collections-main__load-btn">Load More</button>
   </div>
 </template>
