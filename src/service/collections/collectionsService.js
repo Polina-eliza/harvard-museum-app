@@ -1,4 +1,5 @@
-import ArtworkApi from '../api/ArtworkApi';
+import ArtworkApi from '../../api/collections/collectionsApi';
+import DefaultImg from '../../assets/17816812.jpeg'; 
 
 export default {
   async getArtworksForCollections() {
@@ -7,4 +8,12 @@ export default {
       (artwork) => artwork.images && "web" in artwork.images
     );
   },
+  getImageUrl(images) {
+    if (images && images.web && images.web.url) {
+      return images.web.url;
+    } else {
+      return DefaultImg;
+    }
+  }
+  
 };

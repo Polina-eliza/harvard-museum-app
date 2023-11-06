@@ -68,9 +68,11 @@
 
 <script>
 import SearchInput from "../components/Search/SearchInput.vue";
-import DefaultImg from "../assets/17816812.jpeg";
 import FilterDropdown from '../components/Dropdown/FilterDropdown.vue';
 import { getFilteredArtworks } from '../service/artworks/artworksService';
+import CollectionsService from '../service/collections/collectionsService.js';
+import DefaultImg from "../assets/17816812.jpeg"
+
 
 export default {
   components: {
@@ -95,11 +97,7 @@ export default {
     }
   },
     getImageUrl(images) {
-      if (images && images.web && images.web.url) {
-      return images.web.url;
-    } else {
-      return DefaultImg;
-    }
+      return CollectionsService.getImageUrl(images);
     },
   },
 };
