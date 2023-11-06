@@ -1,7 +1,7 @@
 <template>
   <div class="container-midi accent-bg collections-hero">
-    <h1 class="collections-hero__header">Collections</h1>
-    <h2 class="collections-hero__subheader">Browse through our art objects</h2>
+    <h2 class="collections-hero__header">Collections</h2>
+    <h3 class="collections-hero__subheader">Browse through our art objects</h3>
   </div>
 
   <div class="container-midi dark-bg">
@@ -149,8 +149,14 @@ export default {
   flex-direction: column;
   padding: 70px 0 10px 0;
 
+  &__header {
+    font-size: 90px;
+  line-height: 80px;
+  }
+
   &__subheader {
     margin-top: 35px;
+    font-size: 40px;
   }
 }
 .collections {
@@ -160,6 +166,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     padding-top: 20px;
+    
 
     &__filter-btn {
       padding: 10px 20px;
