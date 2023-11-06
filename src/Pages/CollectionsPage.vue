@@ -47,7 +47,7 @@
           <img
             class="collections-main-card__image"
             :src="getImageUrl(artwork.images)"
-            alt=""
+            :alt="artwork.title"
           />
           <div class="collections-main-card__author">
             {{ artwork.creators[0].description }}
@@ -68,13 +68,14 @@
 
 <script>
 import SearchInput from "../components/Search/SearchInput.vue";
-import ArtImg from "../assets/17816812.jpeg";
+import DefaultImg from "../assets/17816812.jpeg";
 import FilterDropdown from '../components/Dropdown/FilterDropdown.vue'
 
 export default {
   components: {
     SearchInput,
-    FilterDropdown
+    FilterDropdown,
+    DefaultImg
   },
   data() {
     return {
@@ -99,7 +100,11 @@ export default {
       }
     },
     getImageUrl(images) {
-      return images?.web?.url || "";
+      if (images && images.web && images.web.url) {
+      return images.web.url;
+    } else {
+      return DefaultImg;
+    }
     },
   },
 };
