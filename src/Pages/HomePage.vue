@@ -80,7 +80,7 @@
 <script>
 import SearchInput from "../components/Search/SearchInput.vue";
 import Slider from "../components/Slider/Slider.vue";
-import { getArtworks } from "../api/artworksAPI.js";
+import { getArtworks } from "../api/artworks/artworksAPI.js";
 
 export default {
   components: {
