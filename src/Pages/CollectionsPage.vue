@@ -9,16 +9,24 @@
   </div>
 
   <div class="container-midi light-bg collections">
-    <div class="collections-header">
-      <div class="collections-header__filter-btn">Filter</div>
+    <form class="collections-header">
+      <button type="button" class="collections-header__filter-btn">
+        Filter
+      </button>
       <div class="collections-header__dropdown">
         <div class="collections-header__dropdown-item">
-          <button class="collections-header__dropdown-toggle">
+          <button type="button" class="collections-header__dropdown-toggle">
             Classification
           </button>
           <ul class="collections-header__dropdown-list">
             <li class="collections-header__dropdown-checkbox">
-              <input type="checkbox" /> Accessories
+              <input
+                type="checkbox"
+                name="classification"
+                value="Accessories"
+                id="accessories"
+              />
+              <label for="accessories">Accessories</label>
             </li>
           </ul>
         </div>
@@ -28,7 +36,13 @@
           </button>
           <ul class="collections-header__dropdown-list">
             <li class="collections-header__dropdown-checkbox">
-              <input type="checkbox" /> Accessories
+              <input
+                type="checkbox"
+                name="classification"
+                value="Accessories"
+                id="accessories"
+              />
+              <label for="accessories">Accessories</label>
             </li>
           </ul>
         </div>
@@ -38,7 +52,13 @@
           </button>
           <ul class="collections-header__dropdown-list">
             <li class="collections-header__dropdown-checkbox">
-              <input type="checkbox" /> Accessories
+              <input
+                type="checkbox"
+                name="classification"
+                value="Accessories"
+                id="accessories"
+              />
+              <label for="accessories">Accessories</label>
             </li>
           </ul>
         </div>
@@ -48,12 +68,19 @@
           </button>
           <ul class="collections-header__dropdown-list">
             <li class="collections-header__dropdown-checkbox">
-              <input type="checkbox" /> Accessories
+              <input
+                type="checkbox"
+                name="classification"
+                value="Accessories"
+                id="accessories"
+              />
+              <label for="accessories">Accessories</label>
             </li>
           </ul>
         </div>
       </div>
       <div class="collections-header-loading">
+
         <label class="collections-header-loading__label" for="loadAmount"
           >Load Amount</label
         >
@@ -76,7 +103,7 @@
           </option>
         </select>
       </div>
-    </div>
+    </form>
 
     <main class="collections-main">
       <router-link to="/details" v-for="artwork in artworks" :key="artwork.id">
@@ -99,7 +126,7 @@
         </div></router-link
       >
     </main>
-    <button class="collections-main__load-btn">Load More</button>
+    <button type="submit" class="collections-main__load-btn">Load More</button>
   </div>
 </template>
 
@@ -151,7 +178,7 @@ export default {
 
   &__header {
     font-size: 90px;
-  line-height: 80px;
+    line-height: 80px;
   }
 
   &__subheader {
@@ -166,7 +193,6 @@ export default {
     align-items: center;
     justify-content: space-between;
     padding-top: 20px;
-    
 
     &__filter-btn {
       padding: 10px 20px;
