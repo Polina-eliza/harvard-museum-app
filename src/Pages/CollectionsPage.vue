@@ -10,7 +10,7 @@
 
   <div class="container-midi light-bg collections">
     <div class="collections-header">
-      <button class="collections-header__filter-btn">Filter</button>
+      <div class="collections-header__filter-btn">Filter</div>
       <div class="collections-header__dropdown">
         <div class="collections-header__dropdown-item">
           <button class="collections-header__dropdown-toggle">
