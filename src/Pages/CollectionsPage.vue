@@ -69,13 +69,14 @@
 <script>
 import SearchInput from "../components/Search/SearchInput.vue";
 import DefaultImg from "../assets/17816812.jpeg";
-import FilterDropdown from '../components/Dropdown/FilterDropdown.vue'
+import FilterDropdown from '../components/Dropdown/FilterDropdown.vue';
+import { getFilteredArtworks } from '../service/artworks/artworksService';
 
 export default {
   components: {
     SearchInput,
     FilterDropdown,
-    DefaultImg
+    DefaultImg,
   },
   data() {
     return {
@@ -87,18 +88,12 @@ export default {
   },
   methods: {
     async getCardsForCollections() {
-      try {
-        const response = await fetch(
-          `https://openaccess-api.clevelandart.org/api/artworks?limit=50`
-        );
-        const { data } = await response.json();
-        this.artworks = data.filter(
-          (artwork) => artwork.images && "web" in artwork.images
-        );
-      } catch (error) {
-        console.error("Error fetching artworks:", error);
-      }
-    },
+    try {
+      this.artworks = await getFilteredArtworks();
+    } catch (error) {
+      console.error("Error fetching artworks:", error);
+    }
+  },
     getImageUrl(images) {
       if (images && images.web && images.web.url) {
       return images.web.url;
