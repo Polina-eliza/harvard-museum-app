@@ -13,7 +13,7 @@
       <button type="button" class="collections-header__filter-btn">
         Filter
       </button>
-      <Dropdown />
+      <FilterDropdown />
    
       <div class="collections-header-loading">
 
@@ -69,12 +69,12 @@
 <script>
 import SearchInput from "../components/Search/SearchInput.vue";
 import ArtImg from "../assets/17816812.jpeg";
-import Dropdown from '../components/Dropdown/Dropdown.vue'
+import FilterDropdown from '../components/Dropdown/FilterDropdown.vue'
 
 export default {
   components: {
     SearchInput,
-    Dropdown
+    FilterDropdown
   },
   data() {
     return {
