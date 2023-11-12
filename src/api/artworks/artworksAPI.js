@@ -26,3 +26,4 @@ class ArtworksAPI {
 
 const api = new ArtworksAPI('https://openaccess-api.clevelandart.org');
 export default ArtworksAPI;
+

@@ -1,13 +1,12 @@
-import api from "../../api/artworks/artworksAPI";
+import ArtworksAPI from '../../api/artworks/artworksAPI'; 
 
+const api = new ArtworksAPI('https://openaccess-api.clevelandart.org');
 
-
-export const processArtworksData = async () => {
-  try {
-      const filteredArtworks = await api.getFilteredArtworks();
-      
-      return filteredArtworks;
-  } catch (error) {
-      throw error;
-  }
+export const getFilteredArtworks = async () => {
+    try {
+        const filteredArtworks = await api.getFilteredArtworks();
+        return filteredArtworks;
+    } catch (error) {
+        throw error;
+    }
 };
