@@ -78,8 +78,8 @@
 </template>
 
 <script>
-import SearchInput from "../components/Search/SearchInput.vue";
-import Slider from "../components/Slider/Slider.vue";
+import SearchInput from "@components/Search/SearchInput.vue";
+import Slider from "@components/Slider/Slider.vue";
 import { getFilteredArtworks } from "../service/artworks/artworksService.js";
 
 export default {
