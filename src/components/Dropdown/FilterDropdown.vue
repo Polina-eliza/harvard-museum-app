@@ -9,7 +9,6 @@
               <input
                 type="checkbox"
                 name="classification"
-                value="Accessories"
                 id="accessories"
               />
               <label for="accessories">Accessories</label>
@@ -18,7 +17,6 @@
               <input
                 type="checkbox"
                 name="classification"
-                value="Accessories"
                 id="accessories"
               />
               <label for="accessories">Accessories</label>
@@ -27,7 +25,6 @@
               <input
                 type="checkbox"
                 name="classification"
-                value="Accessories"
                 id="accessories"
               />
               <label for="accessories">Accessories</label>
@@ -43,7 +40,6 @@
               <input
                 type="checkbox"
                 name="classification"
-                value="Accessories"
                 id="accessories"
               />
               <label for="accessories">Accessories</label>
@@ -59,7 +55,6 @@
               <input
                 type="checkbox"
                 name="classification"
-                value="Accessories"
                 id="accessories"
               />
               <label for="accessories">Accessories</label>
@@ -75,7 +70,6 @@
               <input
                 type="checkbox"
                 name="classification"
-                value="Accessories"
                 id="accessories"
               />
               <label for="accessories">Accessories</label>
