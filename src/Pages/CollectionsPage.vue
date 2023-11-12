@@ -21,20 +21,19 @@
           >Load Amount</label
         >
         <select class="collections-header-loading__select" id="loadAmount">
-          <option class="collections-header-loading__select-option" value="12">
+          <option class="collections-header-loading__select-option">
             12
           </option>
-          <option class="collections-header-loading__select-option" value="24">
+          <option class="collections-header-loading__select-option">
             24
           </option>
           <option
             class="collections-header-loading__select-option"
-            value="48"
             selected
           >
             48
           </option>
-          <option class="collections-header-loading__select-option" value="100">
+          <option class="collections-header-loading__select-option">
             100
           </option>
         </select>
