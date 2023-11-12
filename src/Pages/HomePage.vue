@@ -80,7 +80,7 @@
 <script>
 import SearchInput from "@components/Search/SearchInput.vue";
 import Slider from "@components/Slider/Slider.vue";
-import { getFilteredArtworks } from "../service/artworks/artworksService.js";
+import { processArtworksData } from "../service/artworks/artworksService.js";
 
 export default {
   components: {
@@ -94,12 +94,12 @@ export default {
     };
   },
   created() {
-    this.getCardsForSlider();
+    this.processArtworksData();
   },
   methods: {
-    async getCardsForSlider() {
+    async processArtworksData() {
       try {
-        this.cards = await getFilteredArtworks();
+        this.cards = await processArtworksData();
       } catch (error) {
         this.error = error.message;
       }
