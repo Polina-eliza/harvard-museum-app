@@ -10,18 +10,9 @@
 
   <div class="container-midi light-bg collections">
     <form class="collections-header">
-      <button
-        type="button"
-        class="collections-header__filter-btn"
-        @submit.prevent="collectionsFilter"
-      >
-        Filter
-      </button>
-      <FilterDropdown />
-
       <div class="collections-header-loading">
         <label class="collections-header-loading__label">Load Amount</label>
-        <select class="collections-header-loading__select">
+        <select class="collections-header-loading__select" v-model="selectedLoadAmount">
           <option class="collections-header-loading__select-option">12</option>
           <option class="collections-header-loading__select-option">24</option>
           <option class="collections-header-loading__select-option" selected>
@@ -59,28 +50,32 @@
 
 <script>
 import SearchInput from "@components/Search/SearchInput.vue";
-import FilterDropdown from "@components/Dropdown/FilterDropdown.vue";
 import CollectionsService from "../service/collections/collectionsService.js";
 import DefaultImg from "../assets/17816812.jpeg";
 
 export default {
   components: {
     SearchInput,
-    FilterDropdown,
     DefaultImg,
   },
   data() {
     return {
       artworks: [],
+      selectedLoadAmount: 12,
     };
   },
   created() {
-    this.getCardsForCollections();
+    this.getCardsForCollections(this.selectedLoadAmount);
+  },
+  watch: {
+    selectedLoadAmount(newVal) {
+      this.getCardsForCollections(newVal);
+    },
   },
   methods: {
-    async getCardsForCollections() {
+    async getCardsForCollections(amount) {
       try {
-        this.artworks = await CollectionsService.getArtworksForCollections();
+        this.artworks = await CollectionsService.getArtworksForCollections(amount);
       } catch (error) {
         console.error("Error fetching artworks:", error);
       }
@@ -88,7 +83,10 @@ export default {
     getImageUrl(images) {
       return CollectionsService.getImageUrl(images);
     },
-    collectionsFilter() {},
+    toggleDropdown() {
+      this.isDropdownVisible = !this.isDropdownVisible;
+    },
+    
   },
 };
 </script>
