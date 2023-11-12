@@ -10,32 +10,24 @@
 
   <div class="container-midi light-bg collections">
     <form class="collections-header">
-      <button type="button" class="collections-header__filter-btn" @submit.prevent="collectionsFilter">
+      <button
+        type="button"
+        class="collections-header__filter-btn"
+        @submit.prevent="collectionsFilter"
+      >
         Filter
       </button>
       <FilterDropdown />
-   
-      <div class="collections-header-loading">
 
-        <label class="collections-header-loading__label"
-          >Load Amount</label
-        >
+      <div class="collections-header-loading">
+        <label class="collections-header-loading__label">Load Amount</label>
         <select class="collections-header-loading__select">
-          <option class="collections-header-loading__select-option">
-            12
-          </option>
-          <option class="collections-header-loading__select-option">
-            24
-          </option>
-          <option
-            class="collections-header-loading__select-option"
-            selected
-          >
+          <option class="collections-header-loading__select-option">12</option>
+          <option class="collections-header-loading__select-option">24</option>
+          <option class="collections-header-loading__select-option" selected>
             48
           </option>
-          <option class="collections-header-loading__select-option">
-            100
-          </option>
+          <option class="collections-header-loading__select-option">100</option>
         </select>
       </div>
     </form>
@@ -67,11 +59,10 @@
 
 <script>
 import SearchInput from "../components/Search/SearchInput.vue";
-import FilterDropdown from '../components/Dropdown/FilterDropdown.vue';
-import { getFilteredArtworks } from '../service/artworks/artworksService';
-import CollectionsService from '../service/collections/collectionsService.js';
-import DefaultImg from "../assets/17816812.jpeg"
-
+import FilterDropdown from "../components/Dropdown/FilterDropdown.vue";
+import { getFilteredArtworks } from "../service/artworks/artworksService";
+import CollectionsService from "../service/collections/collectionsService.js";
+import DefaultImg from "../assets/17816812.jpeg";
 
 export default {
   components: {
@@ -89,18 +80,16 @@ export default {
   },
   methods: {
     async getCardsForCollections() {
-    try {
-      this.artworks = await getFilteredArtworks();
-    } catch (error) {
-      console.error("Error fetching artworks:", error);
-    }
-  },
+      try {
+        this.artworks = await getFilteredArtworks();
+      } catch (error) {
+        console.error("Error fetching artworks:", error);
+      }
+    },
     getImageUrl(images) {
       return CollectionsService.getImageUrl(images);
     },
-    collectionsFilter() {
-
-    }
+    collectionsFilter() {},
   },
 };
 </script>
