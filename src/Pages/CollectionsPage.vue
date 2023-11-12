@@ -12,7 +12,10 @@
     <form class="collections-header">
       <div class="collections-header-loading">
         <label class="collections-header-loading__label">Load Amount</label>
-        <select class="collections-header-loading__select" v-model="selectedLoadAmount">
+        <select
+          class="collections-header-loading__select"
+          v-model="selectedLoadAmount"
+        >
           <option class="collections-header-loading__select-option">12</option>
           <option class="collections-header-loading__select-option">24</option>
           <option class="collections-header-loading__select-option" selected>
@@ -44,41 +47,45 @@
         </div></router-link
       >
     </main>
-    <button type="submit" class="collections-main__load-btn">Load More</button>
+    <button type="submit" @click="loadMore" class="collections-main__load-btn">
+      Load More
+    </button>
   </div>
 </template>
 
 <script>
 import SearchInput from "@components/Search/SearchInput.vue";
 import CollectionsService from "../service/collections/collectionsService.js";
-import DefaultImg from "../assets/17816812.jpeg";
 
 export default {
   components: {
     SearchInput,
-    DefaultImg,
   },
   data() {
     return {
       artworks: [],
       selectedLoadAmount: 12,
+      currentPage: 1,
     };
   },
   created() {
-    this.getCardsForCollections(this.selectedLoadAmount);
-  },
-  watch: {
-    selectedLoadAmount(newVal) {
-      this.getCardsForCollections(newVal);
-    },
+    this.getCardsForCollections(this.selectedLoadAmount, this.currentPage);
   },
   methods: {
-    async getCardsForCollections(amount) {
+    async getCardsForCollections(amount, page) {
       try {
-        this.artworks = await CollectionsService.getArtworksForCollections(amount);
+        const newArtworks = await CollectionsService.getArtworksForCollections(
+          amount,
+          page
+        );
+        this.artworks = [...this.artworks, ...newArtworks];
       } catch (error) {
         console.error("Error fetching artworks:", error);
       }
+    },
+    loadMore() {
+      this.currentPage++;
+      this.getCardsForCollections(this.selectedLoadAmount, this.currentPage);
     },
     getImageUrl(images) {
       return CollectionsService.getImageUrl(images);
@@ -86,7 +93,6 @@ export default {
     toggleDropdown() {
       this.isDropdownVisible = !this.isDropdownVisible;
     },
-    
   },
 };
 </script>
