@@ -19,20 +19,21 @@
 export default {
   data() {
     return {
-      dropdownItems: [
+   
+    };
+  },
+  dropdownItems: [
         {
           title: 'Classification',
           name: 'classification',
-          type: ['']
+          options: ['Option1', 'Option2']
         },
         {
           title: 'Department',
           name: 'department',
-          type: ['']
+          options: ['Option1', 'Option2']
         },
 
       ]
-    };
-  }
 };
 </script>
