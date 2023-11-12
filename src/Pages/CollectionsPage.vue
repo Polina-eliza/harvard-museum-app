@@ -60,9 +60,11 @@
 <script>
 import SearchInput from "../components/Search/SearchInput.vue";
 import FilterDropdown from "../components/Dropdown/FilterDropdown.vue";
-import { getFilteredArtworks } from "../service/artworks/artworksService";
 import CollectionsService from "../service/collections/collectionsService.js";
 import DefaultImg from "../assets/17816812.jpeg";
+
+
+
 
 export default {
   components: {
@@ -81,7 +83,7 @@ export default {
   methods: {
     async getCardsForCollections() {
       try {
-        this.artworks = await getFilteredArtworks();
+        this.artworks = await CollectionsService.getArtworksForCollections();
       } catch (error) {
         console.error("Error fetching artworks:", error);
       }
