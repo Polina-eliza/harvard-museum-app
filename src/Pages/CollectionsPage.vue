@@ -58,13 +58,10 @@
 </template>
 
 <script>
-import SearchInput from "../components/Search/SearchInput.vue";
-import FilterDropdown from "../components/Dropdown/FilterDropdown.vue";
+import SearchInput from "@components/Search/SearchInput.vue";
+import FilterDropdown from "@components/Dropdown/FilterDropdown.vue";
 import CollectionsService from "../service/collections/collectionsService.js";
 import DefaultImg from "../assets/17816812.jpeg";
-
-
-
 
 export default {
   components: {
