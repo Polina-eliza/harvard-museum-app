@@ -10,7 +10,7 @@
 
   <div class="container-midi light-bg collections">
     <form class="collections-header">
-      <button type="button" class="collections-header__filter-btn">
+      <button type="button" class="collections-header__filter-btn" @submit.prevent="collectionsFilter">
         Filter
       </button>
       <FilterDropdown />
@@ -98,6 +98,9 @@ export default {
     getImageUrl(images) {
       return CollectionsService.getImageUrl(images);
     },
+    collectionsFilter() {
+      
+    }
   },
 };
 </script>
