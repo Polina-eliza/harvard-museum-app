@@ -17,10 +17,10 @@
    
       <div class="collections-header-loading">
 
-        <label class="collections-header-loading__label" for="loadAmount"
+        <label class="collections-header-loading__label"
           >Load Amount</label
         >
-        <select class="collections-header-loading__select" id="loadAmount">
+        <select class="collections-header-loading__select">
           <option class="collections-header-loading__select-option">
             12
           </option>
@@ -99,7 +99,7 @@ export default {
       return CollectionsService.getImageUrl(images);
     },
     collectionsFilter() {
-      
+
     }
   },
 };
