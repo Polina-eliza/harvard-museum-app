@@ -47,7 +47,7 @@
         </div></router-link
       >
     </main>
-    <button type="submit" @click="loadMore" class="collections-main__load-btn">
+    <button type="submit" @click="loadMoreArtworks" class="collections-main__load-btn">
       Load More
     </button>
   </div>
@@ -83,7 +83,7 @@ export default {
         console.error("Error fetching artworks:", error);
       }
     },
-    loadMore() {
+    loadMoreArtworks() {
       this.currentPage++;
       this.getCardsForCollections(this.selectedLoadAmount, this.currentPage);
     },

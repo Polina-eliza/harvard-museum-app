@@ -4,7 +4,7 @@
   
       <div class="art-details-hero">
         <img class="art-details-hero__image" :src="DefaultImg" alt="" />
-        <div class="art-details-hero__id">160729</div>
+        <div class="art-details-hero__id">{{ artworkId }}</div>
         <div class="art-details-hero__accession-number">1998.78.14</div>
       </div>
       <hr />
@@ -115,8 +115,22 @@
     data() {
       return {
         DefaultImg,
+        artworkId: null,
+        error: null,
       };
     },
+    async created() {
+    try {
+      const response = await fetch('https://openaccess-api.clevelandart.org/api/artworks/?q=song%20xu&skip=2&limit=1&indent=1');
+      if (!response.ok) {
+        throw new Error(`The error with API fetching: ${response.status}`);
+      }
+      const data = await response.json();
+      this.artworkId = data.data[0].id;
+    } catch (error) {
+      this.error = error.message;
+    }
+    }
   };
   </script>
   
