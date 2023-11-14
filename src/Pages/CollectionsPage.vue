@@ -44,10 +44,14 @@
           <div class="collections-main-card__technique">
             {{ artwork.technique }}
           </div>
-        </div></router-link
-      >
+        </div>
+      </router-link>
     </main>
-    <button type="submit" @click="loadMoreArtworks" class="collections-main__load-btn">
+    <button
+      type="submit"
+      @click="loadMoreArtworks"
+      class="collections-main__load-btn"
+    >
       Load More
     </button>
   </div>
