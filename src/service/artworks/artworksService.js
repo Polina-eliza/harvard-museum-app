@@ -7,9 +7,10 @@ export class ArtworksService {
 
   async getFilteredArtworks() {
     try {
-      return await this.api.getFilteredArtworks();
+      const artworks = await this.api.getArtworks();
+      return artworks.filter((card) => "web" in card.images);
     } catch (error) {
-      throw error;
+      throw new Error("Error in ArtworksService: " + error.message);
     }
   }
 }
