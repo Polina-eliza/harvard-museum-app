@@ -3,7 +3,7 @@
       <router-link class="art-details__btn" to="/collections">Back </router-link>
   
       <div class="art-details-hero">
-        <img class="art-details-hero__image" :src="DefaultImg" alt="artwork" />
+        <img class="art-details-hero__image" :src="defaultImg" alt="artwork" />
         <div class="art-details-hero__id">{{ artworkId }}</div>
         <div class="art-details-hero__accession-number">1998.78.14</div>
       </div>
@@ -112,9 +112,9 @@
   import DefaultImg from "../assets/17816812.jpeg";
   
   export default {
+    defaultImg: DefaultImg,
     data() {
       return {
-        DefaultImg,
         artworkId: null,
         error: null,
       };
