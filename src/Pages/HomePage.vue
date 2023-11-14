@@ -80,7 +80,7 @@
 <script>
 import SearchInput from "@components/Search/SearchInput.vue";
 import Slider from "@components/Slider/Slider.vue";
-import { getFilteredArtworks } from "../service/artworks/artworksService.js";
+import { ArtworksService } from "../service/artworks/artworksService.js";
 
 export default {
   components: {
@@ -91,6 +91,7 @@ export default {
     return {
       cards: [],
       error: null,
+      artworksService: new ArtworksService(),
     };
   },
   created() {
@@ -99,7 +100,7 @@ export default {
   methods: {
     async getCardsForSlider() {
       try {
-        this.cards = await getFilteredArtworks();
+        this.cards = await this.artworksService.getFilteredArtworks();
       } catch (error) {
         this.error = error.message;
       }
