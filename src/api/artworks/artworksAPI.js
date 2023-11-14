@@ -14,15 +14,6 @@ class ArtworksAPI {
       );
     }
   }
-  async getFilteredArtworks() {
-    try {
-      const { data: artworks } = await this.getArtworks();
-      const filteredArtworks = artworks.filter((card) => "web" in card.images);
-      return filteredArtworks;
-    } catch (error) {
-      throw error;
-    }
-  }
 }
 
 const api = new ArtworksAPI("https://openaccess-api.clevelandart.org");
