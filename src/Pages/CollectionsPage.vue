@@ -27,7 +27,7 @@
     </form>
 
     <main class="collections-main">
-      <router-link to="/details" v-for="artwork in artworks" :key="artwork.id">
+      <router-link :to="`/details/${artwork.id}`" v-for="artwork in artworks" :key="artwork.id">
         <div class="collections-main-card">
           <img
             class="collections-main-card__image"

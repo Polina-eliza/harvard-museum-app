@@ -17,3 +17,5 @@ class ArtworksAPI {
 }
 
 export default ArtworksAPI;
+
+

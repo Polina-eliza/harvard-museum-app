@@ -3,9 +3,9 @@
       <router-link class="art-details__btn" to="/collections">Back </router-link>
   
       <div class="art-details-hero">
-        <img class="art-details-hero__image" :src="defaultImg" alt="artwork" />
+        <img class="art-details-hero__image" :src="imageURL" :alt="imageAlt" />
         <div class="art-details-hero__id">{{ artworkId }}</div>
-        <div class="art-details-hero__accession-number">1998.78.14</div>
+        <div class="art-details-hero__accession-number">{{ accessionNumber }}</div>
       </div>
       <hr />
   
@@ -16,23 +16,23 @@
         <div class="art-details-identification-content">
           <div class="art-details-identification-content__title">
             <p class="accent-subtitle">Title</p>
-            <p class="">Baoyang Lake</p>
+            <p class="">{{ artworkTitle }}</p>
           </div>
           <div class="art-details-identification-content__creator">
             <p class="accent-subtitle">Creator</p>
-            <p>Song Xu (Chinese, 1525-c. 1606)</p>
+            <p>{{ artworkCreator }}</p>
           </div>
           <div class="art-details-identification-content__date">
             <p class="accent-subtitle">Date</p>
-            <p>1525</p>
+            <p>{{ artworkDate }}</p>
           </div>
           <div class="art-details-identification-content__classification">
             <p class="accent-subtitle">Classification</p>
-            <p>Painting</p>
+            <p>{{ artworkType }}</p>
           </div>
           <div class="art-details-identification-content__culture">
             <p class="accent-subtitle">Culture</p>
-            <p>China, Jiaxing, 16th century</p>
+            <p>{{ artworkCulture }}</p>
           </div>
         </div>
       </section>
@@ -44,27 +44,16 @@
         <div class="art-details-description-content">
           <div class="art-details-description-content__technique">
             <p class="accent-subtitle">Technique</p>
-            <p>album; ink and color on silk</p>
+            <p>{{ artworkTechnique }}</p>
           </div>
           <div class="art-details-description-content__dimensions">
             <p class="accent-subtitle">Dimensions</p>
-            <p>Sheet: 26.4 x 28.4 cm (10 3/8 x 11 3/16 in.)</p>
+            <p>{{ artworkDimensions }}</p>
           </div>
           <div class="art-details-description-content__full-descr">
             <p class="accent-subtitle">Description</p>
             <p>
-              This album of landscape paintings depicts the famous scenic areas
-              located in and around the city of Wuxing in southeastern China. The
-              artist, Song Xu, was not a native of that city, but must have
-              visited it when he accepted the commission, for he carefully
-              depicted all eighteen views and wrote comments on each of them.
-              These places were all known for their natural beauty, but in
-              addition, a number were distingusihed by their links to eminent
-              historical figures and events. Unlike other artists of his time,
-              Song Xu favored a painting style that was technically polished and
-              focused attention on specific, realistic details. Such an approach
-              was well suited to projects like this one, for which the artist was
-              in great demand.
+              {{ artworkDesc }}
             </p>
           </div>
         </div>
@@ -77,31 +66,25 @@
         <div class="art-details-author-content">
           <div class="art-details-author-content__name">
             <p class="accent-subtitle">Name</p>
-            <p>Song Xu (Chinese, 1525-c. 1606)</p>
+            <p>{{ artistName }}</p>
           </div>
           <div class="art-details-author-content__role">
             <p class="accent-subtitle">Role</p>
-            <p>artist</p>
+            <p>{{ artistRole }}</p>
           </div>
           <div class="art-details-author-content__bibliography">
-            <p class="accent-subtitle">Bibliography</p>
+            <p class="accent-subtitle">Biography</p>
             <p>
-              Song Xu (\u5b8b\u65ed, 1525-c. 1606), was a versatile Chinese
-              painter active in northern Zhejiang and Jiangsu provinces. He was
-              skilled in landscapes, boundary paintings (\u754c\u756b, paintings
-              of architecture), figure painting, and Buddhist painting. Although
-              born a commoner, he also cultivated the literati arts of poetry and
-              calligraphy. He studied Chan Buddhism and eventually became a
-              Buddhist priest himself.
+             {{ artistBibliography }}
             </p>
           </div>
           <div class="art-details-author-content__birth-year">
             <p class="accent-subtitle">Date of Birth</p>
-            <p>1524</p>
+            <p>{{ artistBirth }}</p>
           </div>
           <div class="art-details-author-content__death-year">
             <p class="accent-subtitle">Date of Death</p>
-            <p>1609</p>
+            <p>{{ artistDeath }}</p>
           </div>
         </div>
       </section>
@@ -109,29 +92,24 @@
   </template>
   
   <script>
-  import DefaultImg from "../assets/17816812.jpeg";
+  import ArtworkDetailsService from "../api/artworkDetails/artworkDetailsApi";
+
   
   export default {
-    defaultImg: DefaultImg,
     data() {
       return {
-        artworkId: null,
-        error: null,
+       error: null,
+       artworkDetails: {},
       };
     },
     async created() {
-    try {
-      const response = await fetch('https://openaccess-api.clevelandart.org/api/artworks/?q=song%20xu&skip=2&limit=1&indent=1');
-      if (!response.ok) {
-        throw new Error(`The error with API fetching: ${response.status}`);
-      }
-      const data = await response.json();
-      this.artworkId = data.data[0].id;
-    } catch (error) {
-      this.error = error.message;
+        const artworkId = this.$route.params.artworkId;
+        this.artworkDetails = await ArtworkDetailsService.getArtworkDetails(artworkId);
+        if (!this.artworkDetails) {
+            this.error = "Error fetching artwork details";
+        }
     }
-    }
-  };
+};
   </script>
   
   <style lang="scss">
