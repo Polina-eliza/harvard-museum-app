@@ -47,7 +47,7 @@
         </div></router-link
       >
     </main>
-    <button @click="loadMoreArtworks" class="collections-main__load-btn">
+    <button type="submit" @click="loadMoreArtworks" class="collections-main__load-btn">
       Load More
     </button>
   </div>
@@ -69,14 +69,14 @@ export default {
     };
   },
   created() {
-    this.getCardsForCollections(this.selectedLoadAmount, this.currentPage);
+    this.getCardsForCollections();
   },
   methods: {
-    async getCardsForCollections(amount, page) {
+    async getCardsForCollections() {
       try {
         const newArtworks = await CollectionsService.getArtworksForCollections(
-          amount,
-          page
+          this.selectedLoadAmount,
+          this.currentPage
         );
         this.artworks = [...this.artworks, ...newArtworks];
       } catch (error) {
@@ -85,7 +85,7 @@ export default {
     },
     loadMoreArtworks() {
       this.currentPage++;
-      this.getCardsForCollections(this.selectedLoadAmount, this.currentPage);
+      this.getCardsForCollections();
     },
     getImageUrl(images) {
       return CollectionsService.getImageUrl(images);
