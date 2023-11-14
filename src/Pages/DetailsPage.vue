@@ -3,7 +3,7 @@
       <router-link class="art-details__btn" to="/collections">Back </router-link>
   
       <div class="art-details-hero">
-        <img class="art-details-hero__image" :src="DefaultImg" alt="" />
+        <img class="art-details-hero__image" :src="DefaultImg" alt="artwork" />
         <div class="art-details-hero__id">{{ artworkId }}</div>
         <div class="art-details-hero__accession-number">1998.78.14</div>
       </div>
