@@ -4,8 +4,7 @@ const api = new ArtworksAPI("https://openaccess-api.clevelandart.org");
 
 export const getFilteredArtworks = async () => {
   try {
-    const filteredArtworks = await api.getFilteredArtworks();
-    return filteredArtworks;
+    return await api.getFilteredArtworks();
   } catch (error) {
     throw error;
   }
