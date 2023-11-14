@@ -1,12 +1,10 @@
 class ArtworksAPI {
-  constructor(baseURL) {
-    this.baseURL = baseURL;
-  }
+  static baseURL = "https://openaccess-api.clevelandart.org";
 
   async getArtworks(limit = 10) {
     try {
       const response = await fetch(
-        `${this.baseURL}/api/artworks/?limit=${limit}`
+        `${ArtworksAPI.baseURL}/api/artworks/?limit=${limit}`
       );
       const { data } = await response.json();
       return data.filter((card) => "web" in card.images);
