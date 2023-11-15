@@ -104,37 +104,43 @@ export default {
   data() {
     return {
       error: null,
-      artworkDetails: {
-        imageURL: null,
-        imageAlt: "",
-        artworkId: null,
-        accessionNumber: "",
-        artworkTitle: "",
-        artworkCreator: "",
-        artworkDate: "",
-        artworkType: "",
-        artworkCulture: "",
-        artworkTechnique: "",
-        artworkDimensions: "",
-        artworkDesc: "",
-        artistName: "",
-        artistRole: "",
-        artistBibliography: "",
-        artistBirth: "",
-        artistDeath: "",
-      },
+      artworkDetails: null,
     };
   },
-  async created() {
+async created() {
+  try {
     const artworkId = this.$route.params.artworkId;
-    this.artworkDetails = await ArtworkDetailsApi.getArtworkDetails(
-      artworkId
-    );
-    if (!this.artworkDetails) {
-      this.error = "Error fetching artwork details";
+    const response = await ArtworkDetailsApi.getArtworkDetails(artworkId);
+
+    if (response && response.data && response.data.length > 0) {
+      const artwork = response.data;
+
+      this.artworkDetails = {
+        imageAlt: artwork.title, 
+        artworkId: artwork.id,
+        accessionNumber: artwork.accession_number,
+        artworkTitle: artwork.title,
+        artworkCreator: artwork.creators,
+        artworkDate: artwork.creation_date_earliest,
+        artworkType: artwork.type,
+        artworkCulture: artwork.culture,
+        artworkTechnique: artwork.technique,
+        artworkDimensions: artwork.measurements,
+        artworkDesc: artwork.description,
+        artistName: artwork.creators.description,
+        artistRole: artwork.creators.role,
+        artistBibliography: artwork.creators.biography,
+        artistBirth: artwork.creators.birth_year,
+        artistDeath: artwork.creators.death_year,
+      };
+    } else {
+      throw new Error("No artwork data found");
     }
-  },
-  methods: {
+  } catch (error) {
+    this.error = `Error fetching artwork details: ${error.message}`;
+  }
+},
+methods: {
   fetchImageUrl(images) {
     return ArtworkDetailsApi.getImageUrl(images);
   }
