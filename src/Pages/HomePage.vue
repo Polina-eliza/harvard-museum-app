@@ -78,8 +78,9 @@
 </template>
 
 <script>
-import SearchInput from "../components/Search/SearchInput.vue";
-import Slider from "../components/Slider/Slider.vue";
+import SearchInput from "@components/Search/SearchInput.vue";
+import Slider from "@components/Slider/Slider.vue";
+import { getFilteredArtworks } from "../service/artworks/artworksService.js";
 
 export default {
   components: {
@@ -98,15 +99,9 @@ export default {
   methods: {
     async getCardsForSlider() {
       try {
-        const response = await fetch(
-          `https://openaccess-api.clevelandart.org/api/artworks/?limit=10`
-        );
-        const { data } = await response.json();
-
-        this.cards = data.filter((card) => "web" in card.images);
+        this.cards = await getFilteredArtworks();
       } catch (error) {
-        this.error =
-          "There was a problem with the fetch operation.Please Try again later";
+        this.error = error.message;
       }
     },
   },
