@@ -5,7 +5,7 @@
     <div class="art-details-hero">
       <img
         class="art-details-hero__image"
-        :src="artworkDetails.imageURL"
+        :src="fetchImageUrl(artworkDetails.images)"
         :alt="artworkDetails.imageAlt"
       />
       <div class="art-details-hero__id">{{ artworkDetails.artworkId }}</div>
@@ -134,6 +134,11 @@ export default {
       this.error = "Error fetching artwork details";
     }
   },
+  methods: {
+  fetchImageUrl(images) {
+    return ArtworkDetailsApi.getImageUrl(images);
+  }
+}
 };
 </script>
 
