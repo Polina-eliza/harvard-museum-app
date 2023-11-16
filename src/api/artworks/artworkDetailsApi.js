@@ -1,9 +1,9 @@
 class ArtworkDetailsApi {
+  static BASE_URL = 'https://openaccess-api.clevelandart.org/api';
+
   static async getArtworkDetails(artworkId) {
     try {
-      const response = await fetch(
-        `https://openaccess-api.clevelandart.org/api/artworks/${artworkId}`
-      );
+     const response = await fetch(`${this.BASE_URL}/artworks/${artworkId}`);
       if (!response.ok) {
         throw new Error(`API fetch error: ${response.status}`);
       }
