@@ -117,13 +117,15 @@ export default {
   async created() {
     try {
       const path = window.location.pathname;
-      const artworkId = path.substring(path.lastIndexOf('/') + 1);
+      const artworkId = path.substring(path.lastIndexOf("/") + 1);
 
       if (!artworkId) {
-        throw new Error('No artwork ID provided in the URL');
+        throw new Error("No artwork ID provided in the URL");
       }
 
-      this.artworkDetails = await ArtworkDetailsService.getArtworkDetails(artworkId);
+      this.artworkDetails = await ArtworkDetailsService.getArtworkDetails(
+        artworkId
+      );
     } catch (error) {
       this.errorMessage = `Error fetching artwork details: ${error.message}`;
     }
