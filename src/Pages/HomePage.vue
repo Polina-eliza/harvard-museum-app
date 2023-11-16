@@ -78,6 +78,8 @@ import SearchInput from "@components/Search/SearchInput.vue";
 import Slider from "@components/Slider/Slider.vue";
 import { ArtworksService } from "../service/artworks/artworksService.js";
 
+const artworksService = new ArtworksService();
+
 export default {
   components: {
     SearchInput,
@@ -87,7 +89,6 @@ export default {
     return {
       cards: [],
       error: null,
-      artworksService: new ArtworksService(),
     };
   },
   created() {
@@ -96,14 +97,14 @@ export default {
   methods: {
     async getCardsForSlider() {
       try {
-        this.cards = await this.artworksService.getFilteredArtworks();
+        this.cards = await artworksService.getFilteredArtworks();
       } catch (error) {
         this.error = error.message;
       }
     },
     async handleSearch(query) {
     try {
-      const filteredArtworks = await CollectionsService.searchArtworks(query, this.selectedLoadAmount, this.currentPage);
+      const filteredArtworks = await artworksService.searchArtworks(query, this.selectedLoadAmount, this.currentPage);
       this.artworks = filteredArtworks;
     } catch (error) {
       console.error("Error searching artworks:", error);
