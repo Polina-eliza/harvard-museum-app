@@ -1,5 +1,6 @@
 <template>
   <div v-if="isLoading"></div>
+  <div v-else-if="errorMessage" class="error-message">{{ errorMessage }}</div>
   <div v-else class="container-midi dark-bg art-details">
     <router-link class="art-details__btn" to="/collections">Back </router-link>
 
@@ -105,7 +106,7 @@ export default {
   data() {
     return {
       isLoading: true,
-      error: null,
+      errorMessage: null,
       artworkDetails: null,
     };
   },
@@ -114,7 +115,7 @@ async created() {
     const artworkId = this.$route.params.artworkId;
     this.artworkDetails = await ArtworkDetails.getArtworkDetails(artworkId);
   } catch (error) {
-    this.error = `Error fetching artwork details: ${error.message}`;
+    this.errorMessage = `Error fetching artwork details: ${error.message}`;
   }
   this.isLoading = false;
 },
