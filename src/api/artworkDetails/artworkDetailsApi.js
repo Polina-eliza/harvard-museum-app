@@ -1,5 +1,3 @@
-import DefaultImg from "../../assets/17816812.jpeg";
-
 class ArtworkDetailsApi {
   static async getArtworkDetails(artworkId) {
     try {
@@ -13,12 +11,8 @@ class ArtworkDetailsApi {
       return data.data;
     } catch (error) {
       console.error("Error fetching artwork details:", error.message);
-      return null;
+      throw error;
     }
-  }
-
-  static getImageUrl(images) {
-    return images && images.web && images.web.url ? images.web.url : DefaultImg;
   }
 }
 

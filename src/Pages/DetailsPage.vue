@@ -100,7 +100,7 @@
 </template>
 
 <script>
-import ArtworkDetails from "../api/artworkDetails/artworkDetailsApi";
+import ArtworkDetailsService from "../service/artworkDetails/artworkDetailsService";
 
 export default {
   data() {
@@ -113,7 +113,7 @@ export default {
 async created() {
   try {
     const artworkId = this.$route.params.artworkId;
-    this.artworkDetails = await ArtworkDetails.getArtworkDetails(artworkId);
+    this.artworkDetails = await ArtworkDetailsService.getArtworkDetails(artworkId);
   } catch (error) {
     this.errorMessage = `Error fetching artwork details: ${error.message}`;
   }
@@ -121,7 +121,7 @@ async created() {
 },
 methods: {
   fetchImageUrl(images) {
-    return ArtworkDetails.getImageUrl(images);
+    return ArtworkDetailsService.getImageUrl(images);
   }
 }
 };
