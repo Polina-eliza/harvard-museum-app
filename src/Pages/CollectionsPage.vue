@@ -30,7 +30,7 @@
       <LoadingSpinner v-if="isLoading" />
       <router-link
         :to="`/details/${artwork.id}`"
-        v-for="artwork in artworks"
+        v-for="artwork in (isSearchActive ? foundArtworks : artworks)"
         :key="artwork.id"
       >
         <div class="collections-main-card">
@@ -78,7 +78,8 @@ export default {
       artworks: [],
       selectedLoadAmount: 12,
       currentPage: 1,
-      isLoading: false
+      isLoading: false,
+      isSearchActive: false
     };
   },
   created() {
@@ -97,20 +98,24 @@ export default {
       }
     },
     async handleSearch(query) {
+      this.isLoading = true;
       try {
         const filteredArtworks = await CollectionsService.searchArtworks(
           query,
           this.selectedLoadAmount,
           this.currentPage
         );
-        this.artworks = filteredArtworks;
+        this.foundArtworks = filteredArtworks;
+        this.isSearchActive = true; 
       } catch (error) {
         this.$toast.error("Error fetching artworks: " + error.message);
+      } finally {
+        this.isLoading = false;
       }
     },
     loadMoreArtworks() {
       this.currentPage++;
-      this.getCardsForCollections();
+      this.isSearchActive ? this.loadMoreFoundArtworks() : this.getCards();
     },
     getImageUrl(images) {
       return CollectionsService.getImageUrl(images);
