@@ -5,7 +5,7 @@
   </div>
 
   <div class="container-midi dark-bg">
-    <SearchInput @onSearch="handleSearch"/>
+    <SearchInput @onSearch="handleSearch" />
   </div>
 
   <div class="container-midi light-bg collections">
@@ -27,7 +27,11 @@
     </form>
 
     <main class="collections-main">
-      <router-link :to="`/details/${artwork.id}`" v-for="artwork in artworks" :key="artwork.id">
+      <router-link
+        :to="`/details/${artwork.id}`"
+        v-for="artwork in artworks"
+        :key="artwork.id"
+      >
         <div class="collections-main-card">
           <img
             class="collections-main-card__image"
@@ -88,13 +92,17 @@ export default {
       }
     },
     async handleSearch(query) {
-    try {
-      const filteredArtworks = await CollectionsService.searchArtworks(query, this.selectedLoadAmount, this.currentPage);
-      this.artworks = filteredArtworks;
-    } catch (error) {
-      console.error("Error searching artworks:", error);
-    }
-  },
+      try {
+        const filteredArtworks = await CollectionsService.searchArtworks(
+          query,
+          this.selectedLoadAmount,
+          this.currentPage
+        );
+        this.artworks = filteredArtworks;
+      } catch (error) {
+        console.error("Error searching artworks:", error);
+      }
+    },
     loadMoreArtworks() {
       this.currentPage++;
       this.getCardsForCollections();
