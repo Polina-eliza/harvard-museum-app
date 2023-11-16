@@ -100,7 +100,7 @@ export default {
         );
         this.artworks = filteredArtworks;
       } catch (error) {
-        console.error("Error searching artworks:", error);
+        this.$toast.error("Error fetching artworks: " + error.message);
       }
     },
     loadMoreArtworks() {
