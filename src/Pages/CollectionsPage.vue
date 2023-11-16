@@ -73,10 +73,10 @@ export default {
     };
   },
   created() {
-    this.getCardsForCollections();
+    this.getCards();
   },
   methods: {
-    async getCardsForCollections() {
+    async getCards() {
       try {
         const newArtworks = await CollectionsService.getArtworksForCollections(
           this.selectedLoadAmount,
