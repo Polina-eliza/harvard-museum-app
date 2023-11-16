@@ -20,10 +20,6 @@
     >
   </div>
 
-  <div class="container-midi light-bg">
-    <SearchInput @onSearch="handleSearch"/>
-  </div>
-
   <div class="museum-visit dark-bg">
     <div class="museum-visit-image">
       <img
