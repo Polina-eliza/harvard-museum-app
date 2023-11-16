@@ -1,8 +1,10 @@
 import ArtworksAPI from "../../api/artworks/artworksAPI";
 
 export class ArtworksService {
+  #api;
+
   constructor() {
-    this.api = new ArtworksAPI("https://openaccess-api.clevelandart.org");
+    this.#api = new ArtworksAPI("https://openaccess-api.clevelandart.org");
   }
 
   async getFilteredArtworks() {
