@@ -70,7 +70,7 @@
       <div class="art-details-author__section-title accent-subtitle">
         Authors Information
       </div>
-      <div v-for="creator in artworkDetails.creators" :key="Math.random() + artworkDetails.id + Math.random()" class="art-details-author-content">
+      <div v-for="creator in artworkDetails.creators" :key="creator.id"  class="art-details-author-content">
         <div class="art-details-author-content__name">
           <p class="accent-subtitle">Name</p>
           <p>{{ creator.description }}</p>
