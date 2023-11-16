@@ -71,7 +71,11 @@
       <div class="art-details-author__section-title accent-subtitle">
         Authors Information
       </div>
-      <div v-for="creator in artworkDetails.creators" :key="creator.id"  class="art-details-author-content">
+      <div
+        v-for="creator in artworkDetails.creators"
+        :key="creator.id"
+        class="art-details-author-content"
+      >
         <div class="art-details-author-content__name">
           <p class="accent-subtitle">Name</p>
           <p>{{ creator.description }}</p>
@@ -110,20 +114,22 @@ export default {
       artworkDetails: null,
     };
   },
-async created() {
-  try {
-    const artworkId = this.$route.params.artworkId;
-    this.artworkDetails = await ArtworkDetailsService.getArtworkDetails(artworkId);
-  } catch (error) {
-    this.errorMessage = `Error fetching artwork details: ${error.message}`;
-  }
-  this.isLoading = false;
-},
-methods: {
-  fetchImageUrl(images) {
-    return ArtworkDetailsService.getImageUrl(images);
-  }
-}
+  async created() {
+    try {
+      const artworkId = this.$route.params.artworkId;
+      this.artworkDetails = await ArtworkDetailsService.getArtworkDetails(
+        artworkId
+      );
+    } catch (error) {
+      this.errorMessage = `Error fetching artwork details: ${error.message}`;
+    }
+    this.isLoading = false;
+  },
+  methods: {
+    fetchImageUrl(images) {
+      return ArtworkDetailsService.getImageUrl(images);
+    },
+  },
 };
 </script>
 
