@@ -1,16 +1,17 @@
 <template>
-  <div class="container-midi dark-bg art-details">
+  <div v-if="isLoading"></div>
+  <div v-else class="container-midi dark-bg art-details">
     <router-link class="art-details__btn" to="/collections">Back </router-link>
 
     <div class="art-details-hero">
       <img
         class="art-details-hero__image"
         :src="fetchImageUrl(artworkDetails.images)"
-        :alt="artworkDetails.imageAlt"
+        :alt="artworkDetails.title"
       />
-      <div class="art-details-hero__id">{{ artworkDetails.artworkId }}</div>
+      <div class="art-details-hero__id">{{ artworkDetails.id }}</div>
       <div class="art-details-hero__accession-number">
-        {{ artworkDetails.accessionNumber }}
+        {{ artworkDetails.accession_number }}
       </div>
     </div>
     <hr />
@@ -22,23 +23,31 @@
       <div class="art-details-identification-content">
         <div class="art-details-identification-content__title">
           <p class="accent-subtitle">Title</p>
-          <p class="">{{ artworkDetails.artworkTitle }}</p>
+          <p class="">{{ artworkDetails.title }}</p>
         </div>
         <div class="art-details-identification-content__creator">
           <p class="accent-subtitle">Creator</p>
-          <p>{{ artworkDetails.artworkCreator }}</p>
+<<<<<<< HEAD
+          <p>{{ artworkDetails.description }}</p>
+=======
+          <p>{{ artworkDetails.creators }}</p>
+>>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
         </div>
         <div class="art-details-identification-content__date">
           <p class="accent-subtitle">Date</p>
-          <p>{{ artworkDetails.artworkDate }}</p>
+          <p>{{ artworkDetails.creation_date_earliest }}</p>
         </div>
         <div class="art-details-identification-content__classification">
           <p class="accent-subtitle">Classification</p>
-          <p>{{ artworkDetails.artworkType }}</p>
+          <p>{{ artworkDetails.type }}</p>
         </div>
         <div class="art-details-identification-content__culture">
           <p class="accent-subtitle">Culture</p>
-          <p>{{ artworkDetails.artworkCulture }}</p>
+<<<<<<< HEAD
+          <p>{{ artworkDetails.culture}}</p>
+=======
+          <p>{{ artworkDetails.culture }}</p>
+>>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
         </div>
       </div>
     </section>
@@ -50,16 +59,16 @@
       <div class="art-details-description-content">
         <div class="art-details-description-content__technique">
           <p class="accent-subtitle">Technique</p>
-          <p>{{ artworkDetails.artworkTechnique }}</p>
+          <p>{{ artworkDetails.technique }}</p>
         </div>
         <div class="art-details-description-content__dimensions">
           <p class="accent-subtitle">Dimensions</p>
-          <p>{{ artworkDetails.artworkDimensions }}</p>
+          <p>{{ artworkDetails.measurements }}</p>
         </div>
         <div class="art-details-description-content__full-descr">
           <p class="accent-subtitle">Description</p>
           <p>
-            {{ artworkDetails.artworkDesc }}
+            {{ artworkDetails.description }}
           </p>
         </div>
       </div>
@@ -67,30 +76,38 @@
 
     <section class="art-details-author">
       <div class="art-details-author__section-title accent-subtitle">
-        Author Information
+        Authors Information
       </div>
-      <div class="art-details-author-content">
+      <div v-for="creator in artworkDetails.creators" :key="Math.random() + artworkDetails.id + Math.random()" class="art-details-author-content">
         <div class="art-details-author-content__name">
           <p class="accent-subtitle">Name</p>
-          <p>{{ artworkDetails.artistName }}</p>
+          <p>{{ creator.description }}</p>
         </div>
         <div class="art-details-author-content__role">
           <p class="accent-subtitle">Role</p>
-          <p>{{ artworkDetails.artistRole }}</p>
+<<<<<<< HEAD
+          <p>{{ creator.role}}</p>
+=======
+          <p>{{ creator.role }}</p>
+>>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
         </div>
         <div class="art-details-author-content__bibliography">
           <p class="accent-subtitle">Biography</p>
           <p>
-            {{ artworkDetails.artistBibliography }}
+<<<<<<< HEAD
+            {{ creator.biography}}
+=======
+            {{ creator.biography }}
+>>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
           </p>
         </div>
         <div class="art-details-author-content__birth-year">
           <p class="accent-subtitle">Date of Birth</p>
-          <p>{{ artworkDetails.artistBirth }}</p>
+          <p>{{ creator.birth_year }}</p>
         </div>
         <div class="art-details-author-content__death-year">
           <p class="accent-subtitle">Date of Death</p>
-          <p>{{ artworkDetails.artistDeath }}</p>
+          <p>{{ creator.death_year }}</p>
         </div>
       </div>
     </section>
@@ -103,6 +120,7 @@ import ArtworkDetailsApi from "../api/artworkDetails/artworkDetailsApi";
 export default {
   data() {
     return {
+      isLoading: true,
       error: null,
       artworkDetails: null,
     };
@@ -110,35 +128,11 @@ export default {
 async created() {
   try {
     const artworkId = this.$route.params.artworkId;
-    const response = await ArtworkDetailsApi.getArtworkDetails(artworkId);
-
-    if (response && response.data && response.data.length > 0) {
-      const artwork = response.data;
-
-      this.artworkDetails = {
-        imageAlt: artwork.title, 
-        artworkId: artwork.id,
-        accessionNumber: artwork.accession_number,
-        artworkTitle: artwork.title,
-        artworkCreator: artwork.creators,
-        artworkDate: artwork.creation_date_earliest,
-        artworkType: artwork.type,
-        artworkCulture: artwork.culture,
-        artworkTechnique: artwork.technique,
-        artworkDimensions: artwork.measurements,
-        artworkDesc: artwork.description,
-        artistName: artwork.creators.description,
-        artistRole: artwork.creators.role,
-        artistBibliography: artwork.creators.biography,
-        artistBirth: artwork.creators.birth_year,
-        artistDeath: artwork.creators.death_year,
-      };
-    } else {
-      throw new Error("No artwork data found");
-    }
+    this.artworkDetails = await ArtworkDetailsApi.getArtworkDetails(artworkId);
   } catch (error) {
     this.error = `Error fetching artwork details: ${error.message}`;
   }
+  this.isLoading = false;
 },
 methods: {
   fetchImageUrl(images) {
