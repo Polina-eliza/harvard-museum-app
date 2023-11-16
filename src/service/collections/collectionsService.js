@@ -6,6 +6,10 @@ export default {
     const { data } = await ArtworkApi.getArtworksByPage(amount, page);
     return data.filter((artwork) => artwork.images && "web" in artwork.images);
   },
+  async searchArtworks(query, amount, page) {
+    const { data } = await ArtworkApi.searchArtworksByQuery(query, amount, page);
+    return data.filter((artwork) => artwork.images && "web" in artwork.images);
+  },
   getImageUrl(images) {
     if (images && images.web && images.web.url) {
       return images.web.url;

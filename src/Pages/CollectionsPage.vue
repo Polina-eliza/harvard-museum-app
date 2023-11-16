@@ -5,7 +5,7 @@
   </div>
 
   <div class="container-midi dark-bg">
-    <SearchInput />
+    <SearchInput @onSearch="handleSearch"/>
   </div>
 
   <div class="container-midi light-bg collections">
@@ -87,6 +87,14 @@ export default {
         console.error("Error fetching artworks:", error);
       }
     },
+    async handleSearch(query) {
+    try {
+      const filteredArtworks = await CollectionsService.searchArtworks(query, this.selectedLoadAmount, this.currentPage);
+      this.artworks = filteredArtworks;
+    } catch (error) {
+      console.error("Error searching artworks:", error);
+    }
+  },
     loadMoreArtworks() {
       this.currentPage++;
       this.getCardsForCollections();

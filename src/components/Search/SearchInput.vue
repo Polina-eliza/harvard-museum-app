@@ -1,9 +1,31 @@
 <template>
   <div class="search">
-    <input type="text" class="search__input" placeholder="Search..." />
-    <button class="search__btn"></button>
+    <input type="text" class="search__input" :placeholder="placeholder"  v-model="searchQuery"
+      @keyup.enter="emitSearchQuery"/>
+    <button class="search__btn" @click="emitSearchQuery"></button>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      searchQuery: '',
+      placeholder: 'Search by authors name...',
+    };
+  },
+  methods: {
+    emitSearchQuery() {
+      this.$emit('onSearch', this.searchQuery);
+      this.resetInput(); 
+    },
+    resetInput() {
+      this.searchQuery = ''; 
+    },
+    
+  },
+};
+</script>
 
 <style lang="scss">
 @import "../../scss/variables";
