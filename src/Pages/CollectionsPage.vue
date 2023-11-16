@@ -76,6 +76,7 @@ export default {
   data() {
     return {
       artworks: [],
+      foundArtworks: [],
       selectedLoadAmount: 12,
       currentPage: 1,
       isLoading: false,
