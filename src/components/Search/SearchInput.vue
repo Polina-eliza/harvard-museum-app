@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <input type="text" class="search__input" :placeholder="placeholder"  v-model="searchQuery"
+    <input type="text" class="search__input" placeholder="Search by author name..."  v-model="searchQuery"
       @keyup.enter="emitSearchQuery"/>
     <button class="search__btn" @click="emitSearchQuery"></button>
   </div>
@@ -11,7 +11,6 @@ export default {
   data() {
     return {
       searchQuery: '',
-      placeholder: 'Search by authors name...',
     };
   },
   methods: {
