@@ -28,7 +28,11 @@
         <div class="art-details-identification-content__creator">
           <p class="accent-subtitle">Creator</p>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <p>{{ artworkDetails.description }}</p>
+=======
+          <p>{{ artworkDetails.creators }}</p>
+>>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
 =======
           <p>{{ artworkDetails.creators }}</p>
 >>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
@@ -44,7 +48,11 @@
         <div class="art-details-identification-content__culture">
           <p class="accent-subtitle">Culture</p>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <p>{{ artworkDetails.culture}}</p>
+=======
+          <p>{{ artworkDetails.culture }}</p>
+>>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
 =======
           <p>{{ artworkDetails.culture }}</p>
 >>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
@@ -86,7 +94,11 @@
         <div class="art-details-author-content__role">
           <p class="accent-subtitle">Role</p>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <p>{{ creator.role}}</p>
+=======
+          <p>{{ creator.role }}</p>
+>>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
 =======
           <p>{{ creator.role }}</p>
 >>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
@@ -95,7 +107,11 @@
           <p class="accent-subtitle">Biography</p>
           <p>
 <<<<<<< HEAD
+<<<<<<< HEAD
             {{ creator.biography}}
+=======
+            {{ creator.biography }}
+>>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
 =======
             {{ creator.biography }}
 >>>>>>> ac7b2408d3d67761defc7f7151d6eadd61e0e6f7
