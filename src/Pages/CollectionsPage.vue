@@ -27,6 +27,7 @@
     </form>
 
     <main class="collections-main">
+      <LoadingSpinner v-if="isLoading" />
       <router-link
         :to="`/details/${artwork.id}`"
         v-for="artwork in artworks"
@@ -51,6 +52,7 @@
         </div>
       </router-link>
     </main>
+
     <button
       type="submit"
       @click="loadMoreArtworks"
@@ -64,16 +66,19 @@
 <script>
 import SearchInput from "@components/Search/SearchInput.vue";
 import CollectionsService from "../service/collections/collectionsService.js";
+import LoadingSpinner from "@components/UI/LoadingSpinner.vue";
 
 export default {
   components: {
     SearchInput,
+    LoadingSpinner
   },
   data() {
     return {
       artworks: [],
       selectedLoadAmount: 12,
       currentPage: 1,
+      isLoading: false
     };
   },
   created() {
