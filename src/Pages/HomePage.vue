@@ -103,13 +103,16 @@ export default {
       }
     },
     async handleSearch(query) {
-    try {
-      const filteredArtworks = await artworksService.searchArtworks(query, this.selectedLoadAmount, this.currentPage);
-      this.artworks = filteredArtworks;
-    } catch (error) {
-      this.$toast.error("Error searching artworks: " + error.message);
-    }
-  },
+      try {
+        this.artworks = await artworksService.searchArtworks(
+          query,
+          this.selectedLoadAmount,
+          this.currentPage
+        );
+      } catch (error) {
+        this.$toast.error("Error searching artworks: " + error.message);
+      }
+    },
   },
 };
 </script>
