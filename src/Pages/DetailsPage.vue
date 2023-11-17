@@ -103,7 +103,7 @@
 </template>
 
 <script>
-import ArtworkDetailsService from "../service/artworkDetails/artworkDetailsService";
+import ArtworkDetailsService from "../service/artworks/artworkDetailsService";
 import LoadingSpinner from "@components/UI/LoadingSpinner.vue";
 
 export default {
