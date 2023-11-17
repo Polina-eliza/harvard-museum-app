@@ -1,13 +1,13 @@
 class ArtworksApi {
-  #baseURL;
+  #apiBaseURL;
 
-  constructor(baseURL = "https://openaccess-api.clevelandart.org") {
-    this.#baseURL = baseURL;
+  constructor(apiBaseURL = "https://openaccess-api.clevelandart.org") {
+    this.#apiBaseURL = apiBaseURL;
   }
 
   async getArtworks(limit = 10) {
     try {
-      const response = await fetch(`${this.#baseURL}/api/artworks/?limit=${limit}`);
+      const response = await fetch(`${this.#apiBaseURL}/api/artworks/?limit=${limit}`);
       const { data } = await response.json();
       return data;
     } catch (error) {
