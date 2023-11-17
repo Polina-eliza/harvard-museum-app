@@ -106,7 +106,6 @@ export default {
           this.selectedLoadAmount,
           this.currentPage
         );
-        this.foundArtworks = filteredArtworks;
         this.isSearchActive = true; 
       } catch (error) {
         this.$toast.error("Error fetching artworks: " + error.message);
