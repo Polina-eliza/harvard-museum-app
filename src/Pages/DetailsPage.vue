@@ -6,7 +6,7 @@
     <div class="art-details-hero">
       <img
         class="art-details-hero__image"
-        :src="fetchImageUrl(artworkDetails.images)"
+        :src="getImageUrl(artworkDetails.images)"
         :alt="artworkDetails.title"
       />
       <div class="art-details-hero__id">{{ artworkDetails.id }}</div>
@@ -134,7 +134,7 @@ export default {
     this.isLoading = false;
   },
   methods: {
-    fetchImageUrl(images) {
+    getImageUrl(images) {
       return ArtworkDetailsService.getImageUrl(images);
     },
   },
