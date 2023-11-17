@@ -129,7 +129,7 @@ export default {
         artworkId
       );
     } catch (error) {
-      this.errorMessage = `Error fetching artwork details: ${error.message}`;
+      this.$toast.error(`Error fetching artwork details: ${error.message}`);
     }
     this.isLoading = false;
   },
