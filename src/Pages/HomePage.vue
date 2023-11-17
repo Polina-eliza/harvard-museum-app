@@ -99,7 +99,7 @@ export default {
       try {
         this.cards = await artworksService.getFilteredArtworks();
       } catch (error) {
-        this.error = error.message;
+        this.$toast.error("Error fetching artworks: " + error.message);
       }
     },
     async handleSearch(query) {
@@ -107,7 +107,7 @@ export default {
       const filteredArtworks = await artworksService.searchArtworks(query, this.selectedLoadAmount, this.currentPage);
       this.artworks = filteredArtworks;
     } catch (error) {
-      console.error("Error searching artworks:", error);
+      this.$toast.error("Error searching artworks: " + error.message);
     }
   },
   },
