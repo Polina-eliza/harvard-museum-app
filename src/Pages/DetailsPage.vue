@@ -1,6 +1,5 @@
 <template>
-  <div v-if="isLoading"></div>
-  <div v-else-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <LoadingSpinner v-if="isLoading" />
   <div v-else class="container-midi dark-bg art-details">
     <router-link class="art-details__btn" to="/collections">Back </router-link>
 
@@ -105,12 +104,15 @@
 
 <script>
 import ArtworkDetailsService from "../service/artworkDetails/artworkDetailsService";
+import LoadingSpinner from "@components/UI/LoadingSpinner.vue";
 
 export default {
+  components: {
+    LoadingSpinner
+  },
   data() {
     return {
       isLoading: true,
-      errorMessage: null,
       artworkDetails: null,
     };
   },
