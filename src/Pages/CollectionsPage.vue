@@ -95,7 +95,7 @@ export default {
         );
         this.artworks = [...this.artworks, ...newArtworks];
       } catch (error) {
-        console.error("Error fetching artworks:", error);
+        this.$toast.error("Error fetching artworks: " + error.message);
       }
     },
     async handleSearch(query) {
