@@ -9,7 +9,6 @@ class ArtworkDetailsService {
       );
       return artworkDetails;
     } catch (error) {
-      console.error("Error in ArtworkDetailsService:", error);
       throw error;
     }
   }

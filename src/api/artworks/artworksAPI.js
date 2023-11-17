@@ -1,21 +1,19 @@
 class ArtworksApi {
-  static #baseURL = "https://openaccess-api.clevelandart.org";
+  #baseURL;
+
+  constructor(baseURL = "https://openaccess-api.clevelandart.org") {
+    this.#baseURL = baseURL;
+  }
 
   async getArtworks(limit = 10) {
     try {
-      const response = await fetch(
-        `${ArtworksApi.#baseURL}/api/artworks/?limit=${limit}`
-      );
+      const response = await fetch(`${this.#baseURL}/api/artworks/?limit=${limit}`);
       const { data } = await response.json();
       return data;
     } catch (error) {
-      throw new Error(
-        "There was a problem with the fetch operation. Please try again later."
-      );
+      throw new Error("There was a problem with the fetch operation: " + error.message);
     }
   }
 }
 
 export default ArtworksApi;
-
-
