@@ -30,8 +30,8 @@
       <LoadingSpinner v-if="isLoading" />
       <router-link
         :to="`/details/${artwork.id}`"
-        v-for="artwork in (isSearchActive ? foundArtworks : artworks)"
-        :key="artwork.id"
+        v-for="artwork in foundArtworks.length > 0 ? foundArtworks : artworks"
+    :key="artwork.id"
       >
         <div class="collections-main-card">
           <img
