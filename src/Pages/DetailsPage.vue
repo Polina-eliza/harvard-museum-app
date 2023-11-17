@@ -116,7 +116,7 @@ export default {
   },
   async created() {
     try {
-      const path = window.location.pathname;
+      const path = this.$route.params.artworkId;
       const artworkId = path.substring(path.lastIndexOf("/") + 1);
 
       if (!artworkId) {
