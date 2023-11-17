@@ -1,10 +1,10 @@
-class ArtworksAPI {
+class ArtworksApi {
   static #baseURL = "https://openaccess-api.clevelandart.org";
 
   async getArtworks(limit = 10) {
     try {
       const response = await fetch(
-        `${ArtworksAPI.#baseURL}/api/artworks/?limit=${limit}`
+        `${ArtworksApi.#baseURL}/api/artworks/?limit=${limit}`
       );
       const { data } = await response.json();
       return data;
@@ -16,6 +16,6 @@ class ArtworksAPI {
   }
 }
 
-export default ArtworksAPI;
+export default ArtworksApi;
 
 
