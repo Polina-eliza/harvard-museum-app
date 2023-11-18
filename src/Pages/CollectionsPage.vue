@@ -79,8 +79,7 @@ export default {
       foundArtworks: [],
       selectedLoadAmount: 12,
       currentPage: 1,
-      isLoading: false,
-      isSearchActive: false
+      isLoading: false
     };
   },
   created() {
