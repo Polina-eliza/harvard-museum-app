@@ -2,7 +2,7 @@
   <nav class="navbar">
     <ul class="navbar__list">
       <router-link to="/collections"><li class="navbar__item">Collections</li></router-link>
-      <li class="navbar__item"><a href="#">Exibition</a></li>
+      <router-link to="/exibitions"><li class="navbar__item"><a href="#">Exibitions</a></li></router-link>
       <li class="navbar__item navbar__item--logo">
         <router-link to="/">
           <span class="navbar__logo-text">HARVARD ART</span>
