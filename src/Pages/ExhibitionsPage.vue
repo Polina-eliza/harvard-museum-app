@@ -1,36 +1,60 @@
 <template>
-  <div class="container-midi accent-bg exibitions-hero">
-    <h2 class="exhibitions-hero__header">Collections</h2>
+  <div class="container-midi accent-bg exhibitions-hero">
+    <h2 class="exhibitions-hero__header">Exhibitions</h2>
     <h3 class="exhibitionss-hero__subheader">Browse through our art objects</h3>
   </div>
 
   <div class="container-midi dark-bg exhibitions">
-    <div class="exhibitions-current">
+    <div
+      v-for="(exhibition, index) in exhibitions"
+      :key="index"
+      class="exhibitions-current"
+    >
       <img
         class="exhibitions-current__image"
-        src="../assets/17816812.jpeg"
-        alt=""
+        :src="exhibition.imageURL"
+        :alt="`Image for ${exhibition.title}`"
       />
       <div class="exhibitions-current__information">
         <div class="exhibitions-current__information-subheading">Current</div>
         <div class="exhibitions-current__information-heading">
-          Disrupt the View: Arlene Shechet at the Museum
+          {{ exhibition.title }}
         </div>
         <div class="exhibitions-current__information-location">
-          July 1, 2022-July 6, 2025
+          {{ exhibition.organizer }}
         </div>
-        <div class="exhibitions-current__information-description">
-          Experience the Harvard Art Museums’ historical collections through
-          fresh eyes in a one-of-a kind installation by contemporary American
-          sculptor Arlene Shechet.
+        <div class="exhibitions-current__information-opening-date">
+          {{ exhibition.opening_date }}
+        </div>
+        <div class="exhibitions-current__information-closing-date">
+          {{ exhibition.closing_date }}
         </div>
       </div>
     </div>
-
     <hr class="exhibitions-current__divider" />
-
   </div>
 </template>
+
+<script>
+import exhibitionsService from "../service/exhibitions/exhibitionsService";
+
+export default {
+  data() {
+    return {
+      exhibitions: [],
+    };
+  },
+  async created() {
+    try {
+      this.exhibitions = await exhibitionsService.fetchAndProcessExhibitions(
+        {}
+      );
+    } catch (error) {
+      this.$toast.error(error.message);
+    }
+  },
+};
+</script>
 
 <style lang="scss">
 @import "../scss/_variables.scss";
@@ -64,7 +88,7 @@
     }
 
     &__divider {
-        margin: 50px 0;
+      margin: 50px 0;
     }
 
     &__information {
@@ -83,7 +107,8 @@
         color: $font-color-body-grey;
       }
 
-      &-description {
+      &-closing-date,
+      &-opening-date {
         color: $font-color-body-white;
       }
     }
