@@ -2,7 +2,6 @@
   <nav class="navbar">
     <ul class="navbar__list">
       <router-link to="/collections"><li class="navbar__item">Collections</li></router-link>
-      <router-link to="/exibitions"><li class="navbar__item"><a href="#">Exibitions</a></li></router-link>
       <li class="navbar__item navbar__item--logo">
         <router-link to="/">
           <span class="navbar__logo-text">HARVARD ART</span>
@@ -11,8 +10,7 @@
           >
         </router-link>
       </li>
-      <li class="navbar__item"><a href="#">Events</a></li>
-      <li class="navbar__item"><a href="#">Publications</a></li>
+      <router-link to="/exhibitions"><li class="navbar__item"><a href="#">Exibitions</a></li></router-link>
     </ul>
   </nav>
 </template>
