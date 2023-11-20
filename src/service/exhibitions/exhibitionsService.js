@@ -1,7 +1,7 @@
 import ExhibitionsApi from "../../api/exhibitions/exhibitionsApi";
 import DefaultImg from "../../assets/17816812.jpeg";
 
-export class ExhibitionsService {
+class ExhibitionsService {
   async fetchAndProcessExhibitions(searchParams) {
     try {
       const data = await ExhibitionsApi.fetchExhibitions(searchParams);
