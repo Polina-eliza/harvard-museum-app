@@ -1,0 +1,91 @@
+@import "../scss/_variables.scss";
+
+.art-details {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: $font-color-body-white;
+  
+    &__btn {
+      color: $font-color-body-white;
+    }
+  
+    &__btn::before {
+      content: url(../assets/svg/return-arrow.svg);
+      transform: translateY(5px);
+      display: inline-block;
+      margin-right: 5px;
+    }
+  
+    &__btn:hover::before {
+      transform: translateY(5px) translateX(-5px);
+    }
+  
+    &-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      &__image {
+        width: 500px;
+      }
+  
+      &__id {
+        font-family: $font-family-accent;
+        margin-top: 20px;
+      }
+  
+      &__accession-number {
+        color: $font-color-body-grey-light;
+        margin-bottom: 20px;
+      }
+    }
+  
+    &-identification {
+      display: flex;
+      gap: 200px;
+  
+      &-content {
+        width: 400px;
+      }
+  
+      &__section-title {
+        width: 300px;
+      }
+    }
+  
+    &-description {
+      display: flex;
+      gap: 200px;
+      margin-top: 100px;
+  
+      &-content {
+        width: 400px;
+      }
+  
+      &__section-title {
+        width: 300px;
+      }
+    }
+  
+    &-author {
+      display: flex;
+      gap: 200px;
+      margin-top: 100px;
+  
+      &-content {
+        width: 400px;
+      }
+  
+      &__section-title {
+        width: 300px;
+      }
+    }
+  }
+  
+  .accent-subtitle {
+    font-family: $font-family-accent;
+    font-size: 22px;
+    margin-top: 15px;
+    color: $font-color-body-grey-light;
+  }

@@ -1,12 +1,18 @@
 import ArtworksAPI from "../../api/artworks/artworksAPI";
 
-const api = new ArtworksAPI("https://openaccess-api.clevelandart.org");
+export class ArtworksService {
+  #api;
 
-export const getFilteredArtworks = async () => {
-  try {
-    const filteredArtworks = await api.getFilteredArtworks();
-    return filteredArtworks;
-  } catch (error) {
-    throw error;
+  constructor(apiBaseURL = "https://openaccess-api.clevelandart.org") {
+    this.#api = new ArtworksAPI(apiBaseURL);
   }
-};
+
+  async getFilteredArtworks() {
+    try {
+      const artworks = await this.#api.getArtworks();
+      return artworks.filter((card) => "web" in card.images);
+    } catch (error) {
+      throw new Error("Error in ArtworksService: " + error.message);
+    }
+  }
+}

@@ -5,7 +5,7 @@
   </div>
 
   <div class="container-midi dark-bg">
-    <SearchInput />
+    <SearchInput @onSearch="handleSearch" />
   </div>
 
   <div class="container-midi light-bg collections">
@@ -27,7 +27,12 @@
     </form>
 
     <main class="collections-main">
-      <router-link to="/details" v-for="artwork in artworks" :key="artwork.id">
+      <LoadingSpinner v-if="isLoading" />
+      <router-link
+        :to="`/details/${artwork.id}`"
+        v-for="artwork in foundArtworks.length ? foundArtworks : artworks"
+    :key="artwork.id"
+      >
         <div class="collections-main-card">
           <img
             class="collections-main-card__image"
@@ -44,10 +49,15 @@
           <div class="collections-main-card__technique">
             {{ artwork.technique }}
           </div>
-        </div></router-link
-      >
+        </div>
+      </router-link>
     </main>
-    <button type="submit" @click="loadMore" class="collections-main__load-btn">
+
+    <button
+      type="submit"
+      @click="loadMoreArtworks"
+      class="collections-main__load-btn"
+    >
       Load More
     </button>
   </div>
@@ -56,36 +66,54 @@
 <script>
 import SearchInput from "@components/Search/SearchInput.vue";
 import CollectionsService from "../service/collections/collectionsService.js";
+import LoadingSpinner from "@components/UI/LoadingSpinner.vue";
 
 export default {
   components: {
     SearchInput,
+    LoadingSpinner
   },
   data() {
     return {
       artworks: [],
+      foundArtworks: [],
       selectedLoadAmount: 12,
       currentPage: 1,
+      isLoading: false
     };
   },
   created() {
-    this.getCardsForCollections(this.selectedLoadAmount, this.currentPage);
+    this.getCards();
   },
   methods: {
-    async getCardsForCollections(amount, page) {
+    async getCards() {
       try {
         const newArtworks = await CollectionsService.getArtworksForCollections(
-          amount,
-          page
+          this.selectedLoadAmount,
+          this.currentPage
         );
         this.artworks = [...this.artworks, ...newArtworks];
       } catch (error) {
-        console.error("Error fetching artworks:", error);
+        this.$toast.error("Error fetching artworks: " + error.message);
       }
     },
-    loadMore() {
+    async handleSearch(query) {
+      this.isLoading = true;
+      try {
+        const filteredArtworks = await CollectionsService.searchArtworks(
+          query,
+          this.selectedLoadAmount,
+          this.currentPage
+        );
+      } catch (error) {
+        this.$toast.error("Error fetching artworks: " + error.message);
+      } finally {
+        this.isLoading = false;
+      }
+    },
+    loadMoreArtworks() {
       this.currentPage++;
-      this.getCardsForCollections(this.selectedLoadAmount, this.currentPage);
+      this.isSearchActive ? this.loadMoreFoundArtworks() : this.getCards();
     },
     getImageUrl(images) {
       return CollectionsService.getImageUrl(images);

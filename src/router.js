@@ -6,7 +6,7 @@ import DetailsPage from "./Pages/DetailsPage.vue"
 
 const routes = [
   { path: "/collections", component: CollectionsPage },
-  { path: "/details", component: DetailsPage },
+  { path: "/details/:artworkId", component: DetailsPage },
   { path: "/", component: HomePage }
 ];
 

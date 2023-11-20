@@ -3,4 +3,16 @@ import App from './App.vue'
 import './main.css'; 
 import router from './router'; 
 
-createApp(App).use(router).mount('#app')
+
+import Toaster from '@meforma/vue-toaster';
+
+const app = createApp(App);
+
+
+app.use(router);
+
+
+app.use(Toaster);
+
+
+app.mount('#app');

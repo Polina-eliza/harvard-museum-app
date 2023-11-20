@@ -20,10 +20,6 @@
     >
   </div>
 
-  <div class="container-midi light-bg">
-    <SearchInput />
-  </div>
-
   <div class="museum-visit dark-bg">
     <div class="museum-visit-image">
       <img
@@ -80,7 +76,9 @@
 <script>
 import SearchInput from "@components/Search/SearchInput.vue";
 import Slider from "@components/Slider/Slider.vue";
-import { getFilteredArtworks } from "../service/artworks/artworksService.js";
+import { ArtworksService } from "../service/artworks/artworksService.js";
+
+const artworksService = new ArtworksService();
 
 export default {
   components: {
@@ -99,9 +97,20 @@ export default {
   methods: {
     async getCardsForSlider() {
       try {
-        this.cards = await getFilteredArtworks();
+        this.cards = await artworksService.getFilteredArtworks();
       } catch (error) {
-        this.error = error.message;
+        this.$toast.error("Error fetching artworks: " + error.message);
+      }
+    },
+    async handleSearch(query) {
+      try {
+        this.artworks = await artworksService.searchArtworks(
+          query,
+          this.selectedLoadAmount,
+          this.currentPage
+        );
+      } catch (error) {
+        this.$toast.error("Error searching artworks: " + error.message);
       }
     },
   },
