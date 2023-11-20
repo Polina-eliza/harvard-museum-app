@@ -1,7 +1,7 @@
 <template>
   <div class="container-midi accent-bg exhibitions-hero">
     <h2 class="exhibitions-hero__header">Exhibitions</h2>
-    <h3 class="exhibitionss-hero__subheader">Browse through our art objects</h3>
+    <h3 class="exhibitions-hero__subheader">Browse through our art objects</h3>
   </div>
 
   <div class="container-midi dark-bg exhibitions">
