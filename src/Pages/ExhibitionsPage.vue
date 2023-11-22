@@ -47,7 +47,7 @@ export default {
   async created() {
     try {
       this.exhibitions = await exhibitionsService.fetchAndProcessExhibitions(
-        {}
+        new URLSearchParams(window.location.search)
       );
     } catch (error) {
       this.$toast.error(error.message);
