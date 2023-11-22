@@ -13,7 +13,7 @@
       <img
         class="exhibitions-current__image"
         :src="exhibition.imageURL"
-        :alt="`Image for ${exhibition.title}`"
+        :alt="exhibition.title"
       />
       <div class="exhibitions-current__information">
         <div class="exhibitions-current__information-subheading">Current</div>
