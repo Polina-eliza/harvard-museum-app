@@ -5,6 +5,9 @@ import DefaultImg from "../../assets/17816812.jpeg";
 jest.mock("../../api/artworks/artworkDetailsApi.js");
 
 describe("ArtworkServiceDetails", () => {
+    it('test', () => {
+        expect(true).toBe(true);
+    });
     test("should retrieve the artworks id", async () => {
         //arrange
         const mockArtworkId = '1111';
@@ -12,7 +15,7 @@ describe("ArtworkServiceDetails", () => {
 
         ArtworkServiceDetails.mockImplementation(() => {
             return {
-                getArtworkDetails: jest.fn().mockResolvedValue(mockResponse);
+                getArtworkDetails: jest.fn().mockResolvedValue(mockResponse)
             }
         })
 
@@ -20,10 +23,10 @@ describe("ArtworkServiceDetails", () => {
         const results = await ArtworkDetailsService.getArtworkDetails(mockArtworkId);
 
         //assert
-        expect(result).toEqual(mockResponse);
+        expect(results).toEqual(mockResponse);
     })
 
-    test("should throw an error when there is an issue to retrieve artworks id", () => {
+    test("should throw an error when there is an issue to retrieve artworks id", async () => {
 
         //arrange
         ArtworkServiceDetails.mockImplementation(() => {
@@ -62,8 +65,3 @@ describe("ArtworkServiceDetails", () => {
         expect(result).toBe(DefaultImg);
     });
 })
-
-
-
-
-

@@ -38,7 +38,7 @@ describe("ArtworksService", () => {
     );
   });
 
-  
+
 
   test("should throw error when there is an issue with fetching API", () => {
     //arrange
