@@ -4,20 +4,14 @@ import DefaultImg from "../../assets/17816812.jpeg";
 
 jest.mock("../../api/artworks/artworkDetailsApi.js");
 
-describe("ArtworkServiceDetails", () => {
-    it('test', () => {
-        expect(true).toBe(true);
-    });
+afterEach(() => jest.clearAllMocks());
+
+describe("ArtworkDetailsService", () => {
     test("should retrieve the artworks id", async () => {
         //arrange
         const mockArtworkId = '1111';
-        const mockResponse = { id: mockArtworkId }
-
-        ArtworkServiceDetails.mockImplementation(() => {
-            return {
-                getArtworkDetails: jest.fn().mockResolvedValue(mockResponse)
-            }
-        })
+        const mockResponse = { id: mockArtworkId };
+        ArtworkDetailsApi.getArtworkDetails.mockResolvedValue(mockResponse);
 
         //act
         const results = await ArtworkDetailsService.getArtworkDetails(mockArtworkId);
@@ -29,13 +23,9 @@ describe("ArtworkServiceDetails", () => {
     test("should throw an error when there is an issue to retrieve artworks id", async () => {
 
         //arrange
-        ArtworkServiceDetails.mockImplementation(() => {
+        
         const mockArtworkId = '1111';
-
-        return {
-            getArtworkDetails: jest.fn().mockRejectedValue(new Error('Error fetching artwork details')),
-          };
-        })
+        ArtworkDetailsApi.getArtworkDetails.mockRejectedValue(new Error('Error fetching artwork details'));
 
         //act & assert
 

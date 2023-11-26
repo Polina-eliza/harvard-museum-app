@@ -40,7 +40,7 @@ describe("ArtworksService", () => {
 
 
 
-  test("should throw error when there is an issue with fetching API", () => {
+  test("should throw error when there is an issue with fetching API", async () => {
     //arrange
 
     ArtworksApi.mockImplementation(() => {
@@ -54,7 +54,7 @@ describe("ArtworksService", () => {
     //act
     //assert
 
-    expect(service.getFilteredArtworks()).rejects.toThrow(
+    await expect(service.getFilteredArtworks()).rejects.toThrow(
       "Error in ArtworksService: Error with API"
     );
   });
