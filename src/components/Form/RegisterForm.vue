@@ -50,14 +50,17 @@
   </template>
   
   <script>
-  import { validateRegistrationForm } from "../../service/form/loginService";
+  import { validateRegistrationForm } from "../../service/form/registrationService";
   
   export default {
     data() {
       return {
         username: "",
         email: "",
+        password: "",
+      repeatPassword: "",
         errors: {
+          username: null,
           email: null,
           password: null,
           repeatPassword: null
@@ -66,15 +69,15 @@
     },
     methods: {
       registrationFormSubmit() {
-        this.errors = validateRegistrationForm(this.username, this.email, this.password, this,repeatPassword);
+        this.errors = validateRegistrationForm(this.username, this.email, this.password, this.repeatPassword);
   
-        if (!this.errors.username && !this.errors.email && !this.password && !this,repeatPassword) {
+        if (!this.errors.username && !this.errors.email && !this.error.password && !this.error.repeatPassword) {
           alert("Your registration is successful");
         }
         this.email = "";
         this.username = "";
         this.password = "";
-        this.password = "";
+        this.repeatPassword  = "";
       },
     },
   };
@@ -105,11 +108,12 @@
         padding: 5px 10px;
         border: 1px solid rgb(229, 224, 224);
         border-radius: 20px;
+        background-color: $color-background-white
       }
   
       &__btn-submit {
         color: #231f20;
-        font-family: "Futura", Helvetica, Arial, sans-serif;
+        font-family: $font-family-accent;
         font-size: 15px;
         background-color: #fce373;
         padding: 5px 10px;

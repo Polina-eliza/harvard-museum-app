@@ -30,18 +30,16 @@
           >
         </div>
       </div>
-      <div class="navbar__item"> <co-heart /></div>
+      <div class="navbar__item">  <v-icon> mdi-heart </v-icon></div>
     </div>
   </nav>
 </template>
 
 <script>
-import { CoHeart } from 'oh-vue-icons/icons';
+import 'vuetify/dist/vuetify.min.css';
 
 export default {
-  components: {
-    'co-heart': CoHeart 
-  },
+
 };
 </script>
 

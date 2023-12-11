@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { validateRegistrationForm } from "../../service/form/loginService";
+import { validateLoginForm } from "../../service/form/loginService";
 
 export default {
   data() {
@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     registrationFormSubmit() {
-      this.errors = validateRegistrationForm(this.username, this.password);
+      this.errors = validateLoginForm(this.username, this.password);
 
       if (!this.errors.username && !this.errors.password) {
         alert("Your registration is successful");

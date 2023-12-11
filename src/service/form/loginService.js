@@ -1,15 +1,15 @@
-export function validateRegistrationForm(username, email) {
+export function validateLoginForm(username, password) {
     let errors = {
       username: null,
-      email: null,
+      password: null,
     };
 
     if (!username) {
       errors.username = "This field must be filled in";
     }
   
-    if (!email) {
-      errors.email = "This field must be filled in";
+    if (!password) {
+      errors.password = "This field must be filled in";
     }
   
     return errors;
