@@ -1,31 +1,67 @@
 <template>
   <nav class="navbar">
-    <ul class="navbar__list">
-      <router-link to="/collections"><li class="navbar__item">Collections</li></router-link>
-      <li class="navbar__item navbar__item--logo">
+    <div class="navbar__list">
+      <router-link to="/collections"
+        ><div class="navbar__item">Collections</div></router-link
+      >
+      <router-link to="/exhibitions"
+        ><div class="navbar__item">Exibitions</div></router-link
+      >
+      <div class="navbar__item navbar__item--logo">
         <router-link to="/">
           <span class="navbar__logo-text">HARVARD ART</span>
           <span class="navbar__logo-text navbar__logo-text--museum"
             >MUSEUMS</span
           >
         </router-link>
-      </li>
-      <router-link to="/exhibitions"><li class="navbar__item"><a href="#">Exibitions</a></li></router-link>
-    </ul>
+      </div>
+     
+      <div class="navbar__item">
+        <div class="navbar__account">
+          <router-link to="/login"
+            ><div class="navbar__item navbar__item-user-auth">
+              Login
+            </div></router-link
+          > |
+          <router-link to="/signup"
+            ><div class="navbar__item navbar__item-user-auth">
+              Registration
+            </div></router-link
+          >
+        </div>
+      </div>
+      <div class="navbar__item"> <co-heart /></div>
+    </div>
   </nav>
 </template>
+
+<script>
+import { CoHeart } from 'oh-vue-icons/icons';
+
+export default {
+  components: {
+    'co-heart': CoHeart 
+  },
+};
+</script>
 
 <style lang="scss">
 @import "../../scss/variables";
 
 .navbar {
   padding-top: 30px;
+  font-family: $font-family-accent;
 
   &__list {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+  }
+
+  &__account {
+    display: flex;
+    gap: 5px;
   }
 
   &__item {
