@@ -15,7 +15,7 @@
           >
         </router-link>
       </div>
-     
+
       <div class="navbar__item">
         <div class="navbar__account">
           <router-link to="/login"
@@ -30,18 +30,12 @@
           >
         </div>
       </div>
-      <div class="navbar__item">  <v-icon> mdi-heart </v-icon></div>
+      <div class="navbar__item">
+        <span class="mdi mdi-heart"></span>
+      </div>
     </div>
   </nav>
 </template>
-
-<script>
-import 'vuetify/dist/vuetify.min.css';
-
-export default {
-
-};
-</script>
 
 <style lang="scss">
 @import "../../scss/variables";
