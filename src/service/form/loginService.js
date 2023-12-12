@@ -1,11 +1,13 @@
-export function validateLoginForm(username, password) {
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+
+export function validateLoginForm(email, password) {
     let errors = {
-      username: null,
+      email: null,
       password: null,
     };
 
-    if (!username) {
-      errors.username = "This field must be filled in";
+    if (!email) {
+      errors.email = "This field must be filled in";
     }
   
     if (!password) {
@@ -13,4 +15,9 @@ export function validateLoginForm(username, password) {
     }
   
     return errors;
+  }
+
+  export function loginUserWithEmailAndPassword(email, password) {
+    const auth = getAuth();
+    return signInWithEmailAndPassword(auth, email, password);
   }

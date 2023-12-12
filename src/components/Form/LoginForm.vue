@@ -1,25 +1,26 @@
 <template>
   <div class="login-form">
-    <form class="login-form-main" @submit.prevent="registrationFormSubmit">
-      <label for="username" class="login-form-main__input-label"
-        >Username
-        <input v-model="username" class="login-form-main__input" />
+    <form class="login-form-main" @submit.prevent="loginFormSubmit">
+      <label for="email" type="email" class="login-form-main__input-label"
+        >Email
+        <input v-model="email" class="login-form-main__input" placeholder="Enter your email..." />
       </label>
-      <p v-if="errors.username" class="login-form-main__error-message">
+      <p v-if="errors.email" class="login-form-main__error-message">
         This field must be field in
       </p>
 
       <label for="password" type="password" class="login-form-main__input-label"
-          >Password
-          <input v-model="password" class="login-form-main__input" />
-        </label>
-        <p v-if="errors.password" class="login-form-main__error-message">
-          This field must be field in
-        </p>
+        >Password
+        <input v-model="password" class="login-form-main__input" placeholder="Enter your password..."/>
+      </label>
+      <p v-if="errors.password" class="login-form-main__error-message">
+        This field must be field in
+      </p>
 
-      <button @click="formSubmit" class="login-form-main__btn-submit">
-        Register
+      <button class="login-form-main__btn-submit">
+       Login
       </button>
+
       <div class="login-form-main__registration">
         Don't have an account?
         <router-link to="/signup"
@@ -33,29 +34,41 @@
 </template>
 
 <script>
-import { validateLoginForm } from "../../service/form/loginService";
+import { validateLoginForm, loginUserWithEmailAndPassword } from "../../service/form/loginService";
+import { useRouter } from 'vue-router';
 
 export default {
   data() {
     return {
-      username: "",
+      email: "",
       password: "",
       errors: {
-        username: null,
+        email: null,
         password: null,
       },
     };
   },
+  setup() {
+    const router = useRouter();
+    return { router };
+  },
   methods: {
-    registrationFormSubmit() {
-      this.errors = validateLoginForm(this.username, this.password);
+    loginFormSubmit() {
+      this.errors = validateLoginForm(this.email, this.password);
 
-      if (!this.errors.username && !this.errors.password) {
-        alert("Your registration is successful");
+      if (!this.errors.email && !this.errors.password) {
+        loginUserWithEmailAndPassword(this.email, this.password)
+          .then(() => {
+            alert("Login successful");
+            this.router.push('/collections');
+          })
+          .catch(error => {
+            alert(`Login failed: ${error.message}`);
+            this.email = "";
+            this.password = "";
+          });
       }
-      this.password = "";
-      this.username = "";
-    },
+    }
   },
 };
 </script>

@@ -1,14 +1,11 @@
-export function validateRegistrationForm(username, email, password, repeatPassword) {
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+
+export function validateRegistrationForm(email, password, repeatPassword) {
     let errors = {
-      username: null,
       email: null,
       password: null,
       repeatPassword: null
     };
-  
-    if (!username) {
-      errors.username = "This field must be filled in";
-    }
   
     if (!email) {
       errors.email = "This field must be filled in";
@@ -23,4 +20,9 @@ export function validateRegistrationForm(username, email, password, repeatPasswo
     }
   
     return errors;
+  }
+
+  export function registerUser(email, password) {
+    const auth = getAuth();
+    return createUserWithEmailAndPassword(auth, email, password);
   }

@@ -1,17 +1,10 @@
 <template>
     <div class="login-form">
       <form class="login-form-main" @submit.prevent="registrationFormSubmit">
-        <label for="username" class="login-form-main__input-label"
-          >Username
-          <input v-model="username" class="login-form-main__input" />
-        </label>
-        <p v-if="errors.username" class="login-form-main__error-message">
-          This field must be field in
-        </p>
   
         <label for="email" class="login-form-main__input-label"
           >Email
-          <input type="email" v-model="email" class="login-form-main__input" />
+          <input type="email" v-model="email" class="login-form-main__input" placeholder="Enter your email..."/>
         </label>
         <p v-if="errors.email" class="login-form-main__error-message">
           This field must be field in
@@ -19,7 +12,7 @@
 
         <label for="password" class="login-form-main__input-label"
           >Password
-          <input v-model="password" class="login-form-main__input" />
+          <input v-model="password" class="login-form-main__input" placeholder="Enter your password..." />
         </label>
         <p v-if="errors.password" class="login-form-main__error-message">
           This field must be field in
@@ -27,13 +20,13 @@
 
         <label for="repeatPassword" class="login-form-main__input-label"
           >Repeat Password
-          <input v-model="repeatPassword" class="login-form-main__input" />
+          <input v-model="repeatPassword" class="login-form-main__input" placeholder="Repeat your password..." />
         </label>
         <p v-if="errors.repeatPassword" class="login-form-main__error-message">
           This field must be field in
         </p>
 
-        <button @click="formSubmit" class="login-form-main__btn-submit">
+        <button @click="userRegistration" class="login-form-main__btn-submit">
           Register
         </button>
 
@@ -50,37 +43,43 @@
   </template>
   
   <script>
-  import { validateRegistrationForm } from "../../service/form/registrationService";
-  
+  import { validateRegistrationForm, registerUser  } from "../../service/form/registrationService";
+  import { useRouter } from 'vue-router';
+ 
   export default {
     data() {
       return {
-        username: "",
         email: "",
         password: "",
-      repeatPassword: "",
+        repeatPassword: "",
         errors: {
-          username: null,
           email: null,
           password: null,
           repeatPassword: null
         },
       };
     },
-    methods: {
-      registrationFormSubmit() {
-        this.errors = validateRegistrationForm(this.username, this.email, this.password, this.repeatPassword);
-  
-        if (!this.errors.username && !this.errors.email && !this.error.password && !this.error.repeatPassword) {
-          alert("Your registration is successful");
-        }
-        this.email = "";
-        this.username = "";
-        this.password = "";
-        this.repeatPassword  = "";
-      },
+    setup() {
+    const router = useRouter();
+    return { router };
+  },
+  methods: {
+    registrationFormSubmit() {
+      this.errors = validateRegistrationForm(this.email, this.password, this.repeatPassword);
+
+      if (!this.errors.email && !this.errors.password && !this.errors.repeatPassword) {
+        registerUser(this.email, this.password)
+          .then(() => {
+            alert("Successfully registered");
+            this.router.push('/collections');
+          })
+          .catch(error => {
+            alert(`Registration failed: ${error.message}`);
+          });
+      }
     },
-  };
+  },
+};
   </script>
   
   <style lang="scss">

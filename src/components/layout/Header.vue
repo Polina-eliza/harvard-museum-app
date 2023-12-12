@@ -8,7 +8,7 @@
         ><div class="navbar__item">Exibitions</div></router-link
       >
       <div class="navbar__item navbar__item--logo">
-        <router-link to="/">
+        <router-link to="/home">
           <span class="navbar__logo-text">HARVARD ART</span>
           <span class="navbar__logo-text navbar__logo-text--museum"
             >MUSEUMS</span
