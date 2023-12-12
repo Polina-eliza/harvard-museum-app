@@ -3,7 +3,11 @@
     <form class="login-form-main" @submit.prevent="loginFormSubmit">
       <label for="email" type="email" class="login-form-main__input-label"
         >Email
-        <input v-model="email" class="login-form-main__input" placeholder="Enter your email..." />
+        <input
+          v-model="email"
+          class="login-form-main__input"
+          placeholder="Enter your email..."
+        />
       </label>
       <p v-if="errors.email" class="login-form-main__error-message">
         This field must be field in
@@ -11,15 +15,17 @@
 
       <label for="password" type="password" class="login-form-main__input-label"
         >Password
-        <input v-model="password" class="login-form-main__input" placeholder="Enter your password..."/>
+        <input
+          v-model="password"
+          class="login-form-main__input"
+          placeholder="Enter your password..."
+        />
       </label>
       <p v-if="errors.password" class="login-form-main__error-message">
         This field must be field in
       </p>
 
-      <button class="login-form-main__btn-submit">
-       Login
-      </button>
+      <button class="login-form-main__btn-submit">Login</button>
 
       <div class="login-form-main__registration">
         Don't have an account?
@@ -34,8 +40,10 @@
 </template>
 
 <script>
+
 import { validateLoginForm, loginUserWithEmailAndPassword } from "../../service/form/loginService";
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router";
+// import { useToast } from "@meforma/vue-toaster"; 
 
 export default {
   data() {
@@ -50,25 +58,41 @@ export default {
   },
   setup() {
     const router = useRouter();
-    return { router };
-  },
-  methods: {
-    loginFormSubmit() {
-      this.errors = validateLoginForm(this.email, this.password);
+    const toast = useToast();
 
-      if (!this.errors.email && !this.errors.password) {
+    const loginFormSubmit = () => {
+      const errors = validateLoginForm(this.email, this.password);
+      if (!errors.email && !errors.password) {
         loginUserWithEmailAndPassword(this.email, this.password)
           .then(() => {
-            alert("Login successful");
-            this.router.push('/collections');
+            toast.success("Login successful");
+            router.push("/collections");
           })
-          .catch(error => {
-            alert(`Login failed: ${error.message}`);
+          .catch((error) => {
+            let errorMessage = "";
+            switch (error.code) {
+              case "auth/invalid-email":
+                errorMessage = "Invalid email";
+                break;
+              case "auth/user-not-found":
+                errorMessage = "No account with that email was found";
+                break;
+              case "auth/wrong-password":
+                errorMessage = "Incorrect password";
+                break;
+              default:
+                errorMessage = "Email or password was incorrect";
+            }
+            toast.error(errorMessage);
             this.email = "";
             this.password = "";
           });
+      } else {
+        this.errors = errors;
       }
-    }
+    };
+
+    return { router, loginFormSubmit, toast };
   },
 };
 </script>

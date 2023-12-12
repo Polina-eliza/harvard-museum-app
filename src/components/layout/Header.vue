@@ -20,9 +20,9 @@
         <div class="navbar__account">
           <router-link to="/login"
             ><div class="navbar__item navbar__item-user-auth">
-              Login
-            </div></router-link
-          > |
+              <span class="mdi mdi-account"></span></div
+          ></router-link>
+          |
           <router-link to="/signup"
             ><div class="navbar__item navbar__item-user-auth">
               Registration
