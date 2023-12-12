@@ -43,7 +43,7 @@
 
 import { validateLoginForm, loginUserWithEmailAndPassword } from "../../service/form/loginService";
 import { useRouter } from "vue-router";
-import { useToast } from "@meforma/vue-toaster"; 
+import { createToaster } from "@meforma/vue-toaster";
 
 export default {
   data() {
@@ -57,15 +57,15 @@ export default {
     };
   },
   setup() {
+    const toaster = createToaster();
     const router = useRouter();
-    const toast = useToast();
 
     const loginFormSubmit = () => {
       const errors = validateLoginForm(this.email, this.password);
       if (!errors.email && !errors.password) {
         loginUserWithEmailAndPassword(this.email, this.password)
           .then(() => {
-            toast.success("Login successful");
+            toaster.success("Login successful");
             router.push("/collections");
           })
           .catch((error) => {
@@ -83,7 +83,7 @@ export default {
               default:
                 errorMessage = "Email or password was incorrect";
             }
-            toast.error(errorMessage);
+            toaster.error(errorMessage);
             this.email = "";
             this.password = "";
           });
@@ -92,7 +92,7 @@ export default {
       }
     };
 
-    return { router, loginFormSubmit, toast };
+    return { router, loginFormSubmit, toaster };
   },
 };
 </script>
