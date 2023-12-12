@@ -30,12 +30,25 @@
           >
         </div>
       </div>
-      <div class="navbar__item">
+      <div v-if="isLoggedIn" class="navbar__item">
         <span class="mdi mdi-heart"></span>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  computed: {
+    isLoggedIn() {
+      return this.$store.isLoggedIn;
+    }
+  }
+}
+
+</script>
+
+
 
 <style lang="scss">
 @import "../../scss/variables";

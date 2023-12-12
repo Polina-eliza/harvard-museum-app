@@ -43,7 +43,7 @@
 
 import { validateLoginForm, loginUserWithEmailAndPassword } from "../../service/form/loginService";
 import { useRouter } from "vue-router";
-// import { useToast } from "@meforma/vue-toaster"; 
+import { useToast } from "@meforma/vue-toaster"; 
 
 export default {
   data() {

@@ -3,7 +3,8 @@ import App from './App.vue';
 import './main.css'; 
 import router from './router'; 
 import Toaster from '@meforma/vue-toaster';
-import { createVuetify } from 'vuetify'
+import { createVuetify } from 'vuetify';
+import store from './store'; 
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -28,6 +29,8 @@ initializeApp(firebaseConfig);
 const vuetify = createVuetify()
 
 const app = createApp(App);
+
+app.use(store);
 
 app.use(router);
 app.use(Toaster);
