@@ -59,10 +59,6 @@ export default {
   setup() {
     const toaster = createToaster();
     const router = useRouter();
-<<<<<<< HEAD
-    const toaster = createToaster();
-=======
->>>>>>> 8ce88043382773e001b4ac11434bdaf6afee6651
 
     const loginFormSubmit = () => {
       const errors = validateLoginForm(this.email, this.password);
@@ -87,7 +83,7 @@ export default {
               default:
                 errorMessage = "Email or password was incorrect";
             }
-            toaster.error(errorMessage);
+            toasterer.error(errorMessage);
             this.email = "";
             this.password = "";
           });
