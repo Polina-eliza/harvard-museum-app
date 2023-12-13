@@ -32,7 +32,7 @@ export default {
   },
   async created() {
     try {
-      this.exhibitions = await exhibitionsService.fetchAndProcessExhibitions(
+      this.exhibitions = await exhibitionsService.getExhibitions(
         new URLSearchParams(window.location.search)
       );
     } catch (error) {
