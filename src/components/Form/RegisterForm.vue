@@ -10,7 +10,7 @@
           placeholder="Enter your email..."
         />
       </label>
-      
+
       <label for="password" class="login-form-main__input-label"
         >Password
         <input
@@ -47,7 +47,7 @@
 
 <script>
 import { ref } from 'vue';
-import { validateRegistrationForm, registerUser } from "../../service/form/registrationService";
+import { validateRegistrationForm, handleUserRegistration } from "../../service/form/registrationService";
 import { useRouter } from "vue-router";
 import { createToaster } from "@meforma/vue-toaster";
 
@@ -68,23 +68,11 @@ export default {
       errors.value = validateRegistrationForm(email.value, password.value, repeatPassword.value);
 
       if (!errors.value.email && !errors.value.password && !errors.value.repeatPassword) {
-        try {
-          await registerUser(email.value, password.value);
-          toaster.success('Successfully registered');
-          router.push('/collections');
-        } catch (error) {
-          toaster.error(`Registration failed: ${error.message}`);
-        }
+        handleUserRegistration(email.value, password.value, toaster, router);
       } else {
-        if (errors.value.email) {
-          toaster.error(errors.value.email);
-        }
-        if (errors.value.password) {
-          toaster.error(errors.value.password);
-        }
-        if (errors.value.repeatPassword) {
-          toaster.error(errors.value.repeatPassword);
-        }
+        Object.values(errors.value).forEach(error => {
+          if (error) toaster.error(error);
+        });
       }
     };
 
