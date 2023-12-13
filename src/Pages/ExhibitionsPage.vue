@@ -10,7 +10,7 @@
       :key="index"
       class="exhibitions-current"
     >
-      <ExibitionCurrent :exhibition="exhibition"/>
+      <ExihbitionCurrent :exhibition="exhibition"/>
 
     </div>
     <hr class="exhibitions-current__divider" />
@@ -19,11 +19,11 @@
 
 <script>
 import exhibitionsService from "../service/exhibitions/exhibitionsService";
-import ExibitionCurrent from "../components/Exibitions/ExibitionCurrent.vue"
+import ExihbitionCurrent from "../components/Exibitions/ExihbitionCurrent.vue"
 
 export default {
   components: {
-    ExibitionCurrent
+    ExihbitionCurrent
   },
   data() {
     return {
