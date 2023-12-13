@@ -10,10 +10,7 @@
           placeholder="Enter your email..."
         />
       </label>
-      <p v-if="errors.email" class="login-form-main__error-message">
-        This field must be field in
-      </p>
-
+      
       <label for="password" class="login-form-main__input-label"
         >Password
         <input
@@ -22,9 +19,6 @@
           placeholder="Enter your password..."
         />
       </label>
-      <p v-if="errors.password" class="login-form-main__error-message">
-        This field must be field in
-      </p>
 
       <label for="repeatPassword" class="login-form-main__input-label"
         >Repeat Password
@@ -34,9 +28,6 @@
           placeholder="Repeat your password..."
         />
       </label>
-      <p v-if="errors.repeatPassword" class="login-form-main__error-message">
-        This field must be field in
-      </p>
 
       <button @click="userRegistration" class="login-form-main__btn-submit">
         Register
@@ -55,52 +46,55 @@
 </template>
 
 <script>
-import {
-  validateRegistrationForm,
-  registerUser,
-} from "../../service/form/registrationService";
+import { ref } from 'vue';
+import { validateRegistrationForm, registerUser } from "../../service/form/registrationService";
 import { useRouter } from "vue-router";
+import { createToaster } from "@meforma/vue-toaster";
 
 export default {
-  data() {
-    return {
-      email: "",
-      password: "",
-      repeatPassword: "",
-      errors: {
-        email: null,
-        password: null,
-        repeatPassword: null,
-      },
-    };
-  },
   setup() {
+    const email = ref('');
+    const password = ref('');
+    const repeatPassword = ref('');
+    const errors = ref({
+      email: null,
+      password: null,
+      repeatPassword: null,
+    });
     const router = useRouter();
-    return { router };
-  },
-  methods: {
-    registrationFormSubmit() {
-      this.errors = validateRegistrationForm(
-        this.email,
-        this.password,
-        this.repeatPassword
-      );
+    const toaster = createToaster();
 
-      if (
-        !this.errors.email &&
-        !this.errors.password &&
-        !this.errors.repeatPassword
-      ) {
-        registerUser(this.email, this.password)
-          .then(() => {
-            alert("Successfully registered");
-            this.router.push("/collections");
-          })
-          .catch((error) => {
-            alert(`Registration failed: ${error.message}`);
-          });
+    const registrationFormSubmit = async () => {
+      errors.value = validateRegistrationForm(email.value, password.value, repeatPassword.value);
+
+      if (!errors.value.email && !errors.value.password && !errors.value.repeatPassword) {
+        try {
+          await registerUser(email.value, password.value);
+          toaster.success('Successfully registered');
+          router.push('/collections');
+        } catch (error) {
+          toaster.error(`Registration failed: ${error.message}`);
+        }
+      } else {
+        if (errors.value.email) {
+          toaster.error(errors.value.email);
+        }
+        if (errors.value.password) {
+          toaster.error(errors.value.password);
+        }
+        if (errors.value.repeatPassword) {
+          toaster.error(errors.value.repeatPassword);
+        }
       }
-    },
+    };
+
+    return {
+      email,
+      password,
+      repeatPassword,
+      errors,
+      registrationFormSubmit,
+    };
   },
 };
 </script>

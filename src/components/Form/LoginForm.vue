@@ -9,10 +9,7 @@
           placeholder="Enter your email..."
         />
       </label>
-      <p v-if="errors.email" class="login-form-main__error-message">
-        This field must be field in
-      </p>
-
+    
       <label for="password" type="password" class="login-form-main__input-label"
         >Password
         <input
@@ -21,9 +18,7 @@
           placeholder="Enter your password..."
         />
       </label>
-      <p v-if="errors.password" class="login-form-main__error-message">
-        This field must be field in
-      </p>
+   
 
       <button class="login-form-main__btn-submit">Login</button>
 
@@ -40,62 +35,71 @@
 </template>
 
 <script>
-
+import { ref } from 'vue';
 import { validateLoginForm, loginUserWithEmailAndPassword } from "../../service/form/loginService";
 import { useRouter } from "vue-router";
 import { createToaster } from "@meforma/vue-toaster";
 
 export default {
-  data() {
-    return {
-      email: "",
-      password: "",
-      errors: {
-        email: null,
-        password: null,
-      },
-    };
-  },
   setup() {
+    const email = ref('');
+    const password = ref('');
+    const errors = ref({
+      email: null,
+      password: null,
+    });
     const toaster = createToaster();
     const router = useRouter();
 
-    const loginFormSubmit = () => {
-      const errors = validateLoginForm(this.email, this.password);
-      if (!errors.email && !errors.password) {
-        loginUserWithEmailAndPassword(this.email, this.password)
-          .then(() => {
-            toaster.success("Login successful");
-            router.push("/collections");
-          })
-          .catch((error) => {
-            let errorMessage = "";
-            switch (error.code) {
-              case "auth/invalid-email":
-                errorMessage = "Invalid email";
-                break;
-              case "auth/user-not-found":
-                errorMessage = "No account with that email was found";
-                break;
-              case "auth/wrong-password":
-                errorMessage = "Incorrect password";
-                break;
-              default:
-                errorMessage = "Email or password was incorrect";
-            }
-            toasterer.error(errorMessage);
-            this.email = "";
-            this.password = "";
-          });
-      } else {
-        this.errors = errors;
-      }
-    };
+    const loginFormSubmit = async () => {
+  const validationErrors = validateLoginForm(email.value, password.value);
+  
+  if (!validationErrors.email && !validationErrors.password) {
+    try {
+      await loginUserWithEmailAndPassword(email.value, password.value);
+      toaster.success('Login successful');
+      router.push('/collections');
+    } catch (error) {
+      handleAuthError(error, toaster);
+    }
+  } else {
+    if (validationErrors.email) {
+      toaster.error(validationErrors.email);
+    }
+    if (validationErrors.password) {
+      toaster.error(validationErrors.password);
+    }
+  }
+};
 
-    return { router, loginFormSubmit, toaster };
+    return {
+      email,
+      password,
+      errors,
+      loginFormSubmit,
+    };
   },
 };
+
+function handleAuthError(error, toaster) {
+  let errorMessage = '';
+  switch (error.code) {
+    case 'auth/invalid-email':
+      errorMessage = 'Invalid email';
+      break;
+    case 'auth/user-not-found':
+      errorMessage = 'No account with that email was found';
+      break;
+    case 'auth/wrong-password':
+      errorMessage = 'Incorrect password';
+      break;
+    default:
+      errorMessage = 'Email or password was incorrect';
+  }
+  toaster.error(errorMessage);
+}
 </script>
+
 
 <style lang="scss">
 @import "../../scss/variables";
