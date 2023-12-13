@@ -2,9 +2,13 @@ import ExhibitionsApi from "../../api/exhibitions/exhibitionsApi";
 import DefaultImg from "../../assets/17816812.jpeg";
 
 class ExhibitionsService {
+  constructor() {
+    this.api = new ExhibitionsApi(); 
+  }
+
   async getExhibitions(searchParams) {
     try {
-      const data = await ExhibitionsApi.fetchExhibitions(searchParams);
+      const data = await this.api.fetchExhibitions(searchParams); 
       return data.data.map((exhibition) => {
         const imageURL = this.getImageUrl(exhibition.artworks?.[0]?.images);
         return { ...exhibition, imageURL };
