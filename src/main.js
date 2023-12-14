@@ -1,13 +1,10 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import './main.css'; 
-import router from './router'; 
+import './main.css';
+import router from './router';
 import Toaster from '@meforma/vue-toaster';
 import { createVuetify } from 'vuetify';
-import store from './store'; 
-import './firebaseInit'; 
-
-
+import store from './store';
 
 const vuetify = createVuetify()
 const app = createApp(App);
