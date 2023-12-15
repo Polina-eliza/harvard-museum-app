@@ -8,5 +8,8 @@ export default createStore({
         setLoginStatus(state, status) {
             state.isLoggedIn = status;
         }
+    },
+    getters: {
+        isLoggedIn: state => state.isLoggedIn
     }
 })

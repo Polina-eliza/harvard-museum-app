@@ -37,11 +37,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   computed: {
-    isLoggedIn() {
-      return this.$store.isLoggedIn;
-    }
+    ...mapGetters(['isLoggedIn'])
   }
 }
 </script>
