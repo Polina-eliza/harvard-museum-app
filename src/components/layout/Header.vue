@@ -22,9 +22,8 @@
             ><div class="navbar__item navbar__item-user-auth">
               <span class="mdi mdi-account"></span></div
           ></router-link>
-          |
           <router-link to="/signup"
-            ><div class="navbar__item navbar__item-user-auth">
+            ><div class="navbar__item navbar__item-user-auth navbar__item-user-auth--registration">
               Registration
             </div></router-link
           >
@@ -45,10 +44,7 @@ export default {
     }
   }
 }
-
 </script>
-
-
 
 <style lang="scss">
 @import "../../scss/variables";
@@ -85,6 +81,10 @@ export default {
     &--museum {
       transform: rotate(180deg);
     }
+  }
+
+  &__item-user-auth--registration::before {
+    content: "|";
   }
 }
 </style>
