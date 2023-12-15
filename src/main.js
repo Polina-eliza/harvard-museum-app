@@ -5,6 +5,7 @@ import router from './router';
 import Toaster from '@meforma/vue-toaster';
 import { createVuetify } from 'vuetify';
 import store from './store';
+import './firebaseInit'; 
 
 const vuetify = createVuetify()
 const app = createApp(App);
