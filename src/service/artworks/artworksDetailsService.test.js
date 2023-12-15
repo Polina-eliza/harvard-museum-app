@@ -7,7 +7,7 @@ jest.mock("../../api/artworks/artworkDetailsApi.js");
 afterEach(() => jest.clearAllMocks());
 
 describe("ArtworkDetailsService", () => {
-    test("should retrieve the artworks id", async () => {
+    test("should return artworks by id", async () => {
         
         const mockArtworkId = '1111';
         const mockResponse = { id: mockArtworkId };
