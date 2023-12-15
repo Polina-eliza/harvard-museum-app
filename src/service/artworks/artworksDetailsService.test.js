@@ -28,7 +28,7 @@ describe("ArtworkDetailsService", () => {
 
     })
 
-    test("should return valid image URL", () => {
+    test("should return the URL from the images object when a valid image is available ", () => {
 
         const images = { web: { url: 'http://example.com/image.jpg' }};
 
