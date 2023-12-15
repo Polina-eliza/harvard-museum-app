@@ -21,7 +21,8 @@ describe("ArtworkDetailsService", () => {
     test("should throw an error when there is an issue to retrieve artworks id", async () => {
         
         const mockArtworkId = '1111';
-        ArtworkDetailsApi.getArtworkDetails.mockRejectedValue(new Error('Error fetching artwork details'));
+        const expectedError = 'Error fetching artwork details';
+        ArtworkDetailsApi.getArtworkDetails.mockRejectedValue(new Error(expectedError));
 
         await expect(ArtworkDetailsService.getArtworkDetails(mockArtworkId)).rejects.toThrow('Error fetching artwork details');
 
