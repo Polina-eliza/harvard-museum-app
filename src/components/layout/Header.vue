@@ -17,20 +17,21 @@
       </div>
 
       <div class="navbar__item">
-        <div class="navbar__account">
-          <router-link to="/login"
-            ><div class="navbar__item navbar__item-user-auth">
-              <span class="mdi mdi-account"></span></div
-          ></router-link>
-          <router-link to="/signup"
-            ><div class="navbar__item navbar__item-user-auth navbar__item-user-auth--registration">
+        <div v-if="!isLoggedIn" class="navbar__account">
+          <router-link to="/login">
+            <div class="navbar__item navbar__item-user-auth">
+              <span class="mdi mdi-account"></span>
+            </div>
+          </router-link>
+          <router-link to="/signup">
+            <div class="navbar__item navbar__item-user-auth navbar__item-user-auth--registration">
               Registration
-            </div></router-link
-          >
+            </div>
+          </router-link>
         </div>
-      </div>
-      <div v-if="isLoggedIn" class="navbar__item">
-        <span class="mdi mdi-heart"></span>
+        <div v-else class="navbar__item">
+          <span class="mdi mdi-heart"></span>
+        </div>
       </div>
     </div>
   </nav>
