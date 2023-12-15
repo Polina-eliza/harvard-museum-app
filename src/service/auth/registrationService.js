@@ -1,28 +1,13 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { validateRegistrationForm } from "./authValidation";
 
-export function validateRegistrationForm(email, password, repeatPassword) {
-  let errors = {
-    email: null,
-    password: null,
-    repeatPassword: null,
-  };
+export function handleUserRegistration(email, password, repeatPassword, toaster, router) {
+  const validationErrors = validateRegistrationForm(email, password, repeatPassword);
 
-  if (!email) {
-    errors.email = "This field must be filled in";
+  if (Object.values(validationErrors).some(error => error !== null)) {
+    return;
   }
 
-  if (!password) {
-    errors.password = "This field must be filled in";
-  }
-
-  if (password !== repeatPassword) {
-    errors.repeatPassword = "Passwords do not match";
-  }
-
-  return errors;
-}
-
-export function handleUserRegistration(email, password, toaster, router) {
   const auth = getAuth();
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => {

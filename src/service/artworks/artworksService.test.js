@@ -5,7 +5,6 @@ jest.mock("../../api/artworks/artworksApi.js");
 
 describe("ArtworksService", () => {
   test("should filter artworks correctly", async () => {
-    //arrage
 
     const mockArtworks = [
       { id: 1, images: { web: "image1.jpg" } },
@@ -22,12 +21,7 @@ describe("ArtworksService", () => {
 
     const service = new ArtworksService();
 
-    //act
-
     const filteredArtworks = await service.getFilteredArtworks();
-
-    //assert
-
     expect(filteredArtworks.length).toBe(3);
     expect(filteredArtworks).toEqual(
       expect.arrayContaining([
@@ -38,10 +32,7 @@ describe("ArtworksService", () => {
     );
   });
 
-
-
   test("should throw error when there is an issue with fetching API", async () => {
-    //arrange
 
     ArtworksApi.mockImplementation(() => {
       return {
@@ -50,10 +41,7 @@ describe("ArtworksService", () => {
     });
 
     const service = new ArtworksService();
-
-    //act
-    //assert
-
+    
     await expect(service.getFilteredArtworks()).rejects.toThrow(
       "Error in ArtworksService: Error with API"
     );
