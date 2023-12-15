@@ -47,7 +47,7 @@
 
 <script>
 import { ref } from 'vue';
-import { validateRegistrationForm, handleUserRegistration } from "../../service/form/registrationService";
+import { validateRegistrationForm, handleUserRegistration } from "../../service/auth/registrationService";
 import { useRouter } from "vue-router";
 import { createToaster } from "@meforma/vue-toaster";
 

@@ -36,7 +36,7 @@
 
 <script>
 import { ref } from 'vue';
-import { validateLoginForm, loginUserWithEmailAndPassword } from "../../service/form/loginService";
+import { validateLoginForm, loginUserWithEmailAndPassword } from "../../service/auth/loginService";
 import { useRouter } from "vue-router";
 import { createToaster } from "@meforma/vue-toaster";
 
