@@ -1,13 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { validateRegistrationForm } from "./authValidation";
 
-export function handleUserRegistration(email, password, repeatPassword, toaster, router) {
-  const validationErrors = validateRegistrationForm(email, password, repeatPassword);
-
-  if (Object.values(validationErrors).some(error => error !== null)) {
-    return;
-  }
-
+export function handleUserRegistration(email, password, toaster, router) {
   const auth = getAuth();
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
@@ -20,6 +13,6 @@ export function handleUserRegistration(email, password, repeatPassword, toaster,
 }
 
 export function registerUser(email, password) {
-  const auth = getAuth();
+const auth = getAuth();
   return createUserWithEmailAndPassword(auth, email, password);
 }

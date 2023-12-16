@@ -50,6 +50,7 @@ import { ref } from 'vue';
 import { handleUserRegistration } from "../../service/auth/registrationService";
 import { useRouter } from "vue-router";
 import { createToaster } from "@meforma/vue-toaster";
+import { validateRegistrationForm } from "../../service/auth/authValidation";
 
 export default {
   setup() {
@@ -67,7 +68,9 @@ export default {
     const registrationFormSubmit = async () => {
       errors.value = validateRegistrationForm(email.value, password.value, repeatPassword.value);
 
-      if (!errors.value.email && !errors.value.password && !errors.value.repeatPassword) {
+
+      if (!Boolean(errors.value.email && errors.value.password && errors.value.repeatPassword)) {
+        console.log( 'мы перешли сюда: ', errors.value, !!errors.value.email );
         handleUserRegistration(email.value, password.value, toaster, router);
       } else {
         Object.values(errors.value).forEach(error => {
