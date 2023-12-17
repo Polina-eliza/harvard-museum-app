@@ -1,8 +1,12 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import store from "../../store"
 
 export function loginUserWithEmailAndPassword(email, password) {
   const auth = getAuth();
-  return signInWithEmailAndPassword(auth, email, password);
+  return signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      store.commit('setLoginStatus', true);
+    });
 }
 
 export function validateLoginForm(email, password) {

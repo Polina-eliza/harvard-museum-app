@@ -1,10 +1,12 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import store from "../../store"
 
 export function handleUserRegistration(email, password, toaster, router) {
-  const auth = getAuth();
-  createUserWithEmailAndPassword(auth, email, password)
+  const authInstance = getAuth();
+  createUserWithEmailAndPassword(authInstance, email, password)
     .then(() => {
       toaster.success('Successfully registered');
+      store.commit('setLoginStatus', true);
       router.push('/collections');
     })
     .catch(error => {

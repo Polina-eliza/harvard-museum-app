@@ -5,14 +5,16 @@ import HomePage from './Pages/HomePage.vue'
 import DetailsPage from "./Pages/DetailsPage.vue"
 import ExhibitionsPage from "./Pages/ExhibitionsPage.vue"
 import LoginPage from "./Pages/LoginPage.vue"
-import SignupPage from "./Pages/SignupPage.vue"
+import RegistrationPage from "./Pages/RegistrationPage.vue"
+import FavoritesPage from "./Pages/FavoritesPage.vue"
 
 const routes = [
   { path: "/collections", component: CollectionsPage },
   { path: "/details/:artworkId", component: DetailsPage },
   { path: "/exhibitions", component: ExhibitionsPage },
-  { path: "/signup", component: SignupPage },
+  { path: "/signup", component: RegistrationPage },
   { path: "/login", component: LoginPage },
+  { path: "/favorites", component: FavoritesPage },
   { path: "/home", component: HomePage }
 ];
 

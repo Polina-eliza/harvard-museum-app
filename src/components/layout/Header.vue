@@ -17,7 +17,7 @@
       </div>
 
       <div class="navbar__item">
-        <div v-if="!isLoggedIn" class="navbar__account">
+        <div v-if="!isLoggedIn" class="navbar__account logged-in">
           <router-link to="/login">
             <div class="navbar__item navbar__item-user-auth">
               <span class="mdi mdi-account"></span>
@@ -29,9 +29,21 @@
             </div>
           </router-link>
         </div>
-        <div v-else class="navbar__item">
-          <span class="mdi mdi-heart"></span>
-        </div>
+        <div v-else class="navbar__account logged-out">
+        <router-link to="/favorites">
+          <div class="navbar__item navbar__item--favorites">
+            <span class="mdi mdi-heart"></span>
+           
+          </div>
+        </router-link>
+
+        <router-link to="/login">
+          <div class="navbar__item navbar__item--login">
+            <span class="mdi mdi-account-arrow-left-outline"></span>
+           
+          </div>
+        </router-link>
+      </div>
       </div>
     </div>
   </nav>
@@ -85,6 +97,10 @@ export default {
   }
 
   &__item-user-auth--registration::before {
+    content: "|";
+  }
+
+  &__item--favorites::after {
     content: "|";
   }
 }
