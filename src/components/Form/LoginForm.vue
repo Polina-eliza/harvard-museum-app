@@ -9,7 +9,7 @@
           placeholder="Enter your email..."
         />
       </label>
-    
+
       <label for="password" type="password" class="login-form-main__input-label"
         >Password
         <input
@@ -18,7 +18,6 @@
           placeholder="Enter your password..."
         />
       </label>
-   
 
       <button class="login-form-main__btn-submit">Login</button>
 
@@ -35,16 +34,19 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import { validateLoginForm, loginUserWithEmailAndPassword } from "../../service/auth/loginService";
+import { ref, reactive } from "vue";
+import {
+  validateLoginForm,
+  loginUserWithEmailAndPassword,
+} from "../../service/auth/loginService";
 import { useRouter } from "vue-router";
 import { createToaster } from "@meforma/vue-toaster";
 
 export default {
   setup() {
-    const email = ref('');
-    const password = ref('');
-    const errors = ref({
+    const email = ref("");
+    const password = ref("");
+    const errors = reactive({
       email: null,
       password: null,
     });
@@ -52,25 +54,25 @@ export default {
     const router = useRouter();
 
     const loginFormSubmit = async () => {
-  const validationErrors = validateLoginForm(email.value, password.value);
-  
-  if (!validationErrors.email && !validationErrors.password) {
-    try {
-      await loginUserWithEmailAndPassword(email.value, password.value);
-      toaster.success('Login successful');
-      router.push('/collections');
-    } catch (error) {
-      handleAuthError(error, toaster);
-    }
-  } else {
-    if (validationErrors.email) {
-      toaster.error(validationErrors.email);
-    }
-    if (validationErrors.password) {
-      toaster.error(validationErrors.password);
-    }
-  }
-};
+      const validationErrors = validateLoginForm(email.value, password.value);
+
+      if (!validationErrors.email && !validationErrors.password) {
+        try {
+          await loginUserWithEmailAndPassword(email.value, password.value);
+          toaster.success("Login successful");
+          router.push("/collections");
+        } catch (error) {
+          handleAuthError(error, toaster);
+        }
+      } else {
+        if (validationErrors.email) {
+          toaster.error(validationErrors.email);
+        }
+        if (validationErrors.password) {
+          toaster.error(validationErrors.password);
+        }
+      }
+    };
 
     return {
       email,
@@ -82,24 +84,23 @@ export default {
 };
 
 function handleAuthError(error, toaster) {
-  let errorMessage = '';
+  let errorMessage = "";
   switch (error.code) {
-    case 'auth/invalid-email':
-      errorMessage = 'Invalid email';
+    case "auth/invalid-email":
+      errorMessage = "Invalid email";
       break;
-    case 'auth/user-not-found':
-      errorMessage = 'No account with that email was found';
+    case "auth/user-not-found":
+      errorMessage = "No account with that email was found";
       break;
-    case 'auth/wrong-password':
-      errorMessage = 'Incorrect password';
+    case "auth/wrong-password":
+      errorMessage = "Incorrect password";
       break;
     default:
-      errorMessage = 'Email or password was incorrect';
+      errorMessage = "Email or password was incorrect";
   }
   toaster.error(errorMessage);
 }
 </script>
-
 
 <style lang="scss">
 @import "../../scss/variables";
