@@ -3,11 +3,9 @@
     <h2 class="collections-hero__header">Collections</h2>
     <h3 class="collections-hero__subheader">Browse through our art objects</h3>
   </div>
-
   <div class="container-midi dark-bg">
     <SearchInput @onSearch="handleSearch" />
   </div>
-
   <div class="container-midi light-bg collections">
     <form class="collections-header">
       <div class="collections-header-loading">
@@ -25,34 +23,43 @@
         </select>
       </div>
     </form>
-
     <main class="collections-main">
       <LoadingSpinner v-if="isLoading" />
-      <router-link
-        :to="`/details/${artwork.id}`"
+      <div
         v-for="artwork in foundArtworks.length ? foundArtworks : artworks"
-    :key="artwork.id"
+        :key="artwork.id"
+        class="artwork-container"
       >
-        <div class="collections-main-card">
-          <img
-            class="collections-main-card__image"
-            :src="getImageUrl(artwork.images)"
-            :alt="artwork.title"
-          />
-          <div class="collections-main-card__author">
-            {{ artwork.creators[0].description }}
+        <span
+          :class="
+            likedArtworks[artwork.id]
+              ? 'mdi mdi-heart'
+              : 'mdi mdi-heart-outline'
+          "
+          @click.stop="() => toggleLike(artwork.id)"
+          class="heart-icon"
+        ></span>
+        <router-link :to="`/details/${artwork.id}`" class="collections-link">
+          <div class="collections-main-card">
+            <img
+              class="collections-main-card__image"
+              :src="getImageUrl(artwork.images)"
+              :alt="artwork.title"
+            />
+            <div class="collections-main-card__author">
+              {{ artwork.creators[0].description }}
+            </div>
+            <div class="collections-main-card__title">
+              {{ artwork.title }}
+            </div>
+            <div class="collections-main-card__type">{{ artwork.type }}</div>
+            <div class="collections-main-card__technique">
+              {{ artwork.technique }}
+            </div>
           </div>
-          <div class="collections-main-card__title">
-            {{ artwork.title }}
-          </div>
-          <div class="collections-main-card__type">{{ artwork.type }}</div>
-          <div class="collections-main-card__technique">
-            {{ artwork.technique }}
-          </div>
-        </div>
-      </router-link>
+        </router-link>
+      </div>
     </main>
-
     <button
       type="submit"
       @click="loadMoreArtworks"
@@ -71,7 +78,7 @@ import LoadingSpinner from "@components/UI/LoadingSpinner.vue";
 export default {
   components: {
     SearchInput,
-    LoadingSpinner
+    LoadingSpinner,
   },
   data() {
     return {
@@ -79,7 +86,8 @@ export default {
       foundArtworks: [],
       selectedLoadAmount: 12,
       currentPage: 1,
-      isLoading: false
+      isLoading: false,
+      likedArtworks: {},
     };
   },
   created() {
@@ -121,6 +129,9 @@ export default {
     toggleDropdown() {
       this.isDropdownVisible = !this.isDropdownVisible;
     },
+    toggleLike(artworkId) {
+    ArtworkService.toggleLike(artworkId, this.artworks);
+  }
   },
 };
 </script>

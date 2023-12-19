@@ -19,3 +19,4 @@ class ArtworkDetailsService {
 }
 
 export default new ArtworkDetailsService();
+
