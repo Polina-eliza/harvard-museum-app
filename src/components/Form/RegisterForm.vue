@@ -70,7 +70,6 @@ export default {
 
 
       if (!Boolean(errors.value.email && errors.value.password && errors.value.repeatPassword)) {
-        console.log( 'мы перешли сюда: ', errors.value, !!errors.value.email );
         handleUserRegistration(email.value, password.value, toaster, router);
       } else {
         Object.values(errors.value).forEach(error => {
