@@ -32,9 +32,7 @@ export default {
   },
   async created() {
     try {
-      this.exhibitions = await exhibitionsService.getExhibitions(
-        new URLSearchParams(window.location.search)
-      );
+      this.exhibitions = await exhibitionsService.getExhibitions();
     } catch (error) {
       this.$toast.error(error.message);
     }

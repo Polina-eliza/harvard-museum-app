@@ -6,7 +6,8 @@ class ExhibitionsService {
     this.api = new ExhibitionsApi(); 
   }
 
-  async getExhibitions(searchParams) {
+  async getExhibitions() {
+    const searchParams = new URLSearchParams(window.location.search);
     try {
       const data = await this.api.fetchExhibitions(searchParams); 
       return data.data.map((exhibition) => {
