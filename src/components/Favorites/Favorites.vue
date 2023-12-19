@@ -8,9 +8,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="favorites-saved__table-row">
-            <td class="favorites-saved__table-data"><img src="" alt="" /></td>
-            <td class="favorites-saved__table-data">12.09.2010</td>
+          <tr class="favorites-saved__table-row" v-for="artwork in likedArtworks" :key="artwork.id">
+            <td class="favorites-saved__table-data"><img :src="artwork.images[0]" :alt="artwork.title"  /></td>
+            <td class="favorites-saved__table-data">{{ artwork.creators[0].description }}</td>
             <td class="favorites-saved__table-data">
               <span class="mdi mdi-plus delete-icon"></span>
             </td>
@@ -18,6 +18,22 @@
         </tbody>
       </table>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+
+        }
+    },
+    computed: {
+  likedArtworks() {
+    return this.$store.getters.likedArtworks;
+  }
+}
+}
+
+</script>
 
 <style lang="scss">
 @import "../../scss//variables";

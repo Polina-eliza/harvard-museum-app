@@ -58,10 +58,8 @@
         </div>
       </router-link>
       </div>
-
-
     </main>
-
+    
     <button
       type="submit"
       @click="loadMoreArtworks"
@@ -132,14 +130,19 @@ export default {
       this.isDropdownVisible = !this.isDropdownVisible;
     },
     toggleLike(artworkId) {
-  if (this.likedArtworks.hasOwnProperty(artworkId)) {
-    this.likedArtworks[artworkId] = !this.likedArtworks[artworkId];
-  } else {
-    this.likedArtworks[artworkId] = true;
+    const artwork = this.artworks.find(art => art.id === artworkId);
+    if (artwork) {
+      if (this.likedArtworks.hasOwnProperty(artworkId)) {
+        this.likedArtworks[artworkId] = !this.likedArtworks[artworkId];
+        this.$store.commit('removeLikedArtwork', artworkId);
+      } else {
+        this.likedArtworks[artworkId] = true;
+        this.$store.commit('addLikedArtwork', artwork);
+      }
+    }
+  }
   }
 }
-  },
-};
 </script>
 
 <style lang="scss" src="../scss/collectionsPage.scss"></style>
