@@ -21,11 +21,6 @@
 
 <script>
 export default {
-    data() {
-        return {
-
-        }
-    },
     computed: {
   likedArtworks() {
     return this.$store.getters.likedArtworks;

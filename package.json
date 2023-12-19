@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@mdi/js": "^7.3.67",
@@ -25,6 +27,13 @@
     "@babel/preset-env": "^7.23.3",
     "@vitejs/plugin-vue": "^4.3.4",
     "babel-jest": "^29.7.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-vue": "^9.19.2",
     "jest-transform-stub": "^2.0.0",
     "sass": "^1.69.4",
     "vite": "^4.4.9",
