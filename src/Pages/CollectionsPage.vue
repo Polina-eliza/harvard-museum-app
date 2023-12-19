@@ -28,11 +28,17 @@
 
     <main class="collections-main">
       <LoadingSpinner v-if="isLoading" />
-      <router-link
-        :to="`/details/${artwork.id}`"
+      <div
         v-for="artwork in foundArtworks.length ? foundArtworks : artworks"
-    :key="artwork.id"
+        :key="artwork.id"
+        class="artwork-container"
       >
+      <span
+        :class="likedArtworks[artwork.id] ? 'mdi mdi-heart' : 'mdi mdi-heart-outline'"
+        @click.stop="toggleLike(artwork.id)"
+        class="heart-icon"
+      ></span>
+      <router-link :to="`/details/${artwork.id}`" class="collections-link">
         <div class="collections-main-card">
           <img
             class="collections-main-card__image"
@@ -51,6 +57,9 @@
           </div>
         </div>
       </router-link>
+      </div>
+
+
     </main>
 
     <button
@@ -71,7 +80,7 @@ import LoadingSpinner from "@components/UI/LoadingSpinner.vue";
 export default {
   components: {
     SearchInput,
-    LoadingSpinner
+    LoadingSpinner,
   },
   data() {
     return {
@@ -79,7 +88,8 @@ export default {
       foundArtworks: [],
       selectedLoadAmount: 12,
       currentPage: 1,
-      isLoading: false
+      isLoading: false,
+      likedArtworks: {}
     };
   },
   created() {
@@ -121,6 +131,13 @@ export default {
     toggleDropdown() {
       this.isDropdownVisible = !this.isDropdownVisible;
     },
+    toggleLike(artworkId) {
+  if (this.likedArtworks.hasOwnProperty(artworkId)) {
+    this.likedArtworks[artworkId] = !this.likedArtworks[artworkId];
+  } else {
+    this.likedArtworks[artworkId] = true;
+  }
+}
   },
 };
 </script>
