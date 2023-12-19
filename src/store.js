@@ -20,6 +20,9 @@ export default createStore({
   },
   getters: {
     isLoggedIn: state => state.isLoggedIn,
-    likedArtworks: state => state.likedArtworks
+    likedArtworks: state => state.likedArtworks,
+    isArtworkLiked: (state) => (artworkId) => { 
+      return state.likedArtworks.some(a => a.id === artworkId);
+    }
   }
-})
+});

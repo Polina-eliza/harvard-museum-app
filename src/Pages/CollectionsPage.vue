@@ -3,11 +3,9 @@
     <h2 class="collections-hero__header">Collections</h2>
     <h3 class="collections-hero__subheader">Browse through our art objects</h3>
   </div>
-
   <div class="container-midi dark-bg">
     <SearchInput @onSearch="handleSearch" />
   </div>
-
   <div class="container-midi light-bg collections">
     <form class="collections-header">
       <div class="collections-header-loading">
@@ -25,7 +23,6 @@
         </select>
       </div>
     </form>
-
     <main class="collections-main">
       <LoadingSpinner v-if="isLoading" />
       <div
@@ -33,33 +30,36 @@
         :key="artwork.id"
         class="artwork-container"
       >
-      <span
-        :class="likedArtworks[artwork.id] ? 'mdi mdi-heart' : 'mdi mdi-heart-outline'"
-        @click.stop="toggleLike(artwork.id)"
-        class="heart-icon"
-      ></span>
-      <router-link :to="`/details/${artwork.id}`" class="collections-link">
-        <div class="collections-main-card">
-          <img
-            class="collections-main-card__image"
-            :src="getImageUrl(artwork.images)"
-            :alt="artwork.title"
-          />
-          <div class="collections-main-card__author">
-            {{ artwork.creators[0].description }}
+        <span
+          :class="
+            likedArtworks[artwork.id]
+              ? 'mdi mdi-heart'
+              : 'mdi mdi-heart-outline'
+          "
+          @click.stop="() => toggleLike(artwork.id)"
+          class="heart-icon"
+        ></span>
+        <router-link :to="`/details/${artwork.id}`" class="collections-link">
+          <div class="collections-main-card">
+            <img
+              class="collections-main-card__image"
+              :src="getImageUrl(artwork.images)"
+              :alt="artwork.title"
+            />
+            <div class="collections-main-card__author">
+              {{ artwork.creators[0].description }}
+            </div>
+            <div class="collections-main-card__title">
+              {{ artwork.title }}
+            </div>
+            <div class="collections-main-card__type">{{ artwork.type }}</div>
+            <div class="collections-main-card__technique">
+              {{ artwork.technique }}
+            </div>
           </div>
-          <div class="collections-main-card__title">
-            {{ artwork.title }}
-          </div>
-          <div class="collections-main-card__type">{{ artwork.type }}</div>
-          <div class="collections-main-card__technique">
-            {{ artwork.technique }}
-          </div>
-        </div>
-      </router-link>
+        </router-link>
       </div>
     </main>
-    
     <button
       type="submit"
       @click="loadMoreArtworks"
@@ -87,7 +87,7 @@ export default {
       selectedLoadAmount: 12,
       currentPage: 1,
       isLoading: false,
-      likedArtworks: {}
+      likedArtworks: {},
     };
   },
   created() {
@@ -130,19 +130,10 @@ export default {
       this.isDropdownVisible = !this.isDropdownVisible;
     },
     toggleLike(artworkId) {
-    const artwork = this.artworks.find(art => art.id === artworkId);
-    if (artwork) {
-      if (this.likedArtworks.hasOwnProperty(artworkId)) {
-        this.likedArtworks[artworkId] = !this.likedArtworks[artworkId];
-        this.$store.commit('removeLikedArtwork', artworkId);
-      } else {
-        this.likedArtworks[artworkId] = true;
-        this.$store.commit('addLikedArtwork', artwork);
-      }
-    }
+    ArtworkService.toggleLike(artworkId, this.artworks);
   }
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" src="../scss/collectionsPage.scss"></style>
