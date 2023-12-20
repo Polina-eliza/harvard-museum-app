@@ -24,39 +24,58 @@
             </div>
           </router-link>
           <router-link to="/signup">
-            <div class="navbar__item navbar__item-user-auth navbar__item-user-auth--registration">
+            <div
+              class="navbar__item navbar__item-user-auth navbar__item-user-auth--registration"
+            >
               Registration
             </div>
           </router-link>
         </div>
         <div v-else class="navbar__account logged-out">
-        <router-link to="/favorites">
-          <div class="navbar__item navbar__item--favorites">
-            <span class="mdi mdi-heart"></span>
-           
-          </div>
-        </router-link>
+          <router-link to="/favorites">
+            <div class="navbar__item navbar__item--favorites">
+              <span class="mdi mdi-heart"></span>
+            </div>
+          </router-link>
 
-        <router-link to="/login">
-          <div class="navbar__item navbar__item--login">
-            <span class="mdi mdi-account-arrow-left-outline"></span>
-           
-          </div>
-        </router-link>
-      </div>
+          <router-link to="/login">
+            <div
+              @click="handleSignOut"
+              class="navbar__item navbar__item--login"
+            >
+              <span class="mdi mdi-account-arrow-left-outline"></span>
+            </div>
+          </router-link>
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
+import { getAuth, signOut } from "firebase/auth";
+import { createToaster } from "@meforma/vue-toaster";
 
 export default {
   computed: {
-    ...mapGetters(['isLoggedIn'])
-  }
-}
+    ...mapGetters(["isLoggedIn"]),
+  },
+  methods: {
+    async handleSignOut() {
+      const auth = getAuth();
+      const toaster = createToaster();
+      try {
+        await signOut(auth);
+        this.$store.commit("setLoginStatus", false);
+        this.$router.push("/home");
+        toaster.success("Successfully logged out");
+      } catch (error) {
+        toaster.error("Sign out error:', error");
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss">
