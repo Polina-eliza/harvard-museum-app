@@ -5,6 +5,7 @@ export function loginUserWithEmailAndPassword(email, password) {
   const auth = getAuth();
   return signInWithEmailAndPassword(auth, email, password)
     .then(() => {
+      localStorage.setItem('isLoggedIn', 'true');
       store.commit('setLoginStatus', true);
     });
 }

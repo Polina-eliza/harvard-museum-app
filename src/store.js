@@ -18,6 +18,12 @@ export default createStore({
       state.likedArtworks = state.likedArtworks.filter(a => a.id !== artworkId);
     },
   },
+  actions: {
+    initializeStore({ commit }) {
+      const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      commit('setLoginStatus', isLoggedIn);
+    }
+  },
   getters: {
     isLoggedIn: state => state.isLoggedIn,
     likedArtworks: state => state.likedArtworks,

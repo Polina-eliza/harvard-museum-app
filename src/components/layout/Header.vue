@@ -39,10 +39,7 @@
           </router-link>
 
           <router-link to="/login">
-            <div
-              @click="handleSignOut"
-              class="navbar__item navbar__item--login"
-            >
+            <div @click="signOut" class="navbar__item navbar__item--login">
               <span class="mdi mdi-account-arrow-left-outline"></span>
             </div>
           </router-link>
@@ -53,26 +50,24 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import { getAuth, signOut } from "firebase/auth";
+import { mapGetters, useStore } from "vuex";
+import { useRouter } from "vue-router";
 import { createToaster } from "@meforma/vue-toaster";
+import { handleSignOut } from "../../service/header/headerService.js";
 
 export default {
   computed: {
     ...mapGetters(["isLoggedIn"]),
   },
+  setup() {
+    const store = useStore();
+    const router = useRouter();
+    const toaster = createToaster();
+    return { store, router, toaster };
+  },
   methods: {
-    async handleSignOut() {
-      const auth = getAuth();
-      const toaster = createToaster();
-      try {
-        await signOut(auth);
-        this.$store.commit("setLoginStatus", false);
-        this.$router.push("/home");
-        toaster.success("Successfully logged out");
-      } catch (error) {
-        toaster.error("Sign out error:', error");
-      }
+    async signOut() {
+      await handleSignOut(this.store, this.router, this.toaster);
     },
   },
 };
