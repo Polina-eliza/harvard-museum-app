@@ -30,15 +30,11 @@
         :key="artwork.id"
         class="artwork-container"
       >
-        <span
-          :class="
-            likedArtworks[artwork.id]
-              ? 'mdi mdi-heart'
-              : 'mdi mdi-heart-outline'
-          "
-          @click.stop="() => toggleLike(artwork.id)"
-          class="heart-icon"
-        ></span>
+      <span
+  :class="isArtworkLiked(artwork.id) ? 'mdi mdi-heart' : 'mdi mdi-heart-outline'"
+  @click.stop="toggleLike(artwork.id)"
+  class="heart-icon"
+></span>
         <router-link :to="`/details/${artwork.id}`" class="collections-link">
           <div class="collections-main-card">
             <img
@@ -72,8 +68,8 @@
 
 <script>
 import SearchInput from "@components/Search/SearchInput.vue";
-import CollectionsService from "../service/collections/collectionsService.js";
 import LoadingSpinner from "@components/UI/LoadingSpinner.vue";
+import ArtworkService from "../service/collections/collectionsService.js";
 
 export default {
   components: {
@@ -88,6 +84,7 @@ export default {
       currentPage: 1,
       isLoading: false,
       likedArtworks: {},
+      isSearchActive: false, 
     };
   },
   created() {
@@ -95,24 +92,29 @@ export default {
   },
   methods: {
     async getCards() {
+      this.isLoading = true;
       try {
-        const newArtworks = await CollectionsService.getArtworksForCollections(
+        const newArtworks = await ArtworkService.getArtworksForCollections(
           this.selectedLoadAmount,
           this.currentPage
         );
         this.artworks = [...this.artworks, ...newArtworks];
       } catch (error) {
         this.$toast.error("Error fetching artworks: " + error.message);
+      } finally {
+        this.isLoading = false;
       }
     },
     async handleSearch(query) {
       this.isLoading = true;
       try {
-        const filteredArtworks = await CollectionsService.searchArtworks(
+        const filteredArtworks = await ArtworkService.searchArtworks(
           query,
           this.selectedLoadAmount,
           this.currentPage
         );
+        this.foundArtworks = filteredArtworks;
+        this.isSearchActive = true;
       } catch (error) {
         this.$toast.error("Error fetching artworks: " + error.message);
       } finally {
@@ -124,14 +126,19 @@ export default {
       this.isSearchActive ? this.loadMoreFoundArtworks() : this.getCards();
     },
     getImageUrl(images) {
-      return CollectionsService.getImageUrl(images);
-    },
-    toggleDropdown() {
-      this.isDropdownVisible = !this.isDropdownVisible;
+      return ArtworkService.getImageUrl(images);
     },
     toggleLike(artworkId) {
+      ArtworkService.toggleLike(artworkId, this.artworks);
+    },
+    isArtworkLiked(artworkId) {
+    return this.$store.getters.isArtworkLiked(artworkId);
+  },
+
+  toggleLike(artworkId) {
     ArtworkService.toggleLike(artworkId, this.artworks);
-  }
+    // Refresh the local state if needed, or rely on Vuex reactivity
+  },
   },
 };
 </script>
