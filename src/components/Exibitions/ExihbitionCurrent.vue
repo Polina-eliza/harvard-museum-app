@@ -22,9 +22,19 @@
 </template>
 
 <script>
+import ExhibitionsService from '../../service/exhibitions/exhibitionsService'
+
 export default {
   props: {
     exhibition: Object
   },
+  async mounted() {
+    try {
+      const exhibitions = await ExhibitionsService.getExhibitions();
+      // Process exhibitions data as needed
+    } catch (error) {
+      console.error('Error loading exhibitions:', error);
+    }
+  }
 };
 </script>

@@ -11,7 +11,6 @@ const vuetify = createVuetify()
 const app = createApp(App);
 
 app.use(store);
-store.dispatch('initializeStore');
 app.use(router);
 app.use(Toaster);
 app.use(vuetify);

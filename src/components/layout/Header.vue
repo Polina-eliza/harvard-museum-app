@@ -50,20 +50,9 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
-import { useStore } from 'vuex';
-import { useRouter } from 'vue-router';
-import { createToaster } from '@meforma/vue-toaster';
-import { handleSignOut } from '../../service/header/headerService.js';
+import { useAuthComposable } from '../../composables/useAuthComposable';
 
-const store = useStore();
-const router = useRouter();
-const toaster = createToaster();
-const isLoggedIn = computed(() => store.getters.isLoggedIn);
-
-async function signOut() {
-  await handleSignOut(store, router, toaster);
-}
+const { isLoggedIn, signOut } = useAuthComposable();
 </script>
 
 <style lang="scss">
