@@ -15,7 +15,7 @@ class ExhibitionsService {
       const response = await this.api.fetchExhibitions(searchParams);
       const exhibitions = await Promise.all(
         response.data.map(async (exhibition) => {
-          let imageURL = await this.syncAndGetImageURL(exhibition);
+          let imageURL = await this.addImageURL(exhibition);
           return { ...exhibition, imageURL };
         })
       );

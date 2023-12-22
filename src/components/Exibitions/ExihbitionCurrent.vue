@@ -31,7 +31,6 @@ export default {
   async mounted() {
     try {
       const exhibitions = await ExhibitionsService.getExhibitions();
-      // Process exhibitions data as needed
     } catch (error) {
       console.error('Error loading exhibitions:', error);
     }
