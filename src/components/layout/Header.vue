@@ -49,28 +49,21 @@
   </nav>
 </template>
 
-<script>
-import { mapGetters, useStore } from "vuex";
-import { useRouter } from "vue-router";
-import { createToaster } from "@meforma/vue-toaster";
-import { handleSignOut } from "../../service/header/headerService.js";
+<script setup>
+import { computed, ref } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+import { createToaster } from '@meforma/vue-toaster';
+import { handleSignOut } from '../../service/header/headerService.js';
 
-export default {
-  computed: {
-    ...mapGetters(["isLoggedIn"]),
-  },
-  setup() {
-    const store = useStore();
-    const router = useRouter();
-    const toaster = createToaster();
-    return { store, router, toaster };
-  },
-  methods: {
-    async signOut() {
-      await handleSignOut(this.store, this.router, this.toaster);
-    },
-  },
-};
+const store = useStore();
+const router = useRouter();
+const toaster = createToaster();
+const isLoggedIn = computed(() => store.getters.isLoggedIn);
+
+async function signOut() {
+  await handleSignOut(store, router, toaster);
+}
 </script>
 
 <style lang="scss">
