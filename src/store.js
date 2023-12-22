@@ -2,7 +2,7 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    isLoggedIn: false,
+    isLoggedIn: localStorage.getItem('isLoggedIn') === 'true',
     likedArtworks: []
   },
   mutations: {
@@ -17,12 +17,6 @@ export default createStore({
     removeLikedArtwork(state, artworkId) {
       state.likedArtworks = state.likedArtworks.filter(a => a.id !== artworkId);
     },
-  },
-  actions: {
-    initializeStore({ commit }) {
-      const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-      commit('setLoginStatus', isLoggedIn);
-    }
   },
   getters: {
     isLoggedIn: state => state.isLoggedIn,
