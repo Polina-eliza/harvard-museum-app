@@ -12,7 +12,7 @@
             <td class="favorites-saved__table-data"><img :src="artwork.images[0]" :alt="artwork.title"  /></td>
             <td class="favorites-saved__table-data">{{ artwork.creators[0].description }}</td>
             <td class="favorites-saved__table-data">
-              <span class="mdi mdi-plus delete-icon"></span>
+              <span class="mdi mdi-plus delete-icon" @click="removeFromFavorites(artwork.id)"></span>
             </td>
           </tr>
         </tbody>
@@ -25,6 +25,12 @@ export default {
   likedArtworks() {
     return this.$store.getters.likedArtworks;
   }
+}, 
+methods: {
+ removeFromFavorites(artworkId) {
+  this.$store.commit('removeLikedArtwork', artworkId)
+
+ }
 }
 }
 

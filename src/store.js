@@ -15,8 +15,9 @@ export default createStore({
       }
     },
     removeLikedArtwork(state, artworkId) {
-      state.likedArtworks = state.likedArtworks.filter(a => a.id !== artworkId);
+      state.likedArtworks = state.likedArtworks.filter(artwork => artwork.id !== artworkId);
     },
+  
   },
   getters: {
     isLoggedIn: state => state.isLoggedIn,
