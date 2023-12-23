@@ -7,43 +7,45 @@ import { createToaster } from "@meforma/vue-toaster";
 class ExhibitionsService {
   constructor() {
     this.api = new ExhibitionsApi();
+    this.toast = createToaster();
   }
 
   async getExhibitions() {
     const searchParams = new URLSearchParams(window.location.search);
     try {
       const response = await this.api.fetchExhibitions(searchParams);
+      console.log('Здесь приходит массив без картинок: ', response);
       const exhibitions = await Promise.all(
         response.data.map(async (exhibition) => {
-          let imageURL = await this.syncAndGetImageURL(exhibition);
+          let imageURL = await this.getImageURL(exhibition);
           return { ...exhibition, imageURL };
         })
       );
 
       return exhibitions;
     } catch (error) {
-      toast.error("Error fetching exhibitions: " + error.message);
+      this.toast.error("Error fetching exhibitions: " + error.message);
       throw error;
     }
   }
 
-  async syncAndGetImageURL(exhibition) {
+  async addImagesToStorage(exhibitions) {
+    for (const exhibition of exhibitions) {
+      await indexedDbService.addImage(exhibition.id, exhibition.imageURL);
+    }
+  }
+
+  async getImageURL(exhibition) {
     try {
-      let imageURL = await indexedDbService.getImage(exhibition.id);
+      let imageURL = this.getImageUrl(exhibition?.artworks?.[0]?.images);
 
       if (!imageURL) {
-        imageURL = this.getImageUrl(exhibition.artworks?.[0]?.images);
-        if (imageURL) {
-          await indexedDbService.addImage(exhibition.id, imageURL);
-        } else {
-          const localImage = this.getLocalImageForExhibition(exhibition.id);
-          imageURL = localImage || DefaultImg;
-        }
+        imageURL = await indexedDbService.getImage(exhibition.id);
       }
 
       return imageURL;
     } catch (error) {
-      toast.error("Error in syncing image for exhibition:", error);
+      this.toast.error("Error in syncing image for exhibition:", error);
       return DefaultImg;
     }
   }

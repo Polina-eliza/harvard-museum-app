@@ -47,9 +47,6 @@ export async function getImage(id) {
       if (event.target.result) {
         resolve(event.target.result.imageURL);
       } else {
-        console.log(
-          `Image not found in IndexedDB for id: ${id}, fetching from server.`
-        );
         resolve(null);
       }
     };
