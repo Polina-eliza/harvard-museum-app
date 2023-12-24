@@ -24,39 +24,35 @@
             </div>
           </router-link>
           <router-link to="/signup">
-            <div class="navbar__item navbar__item-user-auth navbar__item-user-auth--registration">
+            <div
+              class="navbar__item navbar__item-user-auth navbar__item-user-auth--registration"
+            >
               Registration
             </div>
           </router-link>
         </div>
         <div v-else class="navbar__account logged-out">
-        <router-link to="/favorites">
-          <div class="navbar__item navbar__item--favorites">
-            <span class="mdi mdi-heart"></span>
-           
-          </div>
-        </router-link>
+          <router-link to="/favorites">
+            <div class="navbar__item navbar__item--favorites">
+              <span class="mdi mdi-heart"></span>
+            </div>
+          </router-link>
 
-        <router-link to="/login">
-          <div class="navbar__item navbar__item--login">
-            <span class="mdi mdi-account-arrow-left-outline"></span>
-           
-          </div>
-        </router-link>
-      </div>
+          <router-link to="/login">
+            <div @click="signOut" class="navbar__item navbar__item--login">
+              <span class="mdi mdi-account-arrow-left-outline"></span>
+            </div>
+          </router-link>
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
-<script>
-import { mapGetters } from 'vuex';
+<script setup>
+import { useAuthComposable } from '../../composables/useAuthComposable';
 
-export default {
-  computed: {
-    ...mapGetters(['isLoggedIn'])
-  }
-}
+const { isLoggedIn, signOut } = useAuthComposable();
 </script>
 
 <style lang="scss">

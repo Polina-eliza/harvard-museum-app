@@ -33,6 +33,7 @@ export default {
   async created() {
     try {
       this.exhibitions = await exhibitionsService.getExhibitions();
+      await exhibitionsService.addImagesToStorage( this.exhibitions );
     } catch (error) {
       this.$toast.error(error.message);
     }

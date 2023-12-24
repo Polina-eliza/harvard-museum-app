@@ -10,7 +10,6 @@ class ArtworkDetailsApi {
       const data = await response.json();
       return data.data;
     } catch (error) {
-      console.error("Error fetching artwork details:", error.message);
       throw error;
     }
   }

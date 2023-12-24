@@ -45,17 +45,17 @@ import instagramIcon from '../../assets/svg/instagram.svg'
 
 const SOCIALS = [
   {
-    name: 'Facebook', 
+    name: 'Facebook',
     link: '#',
     icon: facebookIcon
   },
   {
-    name: 'Instagram', 
+    name: 'Instagram',
     link: '#',
     icon: instagramIcon
   },
   {
-    name: 'Twitter', 
+    name: 'Twitter',
     link: '#',
     icon: twitterIcon
   },
@@ -70,11 +70,7 @@ export default {
   },
   methods: {
     subscribeOnNews() {
-      const formData = {
-        name: this.name,
-        emial: this.email,
-      };
-      console.log(formData);
+      console.log('Запрос на подписку');
     },
   },
 };

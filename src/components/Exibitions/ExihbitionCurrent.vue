@@ -22,9 +22,12 @@
 </template>
 
 <script>
+
 export default {
   props: {
-    exhibition: Object
+    exhibition: {
+      type: Object,
+    },
   },
 };
 </script>
