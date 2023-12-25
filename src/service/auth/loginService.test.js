@@ -5,7 +5,18 @@ import { loginUserWithEmailAndPassword, validateLoginForm } from "./loginService
 jest.mock('firebase/auth');
 jest.mock('../../store');
 
-global.localStorage = { setItem: jest.fn() };
+const localStorageMock = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+};
+
+Object.defineProperty(window, 'localStorage', {
+    value: localStorageMock,
+  });
+
+Object.defineProperty(window, 'localStorage', {
+    value: localStorageMock,
+  });
 
 describe('loginService', () => {
 

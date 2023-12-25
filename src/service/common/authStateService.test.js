@@ -11,9 +11,14 @@ describe('handleSignOut', () => {
     error: jest.fn()
   };
 
-  global.localStorage = {
-    removeItem: jest.fn()
+  const localStorageMock = {
+    getItem: jest.fn(),
+    setItem: jest.fn(),
   };
+  
+  Object.defineProperty(window, 'localStorage', {
+      value: localStorageMock,
+    });
 
   test('successfully signs out', async () => {
     signOut.mockResolvedValue(); 
