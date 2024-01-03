@@ -1,4 +1,4 @@
-import ArtworksAPI from './ArtworksAPI';
+import ArtworksAPI from './collectionsApi.js';
 
 describe('ArtworksAPI', () => {
   const mockJson = jest.fn();
@@ -32,6 +32,9 @@ describe('ArtworksAPI', () => {
     test('should fetch artworks by search query successfully', async () => {
       const mockArtworksData = [{ id: '2', title: 'Artwork 2' }];
       mockJson.mockResolvedValue(mockArtworksData);
+
+      global.fetch = jest.fn(() => Promise.resolve({ ok: true, json: mockJson }));
+      
       const query = 'painting';
       const amount = 10;
       const page = 1;

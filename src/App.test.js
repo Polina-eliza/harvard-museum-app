@@ -7,7 +7,7 @@ import Footer from './components/layout/Footer.vue';
 describe('App.vue', () => {
 
     test('renders header component', () => {
-        const warpper = mount(App);
+        const wrapper = mount(App);
         expect(wrapper.findComponent(Header).exists()).toBe(true)
     });
 
