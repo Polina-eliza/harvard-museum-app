@@ -39,14 +39,14 @@ describe('Vuex Store', () => {
     test('addLikedArtwork', () => {
       const artwork = { id: 1, title: 'Artwork 1' };
       store.commit('addLikedArtwork', artwork);
-      expect(store.state.likedArtworks).toContain(artwork);
+      expect(store.state.likedArtworks).toContainEqual(artwork);
     });
 
     test('removeLikedArtwork', () => {
       const artwork = { id: 1, title: 'Artwork 1' };
       store.commit('addLikedArtwork', artwork);
       store.commit('removeLikedArtwork', artwork.id);
-      expect(store.state.likedArtworks).not.toContain(artwork);
+      expect(store.state.likedArtworks).not.toContainEqual(artwork);
     });
   });
 
@@ -59,7 +59,7 @@ describe('Vuex Store', () => {
     test('likedArtworks', () => {
       const artwork = { id: 1, title: 'Artwork 1' };
       store.commit('addLikedArtwork', artwork);
-      expect(store.getters.likedArtworks).toContain(artwork);
+      expect(store.getters.likedArtworks).toContainEqual(artwork);
     });
 
     test('isArtworkLiked', () => {
