@@ -1,6 +1,6 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import store from "../../store";
-import { loginUserWithEmailAndPassword, validateLoginForm } from "./loginService"; 
+import { loginUserWithEmailAndPassword, validateLoginForm } from "./loginService";
 
 jest.mock('firebase/auth');
 jest.mock('../../store');
@@ -11,14 +11,14 @@ const localStorageMock = {
 };
 
 Object.defineProperty(window, 'localStorage', {
-    value: localStorageMock,
-  });
-
-Object.defineProperty(window, 'localStorage', {
-    value: localStorageMock,
-  });
+  value: localStorageMock,
+});
 
 describe('loginService', () => {
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
   describe('loginUserWithEmailAndPassword', () => {
 
@@ -41,6 +41,7 @@ describe('loginService', () => {
       expect(store.commit).not.toHaveBeenCalled();
     });
   });
+
 
   describe('validateLoginForm', () => {
     test('returns no errors for valid input', () => {

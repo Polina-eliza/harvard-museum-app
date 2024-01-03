@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { mount } from '@vue/test-utils';
 import App from './App.vue';
 import Header from './components/layout/Header.vue';
@@ -13,7 +14,7 @@ describe('App.vue', () => {
 
     test('renders footer componnet', () => {
         const wrapper = mount(App);
-        expect(wrapper.findComponent(Footer).exists().toBe(true))
+        expect(wrapper.findComponent(Footer).exists()).toBe(true)
     })
 })
 
