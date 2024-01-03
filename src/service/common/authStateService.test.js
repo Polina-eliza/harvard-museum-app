@@ -14,18 +14,19 @@ describe('handleSignOut', () => {
   const localStorageMock = {
     getItem: jest.fn(),
     setItem: jest.fn(),
+    removeItem: jest.fn(), 
   };
   
   Object.defineProperty(window, 'localStorage', {
-      value: localStorageMock,
-    });
+    value: localStorageMock,
+  });
 
   test('successfully signs out', async () => {
     signOut.mockResolvedValue(); 
 
     await handleSignOut(mockStore, mockRouter, mockToaster);
 
-    expect(localStorage.removeItem).toHaveBeenCalledWith("isLoggedIn");
+    expect(localStorageMock.removeItem).toHaveBeenCalledWith("isLoggedIn");
     expect(mockStore.commit).toHaveBeenCalledWith("setLoginStatus", false);
     expect(mockRouter.push).toHaveBeenCalledWith("/home");
     expect(mockToaster.success).toHaveBeenCalledWith("Successfully logged out");

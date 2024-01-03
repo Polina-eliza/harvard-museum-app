@@ -3,7 +3,7 @@ import store from "../../store"
 
 export function handleUserRegistration(email, password, toaster, router) {
   const authInstance = getAuth();
-  createUserWithEmailAndPassword(authInstance, email, password)
+  return createUserWithEmailAndPassword(authInstance, email, password)
     .then(() => {
       toaster.success('Successfully registered');
       store.commit('setLoginStatus', true);

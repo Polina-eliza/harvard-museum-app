@@ -1,13 +1,11 @@
-import ExhibitionsService from './ExhibitionsService';
+import exhibitionsService from './ExhibitionsService';
 import ExhibitionsApi from '../../api/exhibitions/exhibitionsApi';
-import DefaultImg from '../../assets/17816812.jpeg';
 import * as indexedDbService from '../../indexedDbService';
 
 jest.mock('../../api/exhibitions/exhibitionsApi');
 jest.mock('../../indexedDbService');
 
 describe('ExhibitionsService', () => {
-  let service;
   const mockExhibitions = [
     { id: '1', artworks: [{ images: { web: { url: 'https://example.com/image1.jpg' } } }] },
     { id: '2', artworks: [] },
@@ -15,9 +13,10 @@ describe('ExhibitionsService', () => {
   const mockApiResponse = { data: mockExhibitions };
 
   beforeEach(() => {
-    service = new ExhibitionsService();
     ExhibitionsApi.mockClear();
-    indexedDbService.mockClear();
+    if (indexedDbService.getImage.mockClear) indexedDbService.getImage.mockClear();
+    if (indexedDbService.addImage.mockClear) indexedDbService.addImage.mockClear();
+  
     ExhibitionsApi.mockImplementation(() => {
       return { fetchExhibitions: jest.fn().mockResolvedValue(mockApiResponse) };
     });
@@ -27,7 +26,7 @@ describe('ExhibitionsService', () => {
 
   describe('getExhibitions', () => {
     test('should fetch exhibitions and return them with image URLs', async () => {
-      const exhibitions = await service.getExhibitions();
+      const exhibitions = await exhibitionsService.getExhibitions();
       expect(ExhibitionsApi.mock.instances[0].fetchExhibitions).toHaveBeenCalled();
       expect(exhibitions[0].imageURL).toBe('https://example.com/image1.jpg');
       expect(exhibitions[1].imageURL).toBe('https://example.com/default.jpg');
@@ -38,7 +37,7 @@ describe('ExhibitionsService', () => {
         return { fetchExhibitions: jest.fn().mockRejectedValue(new Error('Network error')) };
       });
 
-      await expect(service.getExhibitions()).rejects.toThrow('Network error');
+      await expect(exhibitionsService.getExhibitions()).rejects.toThrow('Network error');
     });
   });
 

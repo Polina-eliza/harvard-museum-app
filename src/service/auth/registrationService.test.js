@@ -38,7 +38,7 @@ describe("registrationService", () => {
     test('should handle registration failure', async () => {
       await handleUserRegistration('fail@example.com', 'password123', mockToaster, mockRouter);
     
-      expect(mockToaster.error).toHaveBeenCalledWith('Registration failed: Registration failed'); // Adjust this to match the actual error message
+      expect(mockToaster.error).toHaveBeenCalledWith('Registration failed: Registration failed'); 
       expect(store.commit).not.toHaveBeenCalled();
       expect(mockRouter.push).not.toHaveBeenCalled();
     });
