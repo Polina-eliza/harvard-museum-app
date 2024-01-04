@@ -1,10 +1,22 @@
+/* eslint-disable no-undef */
 module.exports = {
-    transform: {
-      '^.+\\.js$': 'babel-jest',
-      '.+\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': 'jest-transform-stub',
-    },
-    moduleFileExtensions: ['js', 'json', 'ts'],
-    moduleNameMapper: {
-      '^@/(.*)$': '<rootDir>/src/$1',
-    },
-  };
+  testEnvironment        : 'jest-environment-jsdom-global',
+  testEnvironmentOptions: {
+    customExportConditions: ["node", "node-addons"],
+  },
+  moduleFileExtensions : ['js', 'json', 'vue'],
+  transform            : {
+    '^.+\\.js$': 'babel-jest',
+    '^.+\\.vue$' : '@vue/vue3-jest',
+    '.+\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': 'jest-transform-stub',
+  },
+  testPathIgnorePatterns : [
+    '<rootDir>/node_modules/',
+  ],
+  transformIgnorePatterns : [
+    '<rootDir>/node_modules/?!(@meforma/vue-toaster)',
+  ],
+  setupFiles : [
+    '<rootDir>/src/jest.setup.js',
+  ],
+};

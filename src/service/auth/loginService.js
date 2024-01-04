@@ -7,6 +7,9 @@ export function loginUserWithEmailAndPassword(email, password) {
     .then(() => {
       localStorage.setItem('isLoggedIn', 'true');
       store.commit('setLoginStatus', true);
+    })
+    .catch((error) => {
+      throw error; 
     });
 }
 
