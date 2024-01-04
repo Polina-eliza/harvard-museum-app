@@ -1,6 +1,9 @@
 /* eslint-disable no-undef */
 module.exports = {
   testEnvironment        : 'jest-environment-jsdom-global',
+  testEnvironmentOptions: {
+    customExportConditions: ["node", "node-addons"],
+  },
   moduleFileExtensions : ['js', 'json', 'vue'],
   transform            : {
     '^.+\\.js$': 'babel-jest',
@@ -11,7 +14,7 @@ module.exports = {
     '<rootDir>/node_modules/',
   ],
   transformIgnorePatterns : [
-    '<rootDir>/node_modules/@regru/?!(@meforma/vue-toaster)',
+    '<rootDir>/node_modules/?!(@meforma/vue-toaster)',
   ],
   setupFiles : [
     '<rootDir>/src/jest.setup.js',
