@@ -12,6 +12,6 @@ describe('FavoritesPage', () => {
     test('has the right structure', () => {
         const wrapper = shallowMount(FavoritesPage);
         expect(wrapper.find('.favorites-saved').exists()).toBe(true);
-        expect(wrapper.find('.favorites-saved__header').text()).toBe('npm Saved Collections')
+        expect(wrapper.find('.favorites-saved__header').text()).toBe('Saved Collections')
     })
 })
