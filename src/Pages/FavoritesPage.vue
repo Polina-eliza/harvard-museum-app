@@ -15,8 +15,6 @@ export default {
         Favorites
     }
 }
-
-
 </script>
 
 <style lang="scss">

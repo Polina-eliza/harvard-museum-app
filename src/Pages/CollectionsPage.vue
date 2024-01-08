@@ -137,7 +137,6 @@ export default {
 
   toggleLike(artworkId) {
     ArtworkService.toggleLike(artworkId, this.artworks);
-    // Refresh the local state if needed, or rely on Vuex reactivity
   },
   },
 };
